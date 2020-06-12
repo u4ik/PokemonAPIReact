@@ -7,7 +7,7 @@ import Draggable from 'react-draggable'
 
 const Home = () => {
 
-    let baseURL = "https://pokeapi.co/api/v2/pokemon/"
+    let baseURL:string  = "https://pokeapi.co/api/v2/pokemon/"
 
     const [pokeName, setPokeName] = useState('')
     const [pokeNum,setPokeNum] = useState('')
@@ -17,7 +17,8 @@ const Home = () => {
     const pokemonLogoImg: React.CSSProperties = {
         userSelect: 'none',
         marginTop:'2%',
-        filter: 'drop-shadow(5px 5px 5px black)'
+        filter: 'drop-shadow(5px 5px 5px black)',
+        width:'35rem'
 
       };
     // Gotta Fetch Em All Style
@@ -50,6 +51,7 @@ const Home = () => {
         .then(pokeData => {
             //will display bulbasaur for now
             console.log(pokeData.results[0]); 
+            console.log('Bulba Bulba ^_^')
         })
     }
   
@@ -67,9 +69,7 @@ return(
             <div style={{}}>
                 {/* Card Img */}
                 <Draggable>
-                <div>
                 <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
-                </div>
                 </Draggable>
             </div>
          
