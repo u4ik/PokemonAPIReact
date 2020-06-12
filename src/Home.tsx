@@ -28,7 +28,7 @@ const Home = () => {
 
     const [pokeName, setPokeName] = useState('')
 
-    //PIKACHU'S NUMBER IS SELECTED FOR NOW
+    //PIKACHU'S NUMBER 25 IS SELECTED FOR NOW
     const [pokeNum,setPokeNum] = useState('25')
     const [pokeHeight,setPokeHeight] = useState('')
 
