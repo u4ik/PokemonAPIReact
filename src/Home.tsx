@@ -29,22 +29,22 @@ const Home = () => {
     const [pokeName, setPokeName] = useState('')
 
     //PIKACHU'S NUMBER 25 IS SELECTED FOR NOW
-    const [pokeNum,setPokeNum] = useState('25')
-    const [pokeHeight,setPokeHeight] = useState('')
-
-    const [pokeFetch, setPokeFetch] = useState('')
+    const [pokeNum,setPokeNum] = useState('1')
+    
+    //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
 
+    //Pokemon Type Icons
     const [pokeType1Url, setPokeType1Url] = useState('')
     const [pokeType2Url, setPokeType2Url] = useState('')
-
+    //Pokemon Abilities
     const [pokeAbility1, setPokeAbility1] = useState('')
     const [pokeAbility2, setPokeAbility2] = useState('')
 
     let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
 
-
-    // Pokemon Logo Img Style
+//CSS STYLING*************************************************************************************
+    //Pokemon Logo Img Style
     const pokemonLogoImg: React.CSSProperties = {
         userSelect: 'none',
         marginTop:'2%',
@@ -52,7 +52,7 @@ const Home = () => {
         width:'35rem'
 
       };
-    // Gotta Fetch Em All Style
+    //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
         fontSize:'3rem',
         color:'white',
@@ -62,7 +62,7 @@ const Home = () => {
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
-    // Card Img Style
+    //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
         width:'60%',
         userSelect:'none',
@@ -79,11 +79,32 @@ const Home = () => {
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
-      
     }
-      //Poke Type 2 Img Style
+    //Poke Type 2 Img Style
       const pokeType2ImgStyle: React.CSSProperties={
-        
+    }
+    //Pokemon Name Text Style
+    const pokemonNameTextStyle: React.CSSProperties = {
+        margin:'0%',
+        marginLeft:'',
+        color:'white', 
+        fontSize:'1.8rem',
+    }
+    //Pokemon Number Text Style
+    const pokemonNumberStyle: React.CSSProperties ={
+        margin:'0%',
+        marginLeft:'',
+        color:'white', 
+        fontSize:'1rem',
+    }
+    //Pokemon Abilities Text Style
+    const pokemonAbilitiesTextStyle: React.CSSProperties ={
+        margin:'0%',
+        marginLeft:'0',
+        padding:'0',
+        color:'white',
+        fontSize:'1rem',
+        listStyleType:'none'
     }
 
 
@@ -109,7 +130,6 @@ const Home = () => {
                 setPokeType1Url(grassTypeURL)
             } else if (pokeData.types[0].type.name === 'poison') {
                 setPokeType1Url(poisonTypeURL)
-
             } else if (pokeData.types[0].type.name === 'water') {
                 setPokeType1Url(waterTypeURL)
             } else if (pokeData.types[0].type.name === 'fire') {
@@ -198,40 +218,38 @@ return(
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
-            {/* Card Container */}
-         
-                {/* Card Img */}
+                {/* Card Container */}
                 <Draggable>
                     <div>
-
-                      
+                       {/* Card Img */}
                         <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
-                        <img draggable="false" style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}/>
+                        {/* Pokemon Img */}
+                        <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}/>
                             <div style={{}}>
-                                {/* Pokemon Name Text */}
-                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'55%', left:'42%'}}>
-                                    <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1.9rem',}}>{pokeName}</p>
-                                    {/* Pokemon Stat? */}
-                                    <ul style={{margin:'0%',marginLeft:'0',padding:'0',color:'white', fontSize:'1rem',listStyleType:'none'}}>Abilities:
-                                    <li>{pokeAbility1}</li>
-                                    <li>{pokeAbility2}</li>
+                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%'}}>
+                                    {/* Pokemon Name Text */}
+                                    <p style={pokemonNameTextStyle}>{pokeName}</p>
+                                    {/* Pokemon Number */}
+                                    <p style={pokemonNumberStyle}># {pokeNum}</p>
+                                    {/* Pokemon Abilities Text */}
+                                    <ul style={pokemonAbilitiesTextStyle}>Abilities:
+                                        <li>{pokeAbility1}</li>
+                                        <li>{pokeAbility2}</li>
                                     </ul>
                                 </div>
-                                <div style={{display:'flex',flexDirection:'column',position:'absolute', top:'84%', left:'30%'}}>
+                                {/* Pokemon Type Images */}
+                                <div style={{display:'flex',flexDirection:'column',position:'absolute', top:'83.7%', left:'30%'}}>
+                                    {/* Pokemon Type Img 1 */}
                                     <img style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                    {/* Pokemon Type Img 2 */}
                                     <img style={pokeType2ImgStyle} src={pokeType2Url}/>
                                 </div>
                             </div>
-                   
                     </div>
                 </Draggable>
-             
-          
         </div>
-    
     </div>
 )
-
 }
 
 export default Home
