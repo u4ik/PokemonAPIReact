@@ -6,11 +6,41 @@ import Draggable from 'react-draggable'
 
 const Home = () => {
 
-    let baseURL:string  = "https://pokeapi.co/api/v2/pokemon/"
+    let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
+    let waterTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/e/ed/Type_Water.gif'
+    let fireTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/4d/Type_Fire.gif/'
+    let rockTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/b/b3/Type_Rock.gif/'
+    let electricTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/a/aa/Type_Electric.gif/'
+    let psychicTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/6/65/Type_Psychic.gif/'
+    let ghostTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/f/f2/Type_Ghost.gif'
+    let bugTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/6/64/Type_Bug.gif/'
+    let dragonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/2/26/Type_Dragon.gif/'
+    let fairyTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/7/74/Type_Fairy.gif/'
+    let fightingTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/6/6b/Type_Fighting.gif/'
+    let iceTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/84/Type_Ice.gif/'
+    let normalTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/6/61/Type_Normal.gif/'
+    let steelTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/a/ab/Type_Steel.gif'
+    let groundTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/1/1d/Type_Ground.gif/'
+    let flyingTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/4b/Type_Flying.gif/'
+    let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
+    let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
+   
 
     const [pokeName, setPokeName] = useState('')
-    const [pokeNum,setPokeNum] = useState('')
+
+    //PIKACHU'S NUMBER IS SELECTED FOR NOW
+    const [pokeNum,setPokeNum] = useState('25')
     const [pokeHeight,setPokeHeight] = useState('')
+
+    const [pokeFetch, setPokeFetch] = useState('')
+    const [pokeImgUrl, setPokeImgUrl] = useState('')
+
+    const [pokeType1Url, setPokeType1Url] = useState('')
+    
+    const [pokeType2Url, setPokeType2Url] = useState('')
+
+    let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
+
 
     // Pokemon Logo Img Style
     const pokemonLogoImg: React.CSSProperties = {
@@ -38,8 +68,19 @@ const Home = () => {
         borderRadius:'4%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)'
-     
-        
+    }
+    //Poke Img Style
+    const pokeImgStyle: React.CSSProperties={
+        position:'absolute',
+        right: '38%',
+        top: '20%',
+    }
+    //Poke Type 1 Img Style
+    const pokeType1ImgStyle: React.CSSProperties={
+      
+    }
+      //Poke Type 2 Img Style
+      const pokeType2ImgStyle: React.CSSProperties={
         
     }
 
@@ -50,11 +91,96 @@ const Home = () => {
 
 
     const fetchPoke = () =>{
-        fetch(baseURL)
+        fetch(baseURL + pokeNum || pokeName)
         .then(res => res.json())
         .then(pokeData => {
-            //will display bulbasaur for now
-            console.log(pokeData.results[0]); 
+          
+            console.log(pokeData); 
+            setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
+            setPokeImgUrl(pokeData.sprites.front_default)
+
+            //Pokemon Type 1 Checker
+            if (pokeData.types[0].type.name === 'grass') {
+                setPokeType1Url(grassTypeURL)
+            } else if (pokeData.types[0].type.name === 'poison') {
+                setPokeType1Url(poisonTypeURL)
+
+            } else if (pokeData.types[0].type.name === 'water') {
+                setPokeType1Url(waterTypeURL)
+            } else if (pokeData.types[0].type.name === 'fire') {
+                setPokeType1Url(fireTypeURL)
+            } else if (pokeData.types[0].type.name === 'rock') {
+                setPokeType1Url(rockTypeURL)
+            } else if (pokeData.types[0].type.name === 'electric') {
+                setPokeType1Url(electricTypeURL)
+            } else if (pokeData.types[0].type.name === 'psychic') {
+                setPokeType1Url (psychicTypeURL)
+            } else if (pokeData.types[0].type.name === 'ghost') {
+                setPokeType1Url (ghostTypeURL)
+            } else if (pokeData.types[0].type.name === 'bug') {
+                setPokeType1Url(bugTypeURL)
+            } else if (pokeData.types[0].type.name === 'dragon') {
+                setPokeType1Url( dragonTypeURL)
+            } else if (pokeData.types[0].type.name === 'fairy') {
+                setPokeType1Url(fairyTypeURL)
+            } else if (pokeData.types[0].type.name === 'fighting') {
+                setPokeType1Url(fightingTypeURL)
+            } else if (pokeData.types[0].type.name === 'ice') {
+                setPokeType1Url( iceTypeURL)
+            } else if (pokeData.types[0].type.name === 'normal') {
+                setPokeType1Url ( normalTypeURL)
+            } else if (pokeData.types[0].type.name === 'steel') {
+                setPokeType1Url( steelTypeURL)
+            } else if (pokeData.types[0].type.name === 'ground') {
+                setPokeType1Url( groundTypeURL)
+            } else if (pokeData.types[0].type.name === 'flying') {
+                setPokeType1Url(flyingTypeURL)
+            } else if (pokeData.types[0].type.name === 'dark') {
+                setPokeType1Url (darkTypeURL)
+            } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
+                setPokeType1Url('')
+            }
+            //POKEMON TYPE 2 CHECKER
+            if (pokeData.types[1] !== undefined) {
+
+                if (pokeData.types[1].type.name === 'grass') {
+                    setPokeType2Url(grassTypeURL)
+                } else if (pokeData.types[1].type.name === 'poison') {
+                     setPokeType2Url(poisonTypeURL)
+                } else if (pokeData.types[1].type.name === 'water') {
+                     setPokeType2Url(waterTypeURL)
+                } else if (pokeData.types[1].type.name === 'fire') {
+                     setPokeType2Url(fireTypeURL)  
+                } else if (pokeData.types[1].type.name === 'rock') {
+                     setPokeType2Url(rockTypeURL)
+                } else if (pokeData.types[1].type.name === 'electric') {
+                     setPokeType2Url(electricTypeURL)
+                } else if (pokeData.types[1].type.name === 'psychic') {
+                     setPokeType2Url(psychicTypeURL)
+                } else if (pokeData.types[1].type.name === 'ghost') {
+                     setPokeType2Url(ghostTypeURL)
+                } else if (pokeData.types[1].type.name === 'bug') {
+                     setPokeType2Url(bugTypeURL)
+                } else if (pokeData.types[1].type.name === 'dragon') {
+                     setPokeType2Url(dragonTypeURL)
+                } else if (pokeData.types[1].type.name === 'fairy') {
+                     setPokeType2Url(fairyTypeURL)
+                } else if (pokeData.types[1].type.name === 'fighting') {
+                     setPokeType2Url(fightingTypeURL)
+                } else if (pokeData.types[1].type.name === 'ice') {
+                     setPokeType2Url(iceTypeURL)
+                } else if (pokeData.types[1].type.name === 'normal') {
+                     setPokeType2Url(normalTypeURL)
+                } else if (pokeData.types[1].type.name === 'steel') {
+                     setPokeType2Url(steelTypeURL)
+                } else if (pokeData.types[1].type.name === 'ground') {
+                     setPokeType2Url(groundTypeURL)
+                } else if (pokeData.types[1].type.name === 'flying') {
+                     setPokeType2Url(flyingTypeURL)
+                } else if (pokeData.types[1].type.name === 'dark') {
+                     setPokeType2Url(darkTypeURL)             }
+            } else {
+                 setPokeType2Url('')  }
             console.log('Bulba Bulba ^_^')
         })
     }
@@ -72,13 +198,22 @@ return(
                 {/* Card Img */}
                 <Draggable>
                     <div>
+
+                      
                         <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
+                        <img draggable="false" style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}/>
                             <div style={{}}>
                                 {/* Pokemon Name Text */}
-                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'60%', left:'37%'}}>A SUH DUDES!</p>
+                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'60%', left:'37%'}}>{pokeName}</p>
                                 {/* Pokemon Stat? */}
                                 <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'70%', left:'37%'}}>A SUH DUDES part 2!</p>
+
+                                <div style={{display:'flex',flexDirection:'column',position:'absolute', top:'84%', left:'30%'}}>
+                                <img style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                <img style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                </div>
                             </div>
+                   
                     </div>
                 </Draggable>
              
