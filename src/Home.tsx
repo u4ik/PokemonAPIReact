@@ -1,10 +1,29 @@
 import React, {useState,useEffect} from 'react'
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
-import PokeBackground from './assets/pokemonbackground.jpg'
 import Draggable from 'react-draggable'
 
 import {ProgressBar} from 'react-bootstrap';
+
+
+import GrassBackground from './assets/typegrass.png'
+import BugBackground from './assets/typebug.png'
+import NormalBackground from './assets/typecolorless.png'
+import DarkBackground from './assets/typedark.png'
+import DragonBackground from './assets/typedragon.png'
+import ElectricBackground from './assets/typeelectric.png'
+import FairyBackground from './assets/typefairy.png'
+import FightingBackground from './assets/typefighting.png'
+import FireBackground from './assets/typefire.png'
+import FlyingBackground from './assets/typeflying.png'
+import GroundBackground from './assets/typeground.png'
+import IceBackground from './assets/typeice.png'
+import PoisonBackground from './assets/typepoison.png'
+import PsychicBackground from './assets/typepsychic.png'
+import RockBackground from './assets/typerock.png'
+import SteelBackground from './assets/typesteel.png'
+import WaterBackground from './assets/typewater.png'
+import GhostBackground from './assets/typeghost.png'
 
 
 
@@ -29,17 +48,22 @@ const Home = () => {
     let flyingTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/4b/Type_Flying.gif/'
     let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
+
+
+    
    
 //useStates*************************************************************************************
+
+
+    //Background Image
+    const [backgroundImg, setBackgroundImg] = useState('')
+    //Pokemon Name
     const [pokeName, setPokeName] = useState('')
 
-    //INPUT FIELD CAN BE AN onChange TO CHANGE THE NUMBER/NAME STATES
-    //BULBASAUR BEING DISPLAYED FOR NOW
+    //Pokemon Number
     const [pokeNum,setPokeNum] = useState(1)
-    
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
-
     //Pokemon Type Icons
     const [pokeType1Url, setPokeType1Url] = useState('')
     const [pokeType2Url, setPokeType2Url] = useState('')
@@ -79,7 +103,7 @@ const Home = () => {
     const pokemonCardStyle: React.CSSProperties ={
         width:'100%',
         userSelect:'none',
-        backgroundColor:'black',
+        // backgroundColor:'black',
         borderRadius:'4%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)'
@@ -161,40 +185,58 @@ const Home = () => {
             //Pokemon Type 1 Checker
             if (pokeData.types[0].type.name === 'grass') {
                 setPokeType1Url(grassTypeURL)
+                setBackgroundImg(GrassBackground)
             } else if (pokeData.types[0].type.name === 'poison') {
                 setPokeType1Url(poisonTypeURL)
+                setBackgroundImg(PoisonBackground)
             } else if (pokeData.types[0].type.name === 'water') {
                 setPokeType1Url(waterTypeURL)
+                setBackgroundImg(WaterBackground)
             } else if (pokeData.types[0].type.name === 'fire') {
                 setPokeType1Url(fireTypeURL)
+                setBackgroundImg(FireBackground)
             } else if (pokeData.types[0].type.name === 'rock') {
                 setPokeType1Url(rockTypeURL)
+                setBackgroundImg(RockBackground)
             } else if (pokeData.types[0].type.name === 'electric') {
                 setPokeType1Url(electricTypeURL)
+                setBackgroundImg(ElectricBackground)
             } else if (pokeData.types[0].type.name === 'psychic') {
                 setPokeType1Url (psychicTypeURL)
+                setBackgroundImg(PsychicBackground)
             } else if (pokeData.types[0].type.name === 'ghost') {
                 setPokeType1Url (ghostTypeURL)
+                setBackgroundImg(GhostBackground)
             } else if (pokeData.types[0].type.name === 'bug') {
                 setPokeType1Url(bugTypeURL)
+                setBackgroundImg(BugBackground)
             } else if (pokeData.types[0].type.name === 'dragon') {
                 setPokeType1Url( dragonTypeURL)
+                setBackgroundImg(DragonBackground)
             } else if (pokeData.types[0].type.name === 'fairy') {
                 setPokeType1Url(fairyTypeURL)
+                setBackgroundImg(FairyBackground)
             } else if (pokeData.types[0].type.name === 'fighting') {
                 setPokeType1Url(fightingTypeURL)
+                setBackgroundImg(FightingBackground)
             } else if (pokeData.types[0].type.name === 'ice') {
                 setPokeType1Url( iceTypeURL)
+                setBackgroundImg(IceBackground)
             } else if (pokeData.types[0].type.name === 'normal') {
                 setPokeType1Url ( normalTypeURL)
+                setBackgroundImg(NormalBackground)
             } else if (pokeData.types[0].type.name === 'steel') {
                 setPokeType1Url( steelTypeURL)
+                setBackgroundImg(SteelBackground)
             } else if (pokeData.types[0].type.name === 'ground') {
                 setPokeType1Url( groundTypeURL)
+                setBackgroundImg(GroundBackground)
             } else if (pokeData.types[0].type.name === 'flying') {
                 setPokeType1Url(flyingTypeURL)
+                setBackgroundImg(FlyingBackground)
             } else if (pokeData.types[0].type.name === 'dark') {
                 setPokeType1Url (darkTypeURL)
+                setBackgroundImg(DarkBackground)
             } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                 setPokeType1Url('')
             }
@@ -252,7 +294,7 @@ const Home = () => {
   
 
 return(
-    <div>
+    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'contain', height:'100vh'}}>
         {/* Pokemon Logo */}
 		 
                                   
