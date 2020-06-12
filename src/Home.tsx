@@ -49,7 +49,7 @@ const Home = () => {
         userSelect: 'none',
         marginTop:'2%',
         filter: 'drop-shadow(5px 5px 5px black)',
-        width:'35rem'
+        width:'35rem',
 
       };
     //Gotta Fetch Em All Style
@@ -79,9 +79,11 @@ const Home = () => {
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
+        userSelect:'none'
     }
     //Poke Type 2 Img Style
       const pokeType2ImgStyle: React.CSSProperties={
+        userSelect:'none'
     }
     //Pokemon Name Text Style
     const pokemonNameTextStyle: React.CSSProperties = {
@@ -89,6 +91,7 @@ const Home = () => {
         marginLeft:'',
         color:'white', 
         fontSize:'1.8rem',
+        userSelect:'none'
     }
     //Pokemon Number Text Style
     const pokemonNumberStyle: React.CSSProperties ={
@@ -96,6 +99,7 @@ const Home = () => {
         marginLeft:'',
         color:'white', 
         fontSize:'1rem',
+        userSelect:'none'
     }
     //Pokemon Abilities Text Style
     const pokemonAbilitiesTextStyle: React.CSSProperties ={
@@ -104,7 +108,8 @@ const Home = () => {
         padding:'0',
         color:'white',
         fontSize:'1rem',
-        listStyleType:'none'
+        listStyleType:'none',
+        userSelect:'none'
     }
 
 
@@ -214,7 +219,7 @@ const Home = () => {
 return(
     <div>
         {/* Pokemon Logo */}
-        <img style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
+        <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
@@ -240,9 +245,9 @@ return(
                                 {/* Pokemon Type Images */}
                                 <div style={{display:'flex',flexDirection:'column',position:'absolute', top:'83.7%', left:'30%'}}>
                                     {/* Pokemon Type Img 1 */}
-                                    <img style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                    <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                     {/* Pokemon Type Img 2 */}
-                                    <img style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                    <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                 </div>
                             </div>
                     </div>
