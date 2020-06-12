@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
 import PokeBackground from './assets/pokemonbackground.jpg'
@@ -7,14 +7,30 @@ import PokeBackground from './assets/pokemonbackground.jpg'
 
 const Home = () => {
 
+    let baseURL = "https://pokeapi.co/api/v2/pokemon/"
+
+    const [pokeName, setPokeName] = useState('')
+    const [pokeHeight,setPokeHeight] = useState('')
+
     const gottaCatchEmAllStyle ={
         fontSize: '2vw',
         color:'white'
     }
 
-    
-    
 
+    useEffect (() => {
+        fetchPoke();
+     },[])
+
+
+    const fetchPoke = () =>{
+        fetch(baseURL)
+        .then(res => res.json())
+        .then(pokeData => {
+            console.log(pokeData); 
+        })
+    }
+  
 
 return(
     <div>
