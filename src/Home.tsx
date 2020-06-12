@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import PokeCard from '../src/assets/pokemoncard.png'
+import PokeCard from './assets/pokemoncard.png'
 
 
 
