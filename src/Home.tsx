@@ -35,7 +35,7 @@ const Home = () => {
 
     //INPUT FIELD CAN BE AN onChange TO CHANGE THE NUMBER/NAME STATES
     //BULBASAUR BEING DISPLAYED FOR NOW
-    const [pokeNum,setPokeNum] = useState('1')
+    const [pokeNum,setPokeNum] = useState(1)
     
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
@@ -124,14 +124,15 @@ const Home = () => {
         color:'white',
         fontSize:'1rem',
         listStyleType:'none',
-        userSelect:'none'
+        userSelect:'none',
+        width:'100%'
     }
 
 
 //FETCH FUNCTIONS*************************************************************************************
     useEffect (() => {
         fetchPoke();
-     },[])
+     })
 
 
     const fetchPoke = () =>{
@@ -144,7 +145,11 @@ const Home = () => {
             setPokeImgUrl(pokeData.sprites.front_default)
            
             setPokeAbility1(pokeData.abilities[0].ability.name)
+            if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
+            } else {
+                setPokeAbility2('')
+            }
             
             setPokeHp(pokeData.stats[0].base_stat)
             setPokeAtt(pokeData.stats[1].base_stat)
@@ -261,29 +266,32 @@ return(
                        {/* Card Img */}
                         <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
                         {/* Pokemon Img */}
-                        <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}/>
+                        <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
+                            setPokeNum(Math.round(Math.random() * 10*80.2))
+                            fetchPoke()
+                            }}/>
                             <div style={{}}>
                                 <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%'}}>
                                     {/* Pokemon Name Text */}
                                     <p style={pokemonNameTextStyle}>{pokeName}</p>
                                     {/* Pokemon Number */}
                                     <p style={pokemonNumberStyle}># {pokeNum}</p>
-                                    <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto'}}>
+                                    <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
                                         {/* Pokemon Abilities Text */}
-                                        <div style={{marginRight: '9%',marginTop: '8%'}}>
+                                        <div style={{marginRight: '9%',marginTop: ''}}>
                                             <ul style={pokemonAbilitiesTextStyle}>Abilities:
-                                                <li>{pokeAbility1}</li>
-                                                <li>{pokeAbility2}</li>
+                                                <li style={{fontSize:'1rem'}}>{pokeAbility1}</li>
+                                                <li style={{fontSize:'1rem'}}>{pokeAbility2}</li>
                                             </ul>
                                         </div>
                                         {/* Pokemon Stat Bars */}
-                                        <div style={{ width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly' }}>
-                                            <ProgressBar style={{marginTop:'1%'}} now={pokeHp} label={`HP: ${pokeHp}%`} />
-                                            <ProgressBar now={pokeAtt} label={`Att: ${pokeAtt}%`} />
-                                            <ProgressBar now={pokeDef} label={`Def: ${pokeDef}%`} />
-                                            <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}%`} />
-                                            <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}%`} />
-                                            <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}%`} />
+                                        <div style={{ width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly',userSelect:'none' }}>
+                                            <ProgressBar style={{marginTop:'1%'}} now={pokeHp} label={`HP: ${pokeHp}`} />
+                                            <ProgressBar now={pokeAtt} label={`Att: ${pokeAtt}`} />
+                                            <ProgressBar now={pokeDef} label={`Def: ${pokeDef}`} />
+                                            <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
+                                            <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
+                                            <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
                                     
                                         </div>
                                     </div>
