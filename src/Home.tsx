@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 
-import PokeCard from './assets/pokemoncard.png'
+// import PokeCard from './assets/pokemoncard5.png'
 import PokeLogo from './assets/pokemonlogo.png'
 
 import GrassBackground from './assets/typegrass.png'
@@ -21,6 +21,27 @@ import RockBackground from './assets/typerock.png'
 import SteelBackground from './assets/typesteel.png'
 import WaterBackground from './assets/typewater.png'
 import GhostBackground from './assets/typeghost.png'
+
+
+import PokeCardGrass from './assets/pokemoncardgrass.png'
+import PokeCardFire from './assets/pokemoncardfire.png'
+import PokeCardWater from './assets/pokemoncardwater.png'
+import PokeCardPoison from './assets/pokemoncardpoison.png'
+import PokeCardPsychic from './assets/pokemoncardpsychic.png'
+import PokeCardElectric from './assets/pokemoncardelectric.png'
+import PokeCardFairy from './assets/pokemoncardfairy.png'
+import PokeCardNormal from './assets/pokemoncardnormal.png'
+import PokeCardDark from './assets/pokemoncarddark.png'
+import PokeCardGhost from './assets/pokemoncardghost.png'
+import PokeCardDragon from './assets/pokemoncarddragon.png'
+import PokeCardIce from './assets/pokemoncardice.png'
+import PokeCardGround from './assets/pokemoncardground.png'
+import PokeCardRock from './assets/pokemoncardrock.png'
+import PokeCardFlying from './assets/pokemoncardflying.png'
+import PokeCardSteel from './assets/pokemoncardsteel.png'
+import PokeCardBug from './assets/pokemoncardbug.png'
+import PokeCardFighting from './assets/pokemoncardfighting.png'
+
 
 import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable'
@@ -52,6 +73,8 @@ const Home = () => {
     const [pokeName, setPokeName] = useState('')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState(1)
+    //PokeCardImg
+    const [pokeCardImg, setPokeCardImg] = useState()
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
     //Pokemon Type Icons
@@ -83,14 +106,14 @@ const Home = () => {
         fontSize:'3rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'-2px -2px 0 #00f,2px -2px 0 #00f,-2px 2px 0 #00f,2px 2px 0 #00f',
+        textShadow:'4px 4px 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
-        width:'100%',
+        width:'82%',
         userSelect:'none',
         // backgroundColor:'black',
         borderRadius:'4%',
@@ -101,7 +124,7 @@ const Home = () => {
     const pokeImgStyle: React.CSSProperties={
         position:'absolute',
         right: '30%',
-        top: '20%',
+        top: '15%',
         width:'40%',
     }
     //Poke Type 1 Img Style
@@ -138,7 +161,7 @@ const Home = () => {
         fontSize:'1rem',
         listStyleType:'none',
         userSelect:'none',
-        width:'100%'
+        width:'100px'
     }
 //FETCH FUNCTIONS*************************************************************************************
     useEffect (() => {
@@ -171,57 +194,75 @@ const Home = () => {
             if (pokeData.types[0].type.name === 'grass') {
                 setPokeType1Url(grassTypeURL)
                 setBackgroundImg(GrassBackground)
+                setPokeCardImg(PokeCardGrass)
             } else if (pokeData.types[0].type.name === 'poison') {
                 setPokeType1Url(poisonTypeURL)
                 setBackgroundImg(PoisonBackground)
+                setPokeCardImg(PokeCardPoison)
             } else if (pokeData.types[0].type.name === 'water') {
                 setPokeType1Url(waterTypeURL)
                 setBackgroundImg(WaterBackground)
+                setPokeCardImg(PokeCardWater)
             } else if (pokeData.types[0].type.name === 'fire') {
                 setPokeType1Url(fireTypeURL)
                 setBackgroundImg(FireBackground)
+                setPokeCardImg(PokeCardFire)
             } else if (pokeData.types[0].type.name === 'rock') {
                 setPokeType1Url(rockTypeURL)
                 setBackgroundImg(RockBackground)
+                setPokeCardImg(PokeCardRock)
             } else if (pokeData.types[0].type.name === 'electric') {
                 setPokeType1Url(electricTypeURL)
                 setBackgroundImg(ElectricBackground)
+                setPokeCardImg(PokeCardElectric)
             } else if (pokeData.types[0].type.name === 'psychic') {
                 setPokeType1Url (psychicTypeURL)
                 setBackgroundImg(PsychicBackground)
+                setPokeCardImg(PokeCardPsychic)
             } else if (pokeData.types[0].type.name === 'ghost') {
                 setPokeType1Url (ghostTypeURL)
                 setBackgroundImg(GhostBackground)
+                setPokeCardImg(PokeCardGhost)
             } else if (pokeData.types[0].type.name === 'bug') {
                 setPokeType1Url(bugTypeURL)
                 setBackgroundImg(BugBackground)
+                setPokeCardImg(PokeCardBug)
             } else if (pokeData.types[0].type.name === 'dragon') {
                 setPokeType1Url( dragonTypeURL)
                 setBackgroundImg(DragonBackground)
+                setPokeCardImg(PokeCardDragon)
             } else if (pokeData.types[0].type.name === 'fairy') {
                 setPokeType1Url(fairyTypeURL)
                 setBackgroundImg(FairyBackground)
+                setPokeCardImg(PokeCardFairy)
             } else if (pokeData.types[0].type.name === 'fighting') {
                 setPokeType1Url(fightingTypeURL)
                 setBackgroundImg(FightingBackground)
+                setPokeCardImg(PokeCardFighting)
             } else if (pokeData.types[0].type.name === 'ice') {
                 setPokeType1Url( iceTypeURL)
                 setBackgroundImg(IceBackground)
+                setPokeCardImg(PokeCardIce)
             } else if (pokeData.types[0].type.name === 'normal') {
                 setPokeType1Url ( normalTypeURL)
                 setBackgroundImg(NormalBackground)
+                setPokeCardImg(PokeCardNormal)
             } else if (pokeData.types[0].type.name === 'steel') {
-                setPokeType1Url( steelTypeURL)
+                setPokeType1Url( steelTypeURL) 
                 setBackgroundImg(SteelBackground)
+                setPokeCardImg(PokeCardSteel)
             } else if (pokeData.types[0].type.name === 'ground') {
                 setPokeType1Url( groundTypeURL)
                 setBackgroundImg(GroundBackground)
+                setPokeCardImg(PokeCardGround)
             } else if (pokeData.types[0].type.name === 'flying') {
                 setPokeType1Url(flyingTypeURL)
                 setBackgroundImg(FlyingBackground)
+                setPokeCardImg(PokeCardFlying)
             } else if (pokeData.types[0].type.name === 'dark') {
                 setPokeType1Url (darkTypeURL)
                 setBackgroundImg(DarkBackground)
+                setPokeCardImg(PokeCardDark)
             } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                 setPokeType1Url('')
             }
@@ -280,16 +321,17 @@ return(
                 <Draggable>
                     <div>
                        {/* Card Img */}
-                        <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
+                        <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                         {/* Pokemon Img */}
                         <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
                             setPokeNum(Math.round(Math.random() * 10*80.2))
                             fetchPoke()
                             }}/>
                             <div style={{}}>
-                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%'}}>
+                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
                                     {/* Pokemon Name Text */}
                                     <p style={pokemonNameTextStyle}>{pokeName}</p>
+                                    <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0'}}>__________________</p>
                                     {/* Pokemon Number */}
                                     <p style={pokemonNumberStyle}># {pokeNum}</p>
                                     <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
@@ -309,15 +351,24 @@ return(
                                             <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
                                             <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
                                         </div>
+                                        
                                     </div>
-                                </div>
-                                {/* Pokemon Type Images */}
-                                <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'85.5%', left:'17%'}}>
+                                   
+                     
+                               <div style={{display:'flex', flexDirection:'column', width: '100px'}}>
+                        
+                                       {/* Pokemon Type Images */}
+                               
+                                <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
                                     {/* Pokemon Type Img 1 */}
                                     <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                     {/* Pokemon Type Img 2 */}
                                     <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                 </div>
+                                </div>    
+                                <p style={{opacity:'.3'}}>__________________</p>
+                                </div>
+                         
                             </div>
                     </div>
                 </Draggable>
