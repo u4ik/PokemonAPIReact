@@ -36,8 +36,10 @@ const Home = () => {
     const [pokeImgUrl, setPokeImgUrl] = useState('')
 
     const [pokeType1Url, setPokeType1Url] = useState('')
-    
     const [pokeType2Url, setPokeType2Url] = useState('')
+
+    const [pokeAbility1, setPokeAbility1] = useState('')
+    const [pokeAbility2, setPokeAbility2] = useState('')
 
     let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
 
@@ -98,6 +100,9 @@ const Home = () => {
             console.log(pokeData); 
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
             setPokeImgUrl(pokeData.sprites.front_default)
+            console.log(pokeData.abilities[0].ability.name)
+            setPokeAbility1(pokeData.abilities[0].ability.name)
+            setPokeAbility2(pokeData.abilities[1].ability.name)
 
             //Pokemon Type 1 Checker
             if (pokeData.types[0].type.name === 'grass') {
@@ -204,13 +209,17 @@ return(
                         <img draggable="false" style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}/>
                             <div style={{}}>
                                 {/* Pokemon Name Text */}
-                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'60%', left:'37%'}}>{pokeName}</p>
-                                {/* Pokemon Stat? */}
-                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'70%', left:'37%'}}>A SUH DUDES part 2!</p>
-
+                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'55%', left:'42%'}}>
+                                    <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1.9rem',}}>{pokeName}</p>
+                                    {/* Pokemon Stat? */}
+                                    <ul style={{margin:'0%',marginLeft:'0',padding:'0',color:'white', fontSize:'1rem',listStyleType:'none'}}>Abilities:
+                                    <li>{pokeAbility1}</li>
+                                    <li>{pokeAbility2}</li>
+                                    </ul>
+                                </div>
                                 <div style={{display:'flex',flexDirection:'column',position:'absolute', top:'84%', left:'30%'}}>
-                                <img style={pokeType1ImgStyle} src={pokeType1Url}/>
-                                <img style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                    <img style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                    <img style={pokeType2ImgStyle} src={pokeType2Url}/>
                                 </div>
                             </div>
                    
