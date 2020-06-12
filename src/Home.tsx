@@ -36,7 +36,8 @@ const Home = () => {
         userSelect:'none',
         backgroundColor:'black',
         borderRadius:'4%',
-        position:'relative'
+        position:'relative',
+        filter: 'drop-shadow(6px 6px 4px black)'
      
         
         
