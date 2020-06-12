@@ -6,6 +6,7 @@ import Draggable from 'react-draggable'
 
 const Home = () => {
 
+//TYPE ICON IMG SRC*************************************************************************************
     let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
     let waterTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/e/ed/Type_Water.gif'
     let fireTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/4d/Type_Fire.gif/'
@@ -25,7 +26,7 @@ const Home = () => {
     let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
    
-
+//useStates*************************************************************************************
     const [pokeName, setPokeName] = useState('')
 
     //PIKACHU'S NUMBER 25 IS SELECTED FOR NOW
@@ -112,7 +113,7 @@ const Home = () => {
         userSelect:'none'
     }
 
-
+//FETCH FUNCTIONS*************************************************************************************
     useEffect (() => {
         fetchPoke();
      },[])
