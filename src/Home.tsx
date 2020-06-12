@@ -3,10 +3,7 @@ import React, {useState,useEffect} from 'react'
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
 import PokeBackground from './assets/pokemonbackground.jpg'
-
-
-
-
+import Draggable from 'react-draggable'
 
 const Home = () => {
 
@@ -16,10 +13,29 @@ const Home = () => {
     const [pokeNum,setPokeNum] = useState('')
     const [pokeHeight,setPokeHeight] = useState('')
 
-    const gottaFetchEmAllStyle ={
-        fontSize:'2vw',
-        color:'white',
+    // Pokemon Logo Img Style
+    const pokemonLogoImg: React.CSSProperties = {
+        userSelect: 'none',
+        marginTop:'2%',
+        filter: 'drop-shadow(5px 5px 5px black)'
 
+      };
+    // Gotta Fetch Em All Style
+    const gottaFetchEmAllStyle: React.CSSProperties ={
+        fontSize:'3rem',
+        color:'white',
+        textShadow:'3px 3px 1px black',
+        userSelect:'none',
+        marginTop:'.5%',
+        filter: 'drop-shadow(2px 2px 5px black)'
+    }
+    // Card Img Style
+    const pokemonCardStyle: React.CSSProperties ={
+        width:'60%',
+        userSelect:'none',
+        backgroundColor:'black',
+        borderRadius:'4%',
+        
     }
 
 
@@ -40,12 +56,23 @@ const Home = () => {
 
 return(
     <div>
-        <img alt="Pokemon Logo" src= {PokeLogo}/>
+        {/* Pokemon Logo */}
+        <img style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
+        {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch 'em all!</p>
+        {/* Card Container */}
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
-            <div style={{backgroundColor:'white', width:'fit-content',height:'585px', borderRadius:'30px'}}>
-                <img alt='Pokemon Card' src ={PokeCard}/>
+            {/* Card Container */}
+  
+            <div style={{}}>
+                {/* Card Img */}
+                <Draggable>
+                <div>
+                <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
+                </div>
+                </Draggable>
             </div>
+         
         </div>
     
     </div>
