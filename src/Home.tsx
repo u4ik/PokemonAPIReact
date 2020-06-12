@@ -10,6 +10,7 @@ const Home = () => {
     let baseURL = "https://pokeapi.co/api/v2/pokemon/"
 
     const [pokeName, setPokeName] = useState('')
+    const [pokeNum,setPokeNum] = useState('')
     const [pokeHeight,setPokeHeight] = useState('')
 
     const gottaCatchEmAllStyle ={
@@ -27,7 +28,8 @@ const Home = () => {
         fetch(baseURL)
         .then(res => res.json())
         .then(pokeData => {
-            console.log(pokeData); 
+            //will display bulbasaur for now
+            console.log(pokeData.results[0]); 
         })
     }
   
