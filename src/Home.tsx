@@ -16,9 +16,10 @@ const Home = () => {
     const [pokeNum,setPokeNum] = useState('')
     const [pokeHeight,setPokeHeight] = useState('')
 
-    const gottaCatchEmAllStyle ={
+    const gottaFetchEmAllStyle ={
         fontSize:'2vw',
-        color:'white'
+        color:'white',
+
     }
 
 
@@ -40,7 +41,7 @@ const Home = () => {
 return(
     <div>
         <img alt="Pokemon Logo" src= {PokeLogo}/>
-        <p style={gottaCatchEmAllStyle}>Gotta fetch 'em all!</p>
+        <p style={gottaFetchEmAllStyle}>Gotta fetch 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
             <div style={{backgroundColor:'white', width:'fit-content',height:'585px', borderRadius:'30px'}}>
                 <img alt='Pokemon Card' src ={PokeCard}/>
