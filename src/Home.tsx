@@ -1,17 +1,19 @@
 import React, {useState} from 'react'
-import PokeCard from '../src/assets/pokemoncard.png'
+import PokeCard from './assets/pokemoncard.png'
+import PokeLogo from './assets/pokemonlogo.png'
 
 
 
 const Home = () => {
 
 
+
 return(
     <div>
-
-    <p>pokemon</p>
+        <img alt="Pokemon Logo" src= {PokeLogo}/>
+        <p>Gotta fetch 'em all!</p>
     <div>
-    <img src ={PokeCard}/>
+        <img alt='Pokemon Card' src ={PokeCard}/>
     </div>
     
     </div>
