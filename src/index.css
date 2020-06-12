@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'MyFont';
     src: local('MyFont'), url(./fonts/Andy-Bold.ttf) format('woff');
-    background-image: url(./assets/pokemonbackground.jpg);
+    background-image: url(./assets/pokemonbackground.gif);
     /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
