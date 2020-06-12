@@ -17,7 +17,7 @@ const Home = () => {
     const [pokeHeight,setPokeHeight] = useState('')
 
     const gottaCatchEmAllStyle ={
-        fontSize: '2vw',
+        fontSize:'2vw',
         color:'white'
     }
 
