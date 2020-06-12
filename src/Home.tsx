@@ -1,10 +1,7 @@
 import React, {useState,useEffect} from 'react'
+
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
-import Draggable from 'react-draggable'
-
-import {ProgressBar} from 'react-bootstrap';
-
 
 import GrassBackground from './assets/typegrass.png'
 import BugBackground from './assets/typebug.png'
@@ -25,10 +22,10 @@ import SteelBackground from './assets/typesteel.png'
 import WaterBackground from './assets/typewater.png'
 import GhostBackground from './assets/typeghost.png'
 
-
+import {ProgressBar} from 'react-bootstrap';
+import Draggable from 'react-draggable'
 
 const Home = () => {
-
 //TYPE ICON IMG SRC*************************************************************************************
     let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
     let waterTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/e/ed/Type_Water.gif'
@@ -48,18 +45,11 @@ const Home = () => {
     let flyingTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/4b/Type_Flying.gif/'
     let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
-
-
-    
-   
 //useStates*************************************************************************************
-
-
     //Background Image
     const [backgroundImg, setBackgroundImg] = useState('')
     //Pokemon Name
     const [pokeName, setPokeName] = useState('')
-
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState(1)
     //Pokemon Image
@@ -79,7 +69,6 @@ const Home = () => {
     const [pokeSpDef, setPokeSpDef] = useState()
 //Main Fetch URL********************************
     let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
-
 //CSS STYLING*************************************************************************************
     //Pokemon Logo Img Style
     const pokemonLogoImg: React.CSSProperties = {
@@ -151,13 +140,10 @@ const Home = () => {
         userSelect:'none',
         width:'100%'
     }
-
-
 //FETCH FUNCTIONS*************************************************************************************
     useEffect (() => {
         fetchPoke();
      })
-
 
     const fetchPoke = () =>{
         fetch(baseURL + pokeNum || pokeName)
@@ -174,7 +160,6 @@ const Home = () => {
             } else {
                 setPokeAbility2('')
             }
-            
             setPokeHp(pokeData.stats[0].base_stat)
             setPokeAtt(pokeData.stats[1].base_stat)
             setPokeDef(pokeData.stats[2].base_stat)
@@ -284,20 +269,9 @@ const Home = () => {
             console.log('Bulba Bulba ^_^')
         })
     }
-
-    // Pokemon Stat Bar Info
-
-
-
-
-
-  
-
 return(
     <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'contain', height:'100vh'}}>
-        {/* Pokemon Logo */}
-		 
-                                  
+        {/* Pokemon Logo */}                       
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
@@ -334,10 +308,8 @@ return(
                                             <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
                                             <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
                                             <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
-                                    
                                         </div>
                                     </div>
-                                    
                                 </div>
                                 {/* Pokemon Type Images */}
                                 <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'85.5%', left:'17%'}}>
