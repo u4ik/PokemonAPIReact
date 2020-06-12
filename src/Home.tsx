@@ -67,7 +67,7 @@ return(
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
             {/* Card Container */}
-            <div style={{}}>
+         
                 {/* Card Img */}
                 <Draggable>
                     <div>
@@ -81,7 +81,7 @@ return(
                     </div>
                 </Draggable>
              
-            </div>
+          
         </div>
     
     </div>
