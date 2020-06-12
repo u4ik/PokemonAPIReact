@@ -29,7 +29,8 @@ const Home = () => {
 //useStates*************************************************************************************
     const [pokeName, setPokeName] = useState('')
 
-    //PIKACHU'S NUMBER 25 IS SELECTED FOR NOW
+    //INPUT FIELD CAN BE AN onChange TO CHANGE THE NUMBER/NAME STATES
+    //BULBASAUR BEING DISPLAYED FOR NOW
     const [pokeNum,setPokeNum] = useState('1')
     
     //Pokemon Image
