@@ -24,7 +24,8 @@ const Home = () => {
     const gottaFetchEmAllStyle: React.CSSProperties ={
         fontSize:'3rem',
         color:'white',
-        textShadow:'3px 3px 1px black',
+        // textShadow:'3px 3px 1px black',
+        textShadow:'-2px -2px 0 #00f,2px -2px 0 #00f,-2px 2px 0 #00f,2px 2px 0 #00f',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
@@ -35,6 +36,9 @@ const Home = () => {
         userSelect:'none',
         backgroundColor:'black',
         borderRadius:'4%',
+        position:'relative'
+     
+        
         
     }
 
@@ -66,8 +70,17 @@ return(
             <div style={{}}>
                 {/* Card Img */}
                 <Draggable>
-                <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
+                    <div>
+                        <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
+                            <div style={{}}>
+                                {/* Pokemon Name Text */}
+                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'60%', left:'37%'}}>A SUH DUDES!</p>
+                                {/* Pokemon Stat? */}
+                                <p style={{margin:'0%',marginLeft:'',color:'white', fontSize:'1rem',position:'absolute',top:'70%', left:'37%'}}>A SUH DUDES part 2!</p>
+                            </div>
+                    </div>
                 </Draggable>
+             
             </div>
         </div>
     
