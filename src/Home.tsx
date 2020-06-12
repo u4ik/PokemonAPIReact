@@ -1,4 +1,3 @@
-
 import React, {useState,useEffect} from 'react'
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
@@ -61,18 +60,15 @@ return(
         {/* Pokemon Logo */}
         <img style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* Gotta Fetch Em All Text */}
-        <p style={gottaFetchEmAllStyle}>Gotta fetch 'em all!</p>
-        {/* Card Container */}
+        <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
             {/* Card Container */}
-  
             <div style={{}}>
                 {/* Card Img */}
                 <Draggable>
                 <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={PokeCard}/>
                 </Draggable>
             </div>
-         
         </div>
     
     </div>
