@@ -1,7 +1,10 @@
+
 import React, {useState,useEffect} from 'react'
 import PokeCard from './assets/pokemoncard.png'
 import PokeLogo from './assets/pokemonlogo.png'
 import PokeBackground from './assets/pokemonbackground.jpg'
+
+
 
 
 
