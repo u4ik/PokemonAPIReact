@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 
-import PokeCard from './assets/pokemoncard.png'
+import PokeCard from './assets/pokemoncard5.png'
 import PokeLogo from './assets/pokemonlogo.png'
 
 import GrassBackground from './assets/typegrass.png'
@@ -83,14 +83,14 @@ const Home = () => {
         fontSize:'3rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'-2px -2px 0 #00f,2px -2px 0 #00f,-2px 2px 0 #00f,2px 2px 0 #00f',
+        textShadow:'4px 4px 0 #00f',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
-        width:'100%',
+        width:'82%',
         userSelect:'none',
         // backgroundColor:'black',
         borderRadius:'4%',
@@ -101,7 +101,7 @@ const Home = () => {
     const pokeImgStyle: React.CSSProperties={
         position:'absolute',
         right: '30%',
-        top: '20%',
+        top: '15%',
         width:'40%',
     }
     //Poke Type 1 Img Style
@@ -138,7 +138,7 @@ const Home = () => {
         fontSize:'1rem',
         listStyleType:'none',
         userSelect:'none',
-        width:'100%'
+        width:'100px'
     }
 //FETCH FUNCTIONS*************************************************************************************
     useEffect (() => {
@@ -287,9 +287,10 @@ return(
                             fetchPoke()
                             }}/>
                             <div style={{}}>
-                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%'}}>
+                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
                                     {/* Pokemon Name Text */}
                                     <p style={pokemonNameTextStyle}>{pokeName}</p>
+                                    <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0'}}>__________________</p>
                                     {/* Pokemon Number */}
                                     <p style={pokemonNumberStyle}># {pokeNum}</p>
                                     <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
@@ -309,15 +310,24 @@ return(
                                             <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
                                             <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
                                         </div>
+                                        
                                     </div>
-                                </div>
-                                {/* Pokemon Type Images */}
-                                <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'85.5%', left:'17%'}}>
+                                   
+                     
+                               <div style={{display:'flex', flexDirection:'column', width: '100px'}}>
+                        
+                                       {/* Pokemon Type Images */}
+                               
+                                <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
                                     {/* Pokemon Type Img 1 */}
                                     <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                     {/* Pokemon Type Img 2 */}
                                     <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                 </div>
+                                </div>    
+                                <p style={{opacity:'.3'}}>__________________</p>
+                                </div>
+                         
                             </div>
                     </div>
                 </Draggable>
