@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from 'react'
-
+import React, {useState,useEffect} from 'react';
+import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 // import PokeCard from './assets/pokemoncard5.png'
 import PokeLogo from './assets/pokemonlogo.png'
 
@@ -44,7 +44,9 @@ import PokeCardFighting from './assets/pokemoncardfighting.png'
 
 
 import {ProgressBar} from 'react-bootstrap';
-import Draggable from 'react-draggable'
+import Draggable from 'react-draggable';
+
+
 
 const Home = () => {
 //TYPE ICON IMG SRC*************************************************************************************
@@ -314,6 +316,16 @@ return(
     <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'contain', height:'100vh'}}>
         {/* Pokemon Logo */}                       
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
+        {/* search bar */}
+        <div>
+            <InputGroup>
+                <InputGroupAddon addonType="prepend"></InputGroupAddon>
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" />
+            </InputGroup>
+            <button>
+                submit
+            </button>
+        </div>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
