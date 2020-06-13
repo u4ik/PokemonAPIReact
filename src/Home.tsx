@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react'
 // import PokeCard from './assets/pokemoncard5.png'
 import PokeLogo from './assets/pokemonlogo.png'
 
+//Background Import
 import GrassBackground from './assets/typegrass.png'
 import BugBackground from './assets/typebug.png'
 import NormalBackground from './assets/typecolorless.png'
@@ -22,7 +23,7 @@ import SteelBackground from './assets/typesteel.png'
 import WaterBackground from './assets/typewater.png'
 import GhostBackground from './assets/typeghost.png'
 
-
+//Card Background Import
 import PokeCardGrass from './assets/pokemoncardgrass.png'
 import PokeCardFire from './assets/pokemoncardfire.png'
 import PokeCardWater from './assets/pokemoncardwater.png'
@@ -42,7 +43,7 @@ import PokeCardSteel from './assets/pokemoncardsteel.png'
 import PokeCardBug from './assets/pokemoncardbug.png'
 import PokeCardFighting from './assets/pokemoncardfighting.png'
 
-
+//Node Module Import
 import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable'
 
