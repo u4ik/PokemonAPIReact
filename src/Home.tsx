@@ -347,12 +347,19 @@ return(
         {/* search bar */}
 
 
+
     {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
 
 
     
         <div>
             <InputGroup>
+
+        <br />
+        <br />
+        <div style={{ display:'flex', flexDirection:'row', alignItems: 'center',  marginLeft: '25%', marginRight: '25%'}}>
+            <InputGroup style={{ marginRight: '10px'}}>
+
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
             <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%'}}  onChange={(e) =>{
               
@@ -372,6 +379,7 @@ return(
             }}/>
             </InputGroup>
 
+
             { showSubmit === true ?
             <button onClick={(e) => fetchPoke()}>
                 Search!
@@ -379,6 +387,11 @@ return(
 
 
             }
+
+            <button style={{ borderRadius: '4px', background: 'blue', fontSize:'1.3rem', color:'yellow', borderColor: 'blue' }}>
+                submit
+            </button>
+
         </div>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
