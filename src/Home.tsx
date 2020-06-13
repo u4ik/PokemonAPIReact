@@ -3,6 +3,11 @@ import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
 // import PokeCard from './assets/pokemoncard5.png'
 import PokeLogo from './assets/pokemonlogo.png'
 
+
+
+
+import PokemonBackGroundGif from './assets/pokemonbackground.gif'
+
 import GrassBackground from './assets/typegrass.png'
 import BugBackground from './assets/typebug.png'
 import NormalBackground from './assets/typecolorless.png'
@@ -45,8 +50,12 @@ import PokeCardFighting from './assets/pokemoncardfighting.png'
 
 import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable';
+import ReactAudioPlayer from 'react-audio-player';
 
 
+
+
+// import PokemonTheme from './assets/pokemontheme.mp3'
 
 const Home = () => {
 //TYPE ICON IMG SRC*************************************************************************************
@@ -69,14 +78,24 @@ const Home = () => {
     let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
 //useStates*************************************************************************************
+    //Shows Pokemon Card
+    const [showCard, setShowCard] = useState(false)
+    //Show Submit
+
+    const [showSubmit, setShowSubmit] = useState(false)
     //Background Image
-    const [backgroundImg, setBackgroundImg] = useState('')
+    const [backgroundImg, setBackgroundImg] = useState(PokemonBackGroundGif)
     //Pokemon Name
-    const [pokeName, setPokeName] = useState('')
+    const [pokeName, setPokeName] = useState <string> ('')
+
+    //Input Field/Search Field Value
+    const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
-    const [pokeNum,setPokeNum] = useState(1)
+    const [pokeNum,setPokeNum] = useState<number>()
+
+    const [pokeFetch, setPokeFetch] = useState()
     //PokeCardImg
-    const [pokeCardImg, setPokeCardImg] = useState()
+    const [pokeCardImg, setPokeCardImg] = useState<string>()
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
     //Pokemon Type Icons
@@ -86,12 +105,12 @@ const Home = () => {
     const [pokeAbility1, setPokeAbility1] = useState('')
     const [pokeAbility2, setPokeAbility2] = useState('')
     //Pokemon Stats
-    const [pokeHp, setPokeHp] = useState()
-    const [pokeAtt, setPokeAtt] = useState()
-    const [pokeDef, setPokeDef] = useState()
-    const [pokeSpeed, setPokeSpeed] = useState()
-    const [pokeSpAtt, setPokeSpAtt] = useState()
-    const [pokeSpDef, setPokeSpDef] = useState()
+    const [pokeHp, setPokeHp] = useState<number>()
+    const [pokeAtt, setPokeAtt] = useState<number>()
+    const [pokeDef, setPokeDef] = useState<number>()
+    const [pokeSpeed, setPokeSpeed] = useState<number>()
+    const [pokeSpAtt, setPokeSpAtt] = useState<number>()
+    const [pokeSpDef, setPokeSpDef] = useState<number>()
 //Main Fetch URL********************************
     let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
 //CSS STYLING*************************************************************************************
@@ -100,12 +119,12 @@ const Home = () => {
         userSelect: 'none',
         marginTop:'2%',
         filter: 'drop-shadow(5px 5px 5px black)',
-        width:'35rem',
+        width:'25%',
 
       };
     //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
-        fontSize:'3rem',
+        fontSize:'2rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
         textShadow:'4px 4px 0 blue',
@@ -166,19 +185,23 @@ const Home = () => {
         width:'100px'
     }
 //FETCH FUNCTIONS*************************************************************************************
-    useEffect (() => {
-        fetchPoke();
-     })
+    
+    // useEffect (() => {
+    //     fetchPoke();
+    //  },[])
 
     const fetchPoke = () =>{
-        fetch(baseURL + pokeNum || pokeName)
+        fetch(baseURL + inputFieldValue)
         .then(res => res.json())
         .then(pokeData => {
           
             console.log(pokeData); 
+            setPokeFetch(pokeData);
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
             setPokeImgUrl(pokeData.sprites.front_default)
            
+            setPokeNum(pokeData.id)
+            setShowCard(true)
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
@@ -311,27 +334,74 @@ const Home = () => {
                  setPokeType2Url('')  }
             console.log('Bulba Bulba ^_^')
         })
+
+
+
+
+        
     }
 return(
     <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'contain', height:'100vh'}}>
         {/* Pokemon Logo */}                       
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* search bar */}
+
+
+
+    {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
+
+
+    
+        <div>
+            <InputGroup>
+
         <br />
         <br />
         <div style={{ display:'flex', flexDirection:'row', alignItems: 'center',  marginLeft: '25%', marginRight: '25%'}}>
             <InputGroup style={{ marginRight: '10px'}}>
+
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" />
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%'}}  onChange={(e) =>{
+              
+                setInputFieldValue(e.target.value)
+                setShowSubmit(true)
+                // setPokeName(e.target.value)
+
+                if (inputFieldValue === ''){
+
+                    setShowSubmit(false)
+                }
+                
+                else if (inputFieldValue.length >= 1){
+                    setShowSubmit(true)
+                }
+            
+            }}/>
             </InputGroup>
+
+
+            { showSubmit === true ?
+            <button onClick={(e) => fetchPoke()}>
+                Search!
+            </button> : null
+
+
+            }
+
             <button style={{ borderRadius: '4px', background: 'blue', fontSize:'1.3rem', color:'yellow', borderColor: 'blue' }}>
                 submit
             </button>
+
         </div>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
                 {/* Card Container */}
+
+
+
+                {showCard === true ? 
+
                 <Draggable>
                     <div>
                        {/* Card Img */}
@@ -386,6 +456,9 @@ return(
                             </div>
                     </div>
                 </Draggable>
+:null
+                        } 
+        
         </div>
     </div>
 )
