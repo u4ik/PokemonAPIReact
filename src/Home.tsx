@@ -374,7 +374,7 @@ return(
 
             { showSubmit === true ?
             <button onClick={(e) => fetchPoke()}>
-                submit
+                Search!
             </button> : null
 
 
