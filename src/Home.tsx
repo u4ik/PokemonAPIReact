@@ -91,7 +91,9 @@ const Home = () => {
     //Input Field/Search Field Value
     const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
-    const [pokeNum,setPokeNum] = useState<number>()
+    const [pokeNum,setPokeNum] = useState()
+
+    
 
     const [pokeFetch, setPokeFetch] = useState()
     //PokeCardImg
@@ -111,8 +113,36 @@ const Home = () => {
     const [pokeSpeed, setPokeSpeed] = useState<number>()
     const [pokeSpAtt, setPokeSpAtt] = useState<number>()
     const [pokeSpDef, setPokeSpDef] = useState<number>()
+
+    //Pokemon Evo Data
+    const [evolutionChainText, setEvolutionChainText] = useState('')
+
+    const [evoStage1, setEvoStage1] = useState('')
+    const [evoStage2, setEvoStage2] = useState('')
+    const [evoStage3, setEvoStage3] = useState('')
+    const [evoStage4, setEvoStage4] = useState('')
+    const [evoStage5, setEvoStage5] = useState('')
+    const [evoStage6, setEvoStage6] = useState('')
+    const [evoStage7, setEvoStage7] = useState('')
+    const [evoStage8, setEvoStage8] = useState('')
+    const [evoStage9, setEvoStage9] = useState('')
+    const [evoStage10, setEvoStage10] = useState('')
+
+    const [evoStage1ImgSrc, setEvoStage1ImgSrc] = useState<string>()
+    const [evoStage2ImgSrc, setEvoStage2ImgSrc] = useState<string>()
+    const [evoStage3ImgSrc, setEvoStage3ImgSrc] = useState<string>()
+    const [evoStage4ImgSrc, setEvoStage4ImgSrc] = useState<string>()
+    const [evoStage5ImgSrc, setEvoStage5ImgSrc] = useState<string>()
+    const [evoStage6ImgSrc, setEvoStage6ImgSrc] = useState<string>()
+    const [evoStage7ImgSrc, setEvoStage7ImgSrc] = useState<string>()
+    const [evoStage8ImgSrc, setEvoStage8ImgSrc] = useState<string>()
+    const [evoStage9ImgSrc, setEvoStage9ImgSrc] = useState<string>()
+    const [evoStage10ImgSrc, setEvoStage10ImgSrc] = useState<string>()
+
 //Main Fetch URL********************************
-    let baseURL:string  = `https://pokeapi.co/api/v2/pokemon/`
+    let pokemonURL:string  = `https://pokeapi.co/api/v2/pokemon/`
+//Evolution Fetch URL*********************
+    let speciesURL:string = `https://pokeapi.co/api/v2/pokemon-species/`
 //CSS STYLING*************************************************************************************
     //Pokemon Logo Img Style
     const pokemonLogoImg: React.CSSProperties = {
@@ -127,7 +157,7 @@ const Home = () => {
         fontSize:'2rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'4px 4px 0 blue',
+        textShadow:'.2rem .2rem 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
@@ -184,27 +214,164 @@ const Home = () => {
         userSelect:'none',
         width:'100px'
     }
+
+
+    const evolutionChainTextStyle: React.CSSProperties ={
+        fontSize:'1.6rem',
+        color:'white',
+        // textShadow:'3px 3px 1px black',
+        textShadow:'.2rem .2rem 0 blue',
+        userSelect:'none',
+        marginTop:'.5%',
+        filter: 'drop-shadow(2px 2px 5px black)'
+    }
+
+    const evolutionNameTextStle: React.CSSProperties ={
+        fontSize:'1.2rem',
+        color:'white',
+        // textShadow:'3px 3px 1px black',
+        textShadow:'.1rem .1rem 0 blue',
+        userSelect:'none',
+        marginTop:'.5%',
+        filter: 'drop-shadow(2px 2px 5px black)',
+   
+    }
 //FETCH FUNCTIONS*************************************************************************************
     
     // useEffect (() => {
     //     fetchPoke();
     //  },[])
 
+
+
     const fetchPoke = () =>{
-        fetch(baseURL + inputFieldValue)
+
+
+        fetch(pokemonURL + inputFieldValue)
         .then(res => res.json())
         .then(pokeData => {
           
-            console.log(pokeData); 
-            setPokeFetch(pokeData);
+            const fetchSpecies = () => {
+                fetch(speciesURL + pokeData.id )
+                .then(
+                    res => res.json())
+                .then(speciesData => {
+                    
+                    fetch(speciesData.evolution_chain.url)
+                    .then(res => res.json())
+                    .then(evoData => {
+                    if(evoData.chain.evolves_to[0] !== undefined){
+                        //EVOLVES FROM - if nothing, it will be pokemon base name
+                        console.log(evoData.chain.evolves_to)
+                        setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
+                        setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
+                        //EVOLVES TO - NEXT EVOLUTION/ SECOND EVOLUTION
+                        setEvoStage2(evoData.chain.evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].species.name.slice(1))
+                        setEvoStage2ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].species.url.slice(42).slice(0,-1)  + '.png')
+                        //VARIABLE EVOLUTIONS....STONE...ETC...
+                        if (evoData.chain.evolves_to[1] !== undefined){
+                            setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
+                            setEvoStage4ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[1].species.url.slice(42).slice(0,-1) + '.png' )
+                            if (evoData.chain.evolves_to[2] !== undefined){
+                            setEvoStage5(evoData.chain.evolves_to[2].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[2].species.name.slice(1))
+                            setEvoStage5ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[2].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                            if (evoData.chain.evolves_to[3] !== undefined){
+                            setEvoStage6(evoData.chain.evolves_to[3].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[3].species.name.slice(1))
+                            setEvoStage6ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[3].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                            if (evoData.chain.evolves_to[4] !== undefined){
+                            setEvoStage7(evoData.chain.evolves_to[4].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[4].species.name.slice(1))
+                            setEvoStage7ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[4].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                            if (evoData.chain.evolves_to[5] !== undefined){
+                            setEvoStage8(evoData.chain.evolves_to[5].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[5].species.name.slice(1))
+                            setEvoStage8ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[5].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                            if (evoData.chain.evolves_to[6] !== undefined){
+                            setEvoStage9(evoData.chain.evolves_to[6].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[6].species.name.slice(1))
+                            setEvoStage9ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[6].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                            if (evoData.chain.evolves_to[7] !== undefined){
+                            setEvoStage10(evoData.chain.evolves_to[7].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[7].species.name.slice(1))
+                            setEvoStage10ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[7].species.url.slice(42).slice(0,-1) + '.png' )
+                            }
+                        }
+                        else{
+
+                            setEvoStage4('')
+                            setEvoStage5('')
+                            setEvoStage6('')
+                            setEvoStage7('')
+                            setEvoStage8('')
+                            setEvoStage9('')
+                            setEvoStage10('')
+
+                            setEvoStage4ImgSrc('')
+                            setEvoStage5ImgSrc('')
+                            setEvoStage6ImgSrc('')
+                            setEvoStage7ImgSrc('')
+                            setEvoStage8ImgSrc('')
+                            setEvoStage9ImgSrc('')
+                            setEvoStage10ImgSrc('')
+                      
+                        }
+
+                        //EVOLVES TO - NEXT EVOLUTION/ THIRD EVOLUTION
+                        if(evoData.chain.evolves_to[0].evolves_to[0] !==undefined){
+                        setEvoStage3(evoData.chain.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].evolves_to[0].species.name.slice(1))
+                        setEvoStage3ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].evolves_to[0].species.url.slice(42).slice(0,-1) + '.png' )
+                       
+                        } else{
+                            setEvoStage3('')
+                            setEvoStage3ImgSrc('')
+                        }
+                        setEvolutionChainText('Evolution:')
+                        } else {
+                            setEvoStage1('')
+                            setEvoStage2('')
+                            setEvoStage3('')
+                            setEvoStage4('')
+                            setEvoStage5('')
+                            setEvoStage6('')
+                            setEvoStage7('')
+                            setEvoStage8('')
+                            setEvoStage9('')
+                            setEvoStage10('')
+
+                      
+
+                            setEvoStage1ImgSrc('')
+                            setEvoStage2ImgSrc('')
+                            setEvoStage3ImgSrc('')
+                            setEvoStage4ImgSrc('')
+                            setEvoStage5ImgSrc('')
+                            setEvoStage6ImgSrc('')
+                            setEvoStage7ImgSrc('')
+                            setEvoStage8ImgSrc('')
+                            setEvoStage9ImgSrc('')
+                            setEvoStage10ImgSrc('')
+
+                            setEvolutionChainText('')
+                        }
+                    })
+                })
+            }
+
+            fetchSpecies();
+
+            setShowCard(true)
+          
+
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
             setPokeImgUrl(pokeData.sprites.front_default)
-           
-            setPokeNum(pokeData.id)
-            setShowCard(true)
+
+            
+       
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
+           
             } else {
                 setPokeAbility2('')
             }
@@ -215,11 +382,15 @@ const Home = () => {
             setPokeSpDef(pokeData.stats[4].base_stat)
             setPokeSpeed(pokeData.stats[5].base_stat)
 
+            setPokeNum(pokeData.id)
+            // console.log(pokeNum)
+
             //Pokemon Type 1 Checker
             if (pokeData.types[0].type.name === 'grass') {
                 setPokeType1Url(grassTypeURL)
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
+                
             } else if (pokeData.types[0].type.name === 'poison') {
                 setPokeType1Url(poisonTypeURL)
                 setBackgroundImg(PoisonBackground)
@@ -332,63 +503,97 @@ const Home = () => {
                      setPokeType2Url(darkTypeURL)             }
             } else {
                  setPokeType2Url('')  }
-            console.log('Bulba Bulba ^_^')
+    
         })
 
-
-
-
-        
     }
 return(
-    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'contain', height:'100vh'}}>
+    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'', height:'auto',minHeight:'100vh', backgroundPosition:'center', backgroundRepeat:'auto'}}>
         {/* Pokemon Logo */}                       
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* search bar */}
 
-
     {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
-
-
-    
         <div>
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%'}}  onChange={(e) =>{
-              
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'30%', marginRight:'30%'}}  onChange={(e) =>{
                 setInputFieldValue(e.target.value)
                 setShowSubmit(true)
-                // setPokeName(e.target.value)
-
                 if (e.target.value.length <= 0 ){
-
                     setShowSubmit(false)
                 }
-                
                 else {
                     setShowSubmit(true)
                 }
-            
             }}/>
             </InputGroup>
 
             { showSubmit === true ?
-            <button onClick={(e) => fetchPoke()}>
+            <button onClick={(e) => {
+                fetchPoke()}}>
                 Search!
             </button> : null
-
-
             }
         </div>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
+
+                
+        {/* Evolution Chain Text */}
+        <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
+
+        {/* Evolution Names */}
+  
+            <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage1}</p>
+                <img style={evolutionNameTextStle} src={evoStage1ImgSrc}/>
+               
+                {/* <img src={}/> */}
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage2}</p>
+                <img style={evolutionNameTextStle} src={evoStage2ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage3}</p>
+                <img style={evolutionNameTextStle} src={evoStage3ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage4}</p>
+                <img style={evolutionNameTextStle} src={evoStage4ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage5}</p>
+                <img style={evolutionNameTextStle} src={evoStage5ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage6}</p>
+                <img style={evolutionNameTextStle} src={evoStage6ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage7}</p>
+                <img style={evolutionNameTextStle} src={evoStage7ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage8}</p>
+                <img style={evolutionNameTextStle} src={evoStage8ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage9}</p>
+                <img style={evolutionNameTextStle} src={evoStage9ImgSrc}/>
+                </div>
+                <div>
+                <p style={evolutionNameTextStle}>{evoStage10}</p>
+                <img style={evolutionNameTextStle} src={evoStage10ImgSrc}/>
+                </div>
+            </div>
+  
+
         <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
                 {/* Card Container */}
-
-
-
                 {showCard === true ? 
-
                 <Draggable>
                     <div>
                        {/* Card Img */}
@@ -447,6 +652,7 @@ return(
                         } 
         
         </div>
+
     </div>
 )
 }
