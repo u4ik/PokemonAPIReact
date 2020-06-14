@@ -78,6 +78,10 @@ const Home = () => {
     let poisonTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/8/82/Type_Poison.gif/'
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
 //useStates*************************************************************************************
+
+    //Toggle display: 'flex'
+    const [makeFlex, setMakeFlex] = useState<string>('flex')
+
     //Shows Pokemon Card
     const [showCard, setShowCard] = useState(false)
     //Show Submit
@@ -265,9 +269,14 @@ const Home = () => {
                         console.log(evoData.chain.evolves_to)
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
                         setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
+
+                    
+
                         //EVOLVES TO - NEXT EVOLUTION/ SECOND EVOLUTION
                         setEvoStage2(evoData.chain.evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].species.name.slice(1))
                         setEvoStage2ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].species.url.slice(42).slice(0,-1)  + '.png')
+
+                        setMakeFlex('flex')
                         //VARIABLE EVOLUTIONS....STONE...ETC...
                         if (evoData.chain.evolves_to[1] !== undefined){
                             setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
@@ -321,6 +330,8 @@ const Home = () => {
                         if(evoData.chain.evolves_to[0].evolves_to[0] !==undefined){
                         setEvoStage3(evoData.chain.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].evolves_to[0].species.name.slice(1))
                         setEvoStage3ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].evolves_to[0].species.url.slice(42).slice(0,-1) + '.png' )
+
+                        setMakeFlex('flex')
                        
                         } else{
                             setEvoStage3('')
@@ -353,6 +364,8 @@ const Home = () => {
                             setEvoStage10ImgSrc('')
 
                             setEvolutionChainText('')
+
+                            setMakeFlex('')
                         }
                     })
                 })
@@ -513,8 +526,10 @@ return(
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         {/* search bar */}
 
-    {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
+        {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
         <div>
+
+            {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
             <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'30%', marginRight:'30%'}}  onChange={(e) =>{
@@ -540,119 +555,128 @@ return(
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
 
                 
-        {/* Evolution Chain Text */}
-        <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
 
-        {/* Evolution Names */}
-  
-            <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage1}</p>
-                <img style={evolutionNameTextStle} src={evoStage1ImgSrc}/>
-               
-                {/* <img src={}/> */}
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage2}</p>
-                <img style={evolutionNameTextStle} src={evoStage2ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage3}</p>
-                <img style={evolutionNameTextStle} src={evoStage3ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage4}</p>
-                <img style={evolutionNameTextStle} src={evoStage4ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage5}</p>
-                <img style={evolutionNameTextStle} src={evoStage5ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage6}</p>
-                <img style={evolutionNameTextStle} src={evoStage6ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage7}</p>
-                <img style={evolutionNameTextStle} src={evoStage7ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage8}</p>
-                <img style={evolutionNameTextStle} src={evoStage8ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage9}</p>
-                <img style={evolutionNameTextStle} src={evoStage9ImgSrc}/>
-                </div>
-                <div>
-                <p style={evolutionNameTextStle}>{evoStage10}</p>
-                <img style={evolutionNameTextStle} src={evoStage10ImgSrc}/>
-                </div>
-            </div>
-  
+    <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center'}}>
 
-        <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
-                {/* Card Container */}
-                {showCard === true ? 
-                <Draggable>
-                    <div>
-                       {/* Card Img */}
-                        <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
-                        {/* Pokemon Img */}
-                        <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
-                            // setPokeNum(Math.round(Math.random() * 10*80.2))
-                            // fetchPoke()  
-                            }}/>
-                            <div style={{}}>
-                                <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
-                                    {/* Pokemon Name Text */}
-                                    <p style={pokemonNameTextStyle}>{pokeName}</p>
-                                    <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0'}}>__________________</p>
-                                    {/* Pokemon Number */}
-                                    <p style={pokemonNumberStyle}># {pokeNum}</p>
-                                    <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
-                                        {/* Pokemon Abilities Text */}
-                                        <div style={{marginRight: '9%',marginTop: ''}}>
-                                            <ul style={pokemonAbilitiesTextStyle}>Abilities:
-                                                <li style={{fontSize:'1rem'}}>{pokeAbility1}</li>
-                                                <li style={{fontSize:'1rem'}}>{pokeAbility2}</li>
-                                            </ul>
+            <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
+                    {/* Card Container */}
+                    {showCard === true ? 
+                    <Draggable>
+                        <div>
+                        {/* Card Img */}
+                            <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
+                            {/* Pokemon Img */}
+                            <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
+                                // setPokeNum(Math.round(Math.random() * 10*80.2))
+                                // fetchPoke()  
+                                }}/>
+                                <div style={{}}>
+                                    <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
+                                        {/* Pokemon Name Text */}
+                                        <p style={pokemonNameTextStyle}>{pokeName}</p>
+                                        <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0'}}>__________________</p>
+                                        {/* Pokemon Number */}
+                                        <p style={pokemonNumberStyle}># {pokeNum}</p>
+                                        <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
+                                            {/* Pokemon Abilities Text */}
+                                            <div style={{marginRight: '9%',marginTop: ''}}>
+                                                <ul style={pokemonAbilitiesTextStyle}>Abilities:
+                                                    <li style={{fontSize:'1rem'}}>{pokeAbility1}</li>
+                                                    <li style={{fontSize:'1rem'}}>{pokeAbility2}</li>
+                                                </ul>
+                                            </div>
+                                            {/* Pokemon Stat Bars */}
+                                            <div style={{ width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly',userSelect:'none' }}>
+                                                <ProgressBar style={{marginTop:'1%'}} now={pokeHp} label={`HP: ${pokeHp}`} />
+                                                <ProgressBar now={pokeAtt} label={`Att: ${pokeAtt}`} />
+                                                <ProgressBar now={pokeDef} label={`Def: ${pokeDef}`} />
+                                                <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
+                                                <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
+                                                <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
+                                            </div>
+                                            
                                         </div>
-                                        {/* Pokemon Stat Bars */}
-                                        <div style={{ width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly',userSelect:'none' }}>
-                                            <ProgressBar style={{marginTop:'1%'}} now={pokeHp} label={`HP: ${pokeHp}`} />
-                                            <ProgressBar now={pokeAtt} label={`Att: ${pokeAtt}`} />
-                                            <ProgressBar now={pokeDef} label={`Def: ${pokeDef}`} />
-                                            <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
-                                            <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
-                                            <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
-                                        </div>
-                                        
-                                    </div>
-                                   
-                     
-                               <div style={{display:'flex', flexDirection:'column', width: '100px'}}>
+                                    
                         
-                                       {/* Pokemon Type Images */}
-                               
-                                <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
-                                    {/* Pokemon Type Img 1 */}
-                                    <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
-                                    {/* Pokemon Type Img 2 */}
-                                    <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                <div style={{display:'flex', flexDirection:'column', width: '100px'}}>
+                            
+                                        {/* Pokemon Type Images */}
+                                
+                                    <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
+                                        {/* Pokemon Type Img 1 */}
+                                        <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                        {/* Pokemon Type Img 2 */}
+                                        <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                    </div>
+                                    </div>    
+                                    <p style={{opacity:'.3'}}>__________________</p>
+                                    </div>
+                            
                                 </div>
-                                </div>    
-                                <p style={{opacity:'.3'}}>__________________</p>
-                                </div>
-                         
-                            </div>
-                    </div>
-                </Draggable>
-:null
-                        } 
-        
-        </div>
+                        </div>
+                    </Draggable>
+                        :null
+                                                } 
 
+        
+            
+            </div>
+
+            <div style={{display:'flex', flexDirection:'column'}}>
+                    {/* Evolution Chain Text */}
+                <div>
+                     <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
+                </div>
+
+                    {/* Evolution Names & Images*/}
+
+                <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'28rem'}}>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage1}</p>
+                    <img style={evolutionNameTextStle} src={evoStage1ImgSrc}/>
+                
+                    {/* <img src={}/> */}
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage2}</p>
+                    <img style={evolutionNameTextStle} src={evoStage2ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage3}</p>
+                    <img style={evolutionNameTextStle} src={evoStage3ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage4}</p>
+                    <img style={evolutionNameTextStle} src={evoStage4ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage5}</p>
+                    <img style={evolutionNameTextStle} src={evoStage5ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage6}</p>
+                    <img style={evolutionNameTextStle} src={evoStage6ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage7}</p>
+                    <img style={evolutionNameTextStle} src={evoStage7ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage8}</p>
+                    <img style={evolutionNameTextStle} src={evoStage8ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage9}</p>
+                    <img style={evolutionNameTextStle} src={evoStage9ImgSrc}/>
+                    </div>
+                    <div>
+                    <p style={evolutionNameTextStle}>{evoStage10}</p>
+                    <img style={evolutionNameTextStle} src={evoStage10ImgSrc}/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 )
 }
