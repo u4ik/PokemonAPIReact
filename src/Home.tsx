@@ -181,7 +181,9 @@ const Home = () => {
         // backgroundColor:'black',
         borderRadius:'4%',
         position:'relative',
-        filter: 'drop-shadow(6px 6px 4px black)'
+        filter: 'drop-shadow(6px 6px 4px black)',
+      
+    
     }
     //Poke Img Style
     const pokeImgStyle: React.CSSProperties={
@@ -536,14 +538,14 @@ const Home = () => {
 
     }
 return(
-    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'', height:'auto',minHeight:'100vh', backgroundPosition:'center', backgroundRepeat:'auto'}}>
+    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'', height:'auto',minHeight:'100vh', backgroundPosition:'center', backgroundRepeat:''}}>
       
       <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
         {/* Pokemon Logo */}                       
         <div>
             <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         </div>
-        {/* search bar */}
+        {/* Audio Player */}
         <div>
             <ReactAudioPlayer src={audioUrl} autoPlay />
         </div>
@@ -581,7 +583,7 @@ return(
 
     <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center'}}>
 
-            <div style={{ display:'flex', flexDirection:'row', justifyContent:'center'}}>
+            <div style={{ display:'flex', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
                     {showCard === true ? 
                     <Draggable>
