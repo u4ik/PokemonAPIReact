@@ -84,7 +84,7 @@ const Home = () => {
     //Toggle display: 'flex'
     const [makeFlex, setMakeFlex] = useState<string>('flex')
 
-
+    //For the onClick which lets the pokemon # to be random. 0-800...and something..lol
     const [pokeRand, setPokeRand] = useState<any>('')
 
     //Randomizer
@@ -127,6 +127,9 @@ const Home = () => {
     const [pokeSpDef, setPokeSpDef] = useState<number>()
 
     //Pokemon Evo Data
+
+    const [showEvo, setShowEvo] = useState(false)
+
     const [evolutionChainText, setEvolutionChainText] = useState('')
 
     const [evoStage1, setEvoStage1] = useState('')
@@ -257,9 +260,19 @@ const Home = () => {
  
 //FETCH FUNCTIONS*************************************************************************************
     
-    // useEffect (() => {
-    //     fetchPoke();
-    //  },[])
+    useEffect (() => {
+        if(inputFieldValue.length > 0){
+        fetchPoke();
+        if(showCard === true){
+        setShowEvo(true)
+        }
+        }
+        else{
+            setShowCard(false)
+            setShowEvo(false)
+            setBackgroundImg(PokemonBackGroundGif)
+        }
+     })
 
 
 
@@ -282,7 +295,7 @@ const Home = () => {
                     .then(evoData => {
                     if(evoData.chain.evolves_to[0] !== undefined){
                         //EVOLVES FROM - if nothing, it will be pokemon base name
-                        console.log(evoData.chain.evolves_to)
+                       
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
                         setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
 
@@ -391,7 +404,7 @@ const Home = () => {
 
             setShowCard(true)
           
-
+            if(pokeData.name !== undefined){
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
             setPokeImgUrl(pokeData.sprites.front_default)
 
@@ -532,6 +545,7 @@ const Home = () => {
                      setPokeType2Url(darkTypeURL)             }
             } else {
                  setPokeType2Url('')  }
+            }
     
         })
 
@@ -546,9 +560,7 @@ return(
             <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         </div>
         {/* Audio Player */}
-        <div>
-            <ReactAudioPlayer src={audioUrl} autoPlay />
-        </div>
+    
         </div>
  
         <div>
@@ -556,10 +568,12 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{ outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value)
                 setShowSubmit(true)
+                // fetchPoke();
+             
                 if (e.target.value.length <= 0 ){
                     setShowSubmit(false)
                 }
@@ -569,12 +583,13 @@ return(
             }}/>
             </InputGroup>
 
-            { showSubmit === true ?
+            {/* Submit Button */}
+            {/* { showSubmit === true ?
             <Button style={{filter: 'drop-shadow(5px 5px 1px black)'}} onClick={(e) => {
                 fetchPoke()}}>
                 Search!
             </Button> : null
-            }
+            } */}
         </div>
         {/* Gotta Fetch Em All Text */}
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
@@ -595,15 +610,15 @@ return(
                             
                                 setIsRandom(true)  
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
-                                if (isRandom === true){
+                                // if (isRandom === true){
                             
-                                console.log(pokeRand)
+                                // console.log(pokeRand)
                             
-                                fetchPoke()
-                                }
+                                // fetchPoke()
+                                // }
                              
                                 }} onMouseLeave={() => {
-                                    setIsRandom(false)
+                                    // setIsRandom(false)
                                 }}/>
                                 <div style={{}}>
                                     <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
@@ -656,7 +671,7 @@ return(
         
             
             </div>
-
+            {showEvo === true ? 
             <div style={{display:'flex', flexDirection:'column'}}>
                     {/* Evolution Chain Text */}
                 <div>
@@ -674,43 +689,47 @@ return(
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage2}</p>
-                    <img style={evolutionNameTextStle} src={evoStage2ImgSrc}/>
+                    <img style={evolutionNameTextStle} className='evoImg1' src={evoStage2ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage3}</p>
-                    <img style={evolutionNameTextStle} src={evoStage3ImgSrc}/>
+                    <img style={evolutionNameTextStle}  className='evoImg2' src={evoStage3ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage4}</p>
-                    <img style={evolutionNameTextStle} src={evoStage4ImgSrc}/>
+                    <img style={evolutionNameTextStle}  className='evoImg3' src={evoStage4ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage5}</p>
-                    <img style={evolutionNameTextStle} src={evoStage5ImgSrc}/>
+                    <img style={evolutionNameTextStle}  className='evoImg4' src={evoStage5ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage6}</p>
-                    <img style={evolutionNameTextStle} src={evoStage6ImgSrc}/>
+                    <img style={evolutionNameTextStle} className='evoImg5' src={evoStage6ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage7}</p>
-                    <img style={evolutionNameTextStle} src={evoStage7ImgSrc}/>
+                    <img style={evolutionNameTextStle} className='evoImg6' src={evoStage7ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage8}</p>
-                    <img style={evolutionNameTextStle} src={evoStage8ImgSrc}/>
+                    <img style={evolutionNameTextStle}  className='evoImg7'src={evoStage8ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage9}</p>
-                    <img style={evolutionNameTextStle} src={evoStage9ImgSrc}/>
+                    <img style={evolutionNameTextStle}  className='evoImg9' src={evoStage9ImgSrc}/>
                     </div>
                     <div>
                     <p style={evolutionNameTextStle}>{evoStage10}</p>
-                    <img style={evolutionNameTextStle} src={evoStage10ImgSrc}/>
+                    <img style={evolutionNameTextStle} className='evoImg10'  src={evoStage10ImgSrc}/>
                     </div>
                 </div>
 
             </div>
+            : null }
+        </div>
+        <div>
+            <ReactAudioPlayer style = {{marginTop:'4%', background:'transparent'} }src={audioUrl} controls autoPlay />
         </div>
     </div>
 )
