@@ -554,7 +554,7 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'30%', marginRight:'30%'}}  onChange={(e) =>{
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value)
                 setShowSubmit(true)
