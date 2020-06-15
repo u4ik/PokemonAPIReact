@@ -556,7 +556,7 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
+            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{ outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value)
                 setShowSubmit(true)
@@ -570,10 +570,10 @@ return(
             </InputGroup>
 
             { showSubmit === true ?
-            <button onClick={(e) => {
+            <Button style={{filter: 'drop-shadow(5px 5px 1px black)'}} onClick={(e) => {
                 fetchPoke()}}>
                 Search!
-            </button> : null
+            </Button> : null
             }
         </div>
         {/* Gotta Fetch Em All Text */}
