@@ -452,8 +452,11 @@ const Home = () => {
           
             if(pokeData.name !== undefined){
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
-            setPokeImgUrl(pokeData.sprites.front_default)
 
+                // Can Change Pokemon Profile Pic here
+                    setPokeImgUrl(pokeData.sprites.front_default)
+                // setPokeImgUrl('https://projectpokemon.org/images/normal-sprite/' + pokeName.toLowerCase() +'.gif')
+                console.log(pokeName.toLowerCase())
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
@@ -604,7 +607,7 @@ const Home = () => {
 
     }
 return(
-    <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'', height:'auto',minHeight:'100vh', backgroundPosition:'center', backgroundRepeat:''}}>
+    <div style={{backgroundImage: `url(${backgroundImg})`, height:'100vh',minHeight:'100vh', backgroundRepeat:'',backgroundPosition: 'center top', backgroundSize: 'cover'}}>
       
       <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
         {/* Pokemon Logo */}                       
@@ -662,16 +665,17 @@ return(
                         {/* Card Img */}
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
+                            <div style={{}}>
                             <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
                             onClick={() => {
                                 setIsRandom(true)  
-                               
+                                
                                 startAudio();
                                 
                             
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
                                 console.log(pokeRand)
-
+                              
                                 setShowEvo(true)
                         
                                 }} onMouseEnter={() => {
@@ -680,6 +684,7 @@ return(
                                  onMouseLeave={() => {
                                     // setIsRandom(false)
                                 }}/>
+                        </div>
                                 <div style={{}}>
                                     <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
                                         {/* Pokemon Name Text */}
