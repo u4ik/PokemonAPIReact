@@ -260,7 +260,12 @@ const Home = () => {
 
 
     let audioUrl = require('./assets/pokemontheme.mp3');
- 
+
+    let cryAudio = new Audio('https://veekun.com/dex/media/pokemon/cries/' + pokeRand + '.ogg')
+    const startAudio = () => {
+        cryAudio.play()
+      }
+    
 //FETCH FUNCTIONS*************************************************************************************
     
     //Making the fetch constantly run!
@@ -615,7 +620,8 @@ return(
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
-                            
+                                startAudio();
+                                console.log(pokeRand)
                                 setIsRandom(true)  
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
                         
@@ -695,6 +701,9 @@ return(
                             setPokeRand(evoStage1ImgSrc.slice(73).slice(0,-4))
                             }
                             
+                        }} onClick={() => {
+                            startAudio();
+                           
                         }}
                      />
                     
@@ -709,6 +718,9 @@ return(
                             setPokeRand(evoStage2ImgSrc.slice(73).slice(0,-4))
                             }
                             
+                        }} onClick={() => {
+                            startAudio();
+                           
                         }} />
                     </div>
                     <div>
@@ -721,7 +733,10 @@ return(
                             setPokeRand(evoStage3ImgSrc.slice(73).slice(0,-4))
                             }
                                         
-                                    }}/>
+                            }} onClick={() => {
+                            startAudio();
+                                       
+                            }}/>
                     </div>
                     <div>
                         <p style={evolutionNameTextStyle}>{evoStage4}</p>
@@ -733,7 +748,11 @@ return(
                                         setPokeRand(evoStage4ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
-                                    }}/>
+                                        }} 
+                                        onClick={() => {
+                                        startAudio();
+                                        
+                                        }}/>
                     </div>
                     <div>
                         <p style={evolutionNameTextStyle}>{evoStage5}</p>
@@ -745,6 +764,9 @@ return(
                                         setPokeRand(evoStage5ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
                                     }}
                         />
                     </div>
@@ -758,6 +780,9 @@ return(
                                         setPokeRand(evoStage6ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
                                     }}
                         />
                     </div>
@@ -771,7 +796,11 @@ return(
                                         setPokeRand(evoStage7ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
-                                    }}/>
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
+                                    }}
+                                    />
                     </div>
                     <div>
                         <p style={evolutionNameTextStyle}>{evoStage8}</p>
@@ -783,7 +812,11 @@ return(
                                         setPokeRand(evoStage8ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
-                                    }}/>
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
+                                    }}
+                                    />
                     </div>
                     <div>
                         <p style={evolutionNameTextStyle}>{evoStage9}</p>
@@ -795,6 +828,9 @@ return(
                                         setPokeRand(evoStage9ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
                                     }}/>
                     </div>
                     <div>
@@ -807,6 +843,9 @@ return(
                                         setPokeRand(evoStage10ImgSrc.slice(73).slice(0,-4))
                                         }
                                         
+                                    }} onClick={() => {
+                                        startAudio();
+                                       
                                     }}
                         />
                     </div>
