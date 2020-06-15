@@ -103,7 +103,7 @@ const Home = () => {
     //Input Field/Search Field Value
     const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
-    const [pokeNum,setPokeNum] = useState<number>()
+    const [pokeNum,setPokeNum] = useState<any>()
 
     
 
@@ -185,6 +185,7 @@ const Home = () => {
         borderRadius:'4%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)',
+ 
       
     
     }
@@ -195,6 +196,7 @@ const Home = () => {
         top: '15%',
         width:'40%',
         filter: 'drop-shadow(4px 4px 5px black)',
+       
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
@@ -244,7 +246,7 @@ const Home = () => {
         filter: 'drop-shadow(2px 2px 5px black)'
     }
 
-    const evolutionNameTextStle: React.CSSProperties ={
+    const evolutionNameTextStyle: React.CSSProperties ={
         fontSize:'1.2rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
@@ -565,6 +567,10 @@ return(
     
         </div>
  
+
+        {/* Gotta Fetch Em All Text */}
+        <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
+
         <div>
 
             {/* Input Field */}
@@ -572,8 +578,11 @@ return(
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
             <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
                 setIsRandom(false)
-                setInputFieldValue(e.target.value)
+                setInputFieldValue(e.target.value.toLowerCase())
+                // console.log(inputFieldValue)
                 setShowSubmit(true)
+
+
                 // fetchPoke();
              
                 if (e.target.value.length <= 0 ){
@@ -593,11 +602,8 @@ return(
             </Button> : null
             } */}
         </div>
-        {/* Gotta Fetch Em All Text */}
-        <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
-
                 
-
+            {/* Card and Evolution Container */}
     <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
 
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
@@ -612,13 +618,7 @@ return(
                             
                                 setIsRandom(true)  
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
-                                // if (isRandom === true){
-                            
-                                // console.log(pokeRand)
-                            
-                                // fetchPoke()
-                                // }
-                             
+                        
                                 }} onMouseLeave={() => {
                                     // setIsRandom(false)
                                 }}/>
@@ -686,46 +686,129 @@ return(
 
                 <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'28rem'}}>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage1}</p>
-                        <img style={evolutionNameTextStle} className="evoImg1" src={evoStage1ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage1}</p>
+                        <img style={evolutionNameTextStyle} className="evoImg1" src={evoStage1ImgSrc} 
+                        onMouseEnter={() => {
+                            setIsRandom(true)
+                            fetchPoke();
+                            if(evoStage1ImgSrc !== undefined){
+                            setPokeRand(evoStage1ImgSrc.slice(73).slice(0,-4))
+                            }
+                            
+                        }}
+                     />
                     
-                        {/* <img src={}/> */}
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage2}</p>
-                        <img style={evolutionNameTextStle} className='evoImg2' src={evoStage2ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage2}</p>
+                        <img style={evolutionNameTextStyle} className='evoImg2' src={evoStage2ImgSrc}
+                            onMouseEnter={() => {
+                            setIsRandom(true)
+                            fetchPoke();
+                            if(evoStage2ImgSrc !== undefined){
+                            setPokeRand(evoStage2ImgSrc.slice(73).slice(0,-4))
+                            }
+                            
+                        }} />
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage3}</p>
-                        <img style={evolutionNameTextStle}  className='evoImg3' src={evoStage3ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage3}</p>
+                        <img style={evolutionNameTextStyle}  className='evoImg3' src={evoStage3ImgSrc}
+                            onMouseEnter={() => {
+                            setIsRandom(true)
+                            fetchPoke();
+                            if(evoStage3ImgSrc !== undefined){
+                            setPokeRand(evoStage3ImgSrc.slice(73).slice(0,-4))
+                            }
+                                        
+                                    }}/>
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage4}</p>
-                        <img style={evolutionNameTextStle}  className='evoImg4' src={evoStage4ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage4}</p>
+                        <img style={evolutionNameTextStyle}  className='evoImg4' src={evoStage4ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage4ImgSrc !== undefined){
+                                        setPokeRand(evoStage4ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}/>
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage5}</p>
-                        <img style={evolutionNameTextStle}  className='evoImg5' src={evoStage5ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage5}</p>
+                        <img style={evolutionNameTextStyle}  className='evoImg5' src={evoStage5ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage5ImgSrc !== undefined){
+                                        setPokeRand(evoStage5ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}
+                        />
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage6}</p>
-                        <img style={evolutionNameTextStle} className='evoImg6' src={evoStage6ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage6}</p>
+                        <img style={evolutionNameTextStyle} className='evoImg6' src={evoStage6ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage6ImgSrc !== undefined){
+                                        setPokeRand(evoStage6ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}
+                        />
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage7}</p>
-                        <img style={evolutionNameTextStle} className='evoImg7' src={evoStage7ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage7}</p>
+                        <img style={evolutionNameTextStyle} className='evoImg7' src={evoStage7ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage7ImgSrc !== undefined){
+                                        setPokeRand(evoStage7ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}/>
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage8}</p>
-                        <img style={evolutionNameTextStle}  className='evoImg8'src={evoStage8ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage8}</p>
+                        <img style={evolutionNameTextStyle}  className='evoImg8'src={evoStage8ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage8ImgSrc !== undefined){
+                                        setPokeRand(evoStage8ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}/>
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage9}</p>
-                        <img style={evolutionNameTextStle}  className='evoImg9' src={evoStage9ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage9}</p>
+                        <img style={evolutionNameTextStyle}  className='evoImg9' src={evoStage9ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage9ImgSrc !== undefined){
+                                        setPokeRand(evoStage9ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}/>
                     </div>
                     <div>
-                        <p style={evolutionNameTextStle}>{evoStage10}</p>
-                        <img style={evolutionNameTextStle} className='evoImg10'  src={evoStage10ImgSrc}/>
+                        <p style={evolutionNameTextStyle}>{evoStage10}</p>
+                        <img style={evolutionNameTextStyle} className='evoImg10'  src={evoStage10ImgSrc}
+                                     onMouseEnter={() => {
+                                        setIsRandom(true)
+                                        fetchPoke();
+                                        if(evoStage10ImgSrc !== undefined){
+                                        setPokeRand(evoStage10ImgSrc.slice(73).slice(0,-4))
+                                        }
+                                        
+                                    }}
+                        />
                     </div>
                 </div>
 
