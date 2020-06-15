@@ -28,15 +28,6 @@
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 @keyframes bounce-6 {
     0% {
         transform: scale(1, 1) translateY(0);
@@ -61,9 +52,113 @@
     }
 }
 
+@keyframes bounce-7 {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+    10% {
+        transform: scale(1.1, .9) translateY(0);
+    }
+    30% {
+        transform: scale(.9, 1.1) translateY(-30px);
+    }
+    50% {
+        transform: scale(1.02, .98) translateY(0);
+    }
+    57% {
+        transform: scale(1, 1) translateY(-7px);
+    }
+    64% {
+        transform: scale(1, 1) translateY(0);
+    }
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
 .pokeImg {
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-name: bounce-6;
-    animation-timing-function: ease-in;
+    animation-timing-function: ease-in-out;
+}
+
+.evoImg1 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0s;
+}
+
+.evoImg2 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.1s;
+}
+
+.evoImg3 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.2s;
+}
+
+.evoImg4 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.3s;
+}
+
+.evoImg5 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.4s;
+}
+
+.evoImg6 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+}
+
+.evoImg7 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.6s;
+}
+
+.evoImg8 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.7s;
+}
+
+.evoImg9 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.8s;
+}
+
+.evoImg10 {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-7;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.9s;
 }
