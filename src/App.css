@@ -81,7 +81,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-6;
     animation-timing-function: ease-in-out;
-    animation-delay: -.1s;
+    animation-delay: 0s;
 }
 
 .evoImg1 {
@@ -89,7 +89,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0s;
+    animation-delay: 0.1s;
 }
 
 .evoImg2 {
@@ -97,7 +97,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.1s;
+    animation-delay: 0.2s;
 }
 
 .evoImg3 {
@@ -105,7 +105,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.2s;
+    animation-delay: 0.3s;
 }
 
 .evoImg4 {
@@ -113,7 +113,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.3s;
+    animation-delay: 0.4s;
 }
 
 .evoImg5 {
@@ -121,7 +121,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.4s;
+    animation-delay: 0.5s;
 }
 
 .evoImg6 {
@@ -129,7 +129,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.5s;
+    animation-delay: 0.6s;
 }
 
 .evoImg7 {
@@ -137,7 +137,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.6s;
+    animation-delay: 0.7s;
 }
 
 .evoImg8 {
@@ -145,7 +145,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.7s;
+    animation-delay: 0.8s;
 }
 
 .evoImg9 {
@@ -153,7 +153,7 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.8s;
+    animation-delay: 0.9s;
 }
 
 .evoImg10 {
@@ -161,5 +161,5 @@
     animation-iteration-count: infinite;
     animation-name: bounce-7;
     animation-timing-function: ease-in-out;
-    animation-delay: 0.9s;
+    animation-delay: 1s;
 }
