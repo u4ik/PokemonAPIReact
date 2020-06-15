@@ -542,7 +542,7 @@ const Home = () => {
     }
 return(
     // Background Image/Main Container
-    <div style={{backgroundImage: `url(${backgroundImg})`, height:'100vh',minHeight:'100vh', backgroundRepeat:'',backgroundPosition: 'center top', backgroundSize: 'cover'}}>
+    <div style={{backgroundImage: `url(${backgroundImg})`, height:'100vh',minHeight:'100vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
         <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
             {/* Pokemon Logo */}                       
             <div>
