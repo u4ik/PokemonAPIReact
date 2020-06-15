@@ -82,7 +82,7 @@ const Home = () => {
 //useStates*************************************************************************************
 
     //Toggle display: 'flex' - setState below with 'none' - This is for the evolution chart to show up neatly and for the card to recenter when it's not present.
-    const [makeFlex, setMakeFlex] = useState<string>('flex')
+    const [makeFlex, setMakeFlex] = useState<any>('none')
 
     //For the onClick which lets the pokemon # to be random. 0-800...and something..lol
     const [pokeRand, setPokeRand] = useState<any>('')
@@ -171,7 +171,7 @@ const Home = () => {
         filter: 'drop-shadow(5px 5px 5px black)',
         width:'25%',
 
-      };
+    };
     //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
         fontSize:'2rem',
@@ -250,8 +250,7 @@ const Home = () => {
         width:'100px',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
-
-    //EvolutionChain Text Style
+    //Evolution: Text Style
     const evolutionChainTextStyle: React.CSSProperties ={
         fontSize:'1.6rem',
         color:'white',
@@ -261,7 +260,7 @@ const Home = () => {
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
-
+    //Evolution Name Text Style
     const evolutionNameTextStyle: React.CSSProperties ={
         fontSize:'1.2rem',
         color:'white',
@@ -272,7 +271,6 @@ const Home = () => {
         filter: 'drop-shadow(2px 2px 5px black)',
    
     }
-
     //Audio Stuff
 
     let audioUrl = require('./assets/pokemontheme.mp3');
@@ -290,13 +288,16 @@ const Home = () => {
         if(inputFieldValue.length > 0){
         fetchPoke();
         
-        if(showCard === true){
-        setShowEvo(true)
-        }
+            if(showCard === true){
+                setShowEvo(true)
+               
+            } 
+            
         }
         else{
             setShowCard(false)
             setShowEvo(false)
+      
             setBackgroundImg(PokemonBackGroundGif)
         }
      })
@@ -322,10 +323,18 @@ const Home = () => {
                     .then(evoData => {
                     if(evoData.chain.evolves_to[0] !== undefined){
                       
+                        if(showEvo === true){
+                            setMakeFlex('flex')
+                        }else{
+                            setMakeFlex('none')
+                        }
+
+                     
                        
                         //EVOLVES FROM - if nothing, it will be pokemon base name
                        
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
+                        console.log(evoStage1)
                         setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
 
                     
@@ -337,6 +346,7 @@ const Home = () => {
                         // setMakeFlex('flex')
                         //VARIABLE EVOLUTIONS....STONE...ETC...
                         if (evoData.chain.evolves_to[1] !== undefined){
+                          
                             setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
                             setEvoStage4ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[1].species.url.slice(42).slice(0,-1) + '.png' )
                             if (evoData.chain.evolves_to[2] !== undefined){
@@ -365,7 +375,7 @@ const Home = () => {
                             }
                         }
                         else{
-
+                           
                             setEvoStage4('')
                             setEvoStage5('')
                             setEvoStage6('')
@@ -382,21 +392,25 @@ const Home = () => {
                             setEvoStage9ImgSrc('')
                             setEvoStage10ImgSrc('')
                       
+                      
                         }
 
                         //EVOLVES TO - NEXT EVOLUTION/ THIRD EVOLUTION
                         if(evoData.chain.evolves_to[0].evolves_to[0] !==undefined){
                         setEvoStage3(evoData.chain.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].evolves_to[0].species.name.slice(1))
                         setEvoStage3ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].evolves_to[0].species.url.slice(42).slice(0,-1) + '.png' )
+                        // setMakeFlex('flex')
 
-                        setMakeFlex('flex')
                        
                         } else{
+                          
                             setEvoStage3('')
                             setEvoStage3ImgSrc('')
+                       
                         }
                         setEvolutionChainText('Evolution:')
                         } else {
+                          
                             setEvoStage1('')
                             setEvoStage2('')
                             setEvoStage3('')
@@ -422,8 +436,11 @@ const Home = () => {
                             setEvoStage10ImgSrc('')
 
                             setEvolutionChainText('')
-
                             setMakeFlex('none')
+
+                            
+
+                           
                         }
                     })
                 })
@@ -647,7 +664,7 @@ return(
                             {/* Pokemon Img */}
                             <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
                             onClick={() => {
-
+                                setIsRandom(true)  
                                
                                 startAudio();
                                 
@@ -658,7 +675,7 @@ return(
                                 setShowEvo(true)
                         
                                 }} onMouseEnter={() => {
-                                    setIsRandom(true)  
+                                
                                 }}
                                  onMouseLeave={() => {
                                     // setIsRandom(false)
