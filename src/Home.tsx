@@ -541,11 +541,11 @@ return(
       <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
         {/* Pokemon Logo */}                       
         <div>
-        <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
+            <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         </div>
         {/* search bar */}
         <div>
-        <ReactAudioPlayer src={audioUrl} autoPlay />
+            <ReactAudioPlayer src={audioUrl} autoPlay />
         </div>
         </div>
  
@@ -590,10 +590,18 @@ return(
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
-                                setIsRandom(true)
+                            
+                                setIsRandom(true)  
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
+                                if (isRandom === true){
+                            
                                 console.log(pokeRand)
-                                fetchPoke()  
+                            
+                                fetchPoke()
+                                }
+                             
+                                }} onMouseLeave={() => {
+                                    setIsRandom(false)
                                 }}/>
                                 <div style={{}}>
                                     <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
