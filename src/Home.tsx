@@ -81,7 +81,7 @@ const Home = () => {
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
 //useStates*************************************************************************************
 
-    //Toggle display: 'flex'
+    //Toggle display: 'flex' - setState below with 'none' - This is for the evolution chart to show up neatly and for the card to recenter when it's not present.
     const [makeFlex, setMakeFlex] = useState<string>('flex')
 
     //For the onClick which lets the pokemon # to be random. 0-800...and something..lol
@@ -194,6 +194,7 @@ const Home = () => {
         right: '30%',
         top: '15%',
         width:'40%',
+        filter: 'drop-shadow(4px 4px 5px black)',
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
@@ -260,6 +261,7 @@ const Home = () => {
  
 //FETCH FUNCTIONS*************************************************************************************
     
+    //Making the fetch constantly run!
     useEffect (() => {
         if(inputFieldValue.length > 0){
         fetchPoke();
@@ -305,7 +307,7 @@ const Home = () => {
                         setEvoStage2(evoData.chain.evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].species.name.slice(1))
                         setEvoStage2ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].species.url.slice(42).slice(0,-1)  + '.png')
 
-                        setMakeFlex('flex')
+                        // setMakeFlex('flex')
                         //VARIABLE EVOLUTIONS....STONE...ETC...
                         if (evoData.chain.evolves_to[1] !== undefined){
                             setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
@@ -394,7 +396,7 @@ const Home = () => {
 
                             setEvolutionChainText('')
 
-                            setMakeFlex('')
+                            setMakeFlex('none')
                         }
                     })
                 })
@@ -559,7 +561,7 @@ return(
         <div>
             <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
         </div>
-        {/* Audio Player */}
+      
     
         </div>
  
@@ -596,9 +598,9 @@ return(
 
                 
 
-    <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center'}}>
+    <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
 
-            <div style={{ display:'flex', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
+            <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
                     {showCard === true ? 
                     <Draggable>
@@ -671,8 +673,10 @@ return(
         
             
             </div>
+
+            {/* Evolution Stuff */}
             {showEvo === true ? 
-            <div style={{display:'flex', flexDirection:'column'}}>
+            <div style={{display: makeFlex, flexDirection:'column'}}>
                     {/* Evolution Chain Text */}
                 <div>
                      <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
@@ -682,54 +686,55 @@ return(
 
                 <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'28rem'}}>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage1}</p>
-                    <img style={evolutionNameTextStle} src={evoStage1ImgSrc}/>
-                
-                    {/* <img src={}/> */}
+                        <p style={evolutionNameTextStle}>{evoStage1}</p>
+                        <img style={evolutionNameTextStle} className="evoImg1" src={evoStage1ImgSrc}/>
+                    
+                        {/* <img src={}/> */}
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage2}</p>
-                    <img style={evolutionNameTextStle} className='evoImg1' src={evoStage2ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage2}</p>
+                        <img style={evolutionNameTextStle} className='evoImg2' src={evoStage2ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage3}</p>
-                    <img style={evolutionNameTextStle}  className='evoImg2' src={evoStage3ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage3}</p>
+                        <img style={evolutionNameTextStle}  className='evoImg3' src={evoStage3ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage4}</p>
-                    <img style={evolutionNameTextStle}  className='evoImg3' src={evoStage4ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage4}</p>
+                        <img style={evolutionNameTextStle}  className='evoImg4' src={evoStage4ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage5}</p>
-                    <img style={evolutionNameTextStle}  className='evoImg4' src={evoStage5ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage5}</p>
+                        <img style={evolutionNameTextStle}  className='evoImg5' src={evoStage5ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage6}</p>
-                    <img style={evolutionNameTextStle} className='evoImg5' src={evoStage6ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage6}</p>
+                        <img style={evolutionNameTextStle} className='evoImg6' src={evoStage6ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage7}</p>
-                    <img style={evolutionNameTextStle} className='evoImg6' src={evoStage7ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage7}</p>
+                        <img style={evolutionNameTextStle} className='evoImg7' src={evoStage7ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage8}</p>
-                    <img style={evolutionNameTextStle}  className='evoImg7'src={evoStage8ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage8}</p>
+                        <img style={evolutionNameTextStle}  className='evoImg8'src={evoStage8ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage9}</p>
-                    <img style={evolutionNameTextStle}  className='evoImg9' src={evoStage9ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage9}</p>
+                        <img style={evolutionNameTextStle}  className='evoImg9' src={evoStage9ImgSrc}/>
                     </div>
                     <div>
-                    <p style={evolutionNameTextStle}>{evoStage10}</p>
-                    <img style={evolutionNameTextStle} className='evoImg10'  src={evoStage10ImgSrc}/>
+                        <p style={evolutionNameTextStle}>{evoStage10}</p>
+                        <img style={evolutionNameTextStle} className='evoImg10'  src={evoStage10ImgSrc}/>
                     </div>
                 </div>
 
             </div>
-            : null }
+            : null}
         </div>
+          {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{marginTop:'4%', background:'transparent'} }src={audioUrl} controls autoPlay />
+            <ReactAudioPlayer style = {{marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} controls  />
         </div>
     </div>
 )
