@@ -1,7 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
-// import PokeCard from './assets/pokemoncard5.png'
+
 import PokeLogo from './assets/pokemonlogo.png'
+
+
 
 
 
@@ -82,6 +84,12 @@ const Home = () => {
     //Toggle display: 'flex'
     const [makeFlex, setMakeFlex] = useState<string>('flex')
 
+
+    const [pokeRand, setPokeRand] = useState<any>('')
+
+    //Randomizer
+
+    const [isRandom, setIsRandom] = useState<boolean>(false)
     //Shows Pokemon Card
     const [showCard, setShowCard] = useState(false)
     //Show Submit
@@ -95,7 +103,7 @@ const Home = () => {
     //Input Field/Search Field Value
     const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
-    const [pokeNum,setPokeNum] = useState()
+    const [pokeNum,setPokeNum] = useState<number>()
 
     
 
@@ -240,6 +248,11 @@ const Home = () => {
         filter: 'drop-shadow(2px 2px 5px black)',
    
     }
+
+
+
+    let audioUrl = require('./assets/pokemontheme.mp3');
+ 
 //FETCH FUNCTIONS*************************************************************************************
     
     // useEffect (() => {
@@ -248,10 +261,11 @@ const Home = () => {
 
 
 
+
     const fetchPoke = () =>{
 
 
-        fetch(pokemonURL + inputFieldValue)
+        fetch( isRandom === false ? pokemonURL + inputFieldValue : pokemonURL + pokeRand)
         .then(res => res.json())
         .then(pokeData => {
           
@@ -519,20 +533,29 @@ const Home = () => {
     
         })
 
+
     }
 return(
     <div style={{backgroundImage: `url(${backgroundImg})`,backgroundSize:'', height:'auto',minHeight:'100vh', backgroundPosition:'center', backgroundRepeat:'auto'}}>
+      
+      <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
         {/* Pokemon Logo */}                       
+        <div>
         <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
+        </div>
         {/* search bar */}
-
-        {/* <ReactAudioPlayer src={'./assets/pokemontheme.mp3'} autoPlay controls/> */}
+        <div>
+        <ReactAudioPlayer src={audioUrl} autoPlay />
+        </div>
+        </div>
+ 
         <div>
 
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
             <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{marginTop:'1%', marginBottom: '1%',marginLeft:'30%', marginRight:'30%'}}  onChange={(e) =>{
+                setIsRandom(false)
                 setInputFieldValue(e.target.value)
                 setShowSubmit(true)
                 if (e.target.value.length <= 0 ){
@@ -567,8 +590,10 @@ return(
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
-                                // setPokeNum(Math.round(Math.random() * 10*80.2))
-                                // fetchPoke()  
+                                setIsRandom(true)
+                                setPokeRand(Math.round(Math.random() * 10*80.2))
+                                console.log(pokeRand)
+                                fetchPoke()  
                                 }}/>
                                 <div style={{}}>
                                     <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
