@@ -118,6 +118,8 @@ const Home = () => {
     //Pokemon Abilities
     const [pokeAbility1, setPokeAbility1] = useState('')
     const [pokeAbility2, setPokeAbility2] = useState('')
+
+    const [showAbility2, setShowAbility2]= useState<any>('visible')
     //Pokemon Stats
     const [pokeHp, setPokeHp] = useState<number>()
     const [pokeAtt, setPokeAtt] = useState<number>()
@@ -128,7 +130,7 @@ const Home = () => {
 
     //Pokemon Evo Data
 
-    const [showEvo, setShowEvo] = useState(false)
+    const [showEvo, setShowEvo] = useState<boolean>(true)
 
     const [evolutionChainText, setEvolutionChainText] = useState('')
 
@@ -153,6 +155,9 @@ const Home = () => {
     const [evoStage8ImgSrc, setEvoStage8ImgSrc] = useState<string>()
     const [evoStage9ImgSrc, setEvoStage9ImgSrc] = useState<string>()
     const [evoStage10ImgSrc, setEvoStage10ImgSrc] = useState<string>()
+
+    //Pokemon Cry Audio
+    const [cryAudioURL, setCryAudioURL] = useState<string>()
 
 //Main Fetch URL********************************
     let pokemonURL:string  = `https://pokeapi.co/api/v2/pokemon/`
@@ -200,12 +205,20 @@ const Home = () => {
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
-        userSelect:'none'
+        userSelect:'none',
+        filter: 'drop-shadow(1px 1px 1px black)',
+        border: '',
+        borderRadius:'25px'
     }
     //Poke Type 2 Img Style
       const pokeType2ImgStyle: React.CSSProperties={
         userSelect:'none',
-        marginLeft:'10%'
+        marginLeft:'10%',
+        filter: 'drop-shadow(1px 1px 1px black)',
+        border: '',
+        borderRadius:'25px',
+        // visibility: showAbility2
+      
     }
     //Pokemon Name Text Style
     const pokemonNameTextStyle: React.CSSProperties = {
@@ -213,7 +226,8 @@ const Home = () => {
         marginLeft:'',
         color:'white', 
         fontSize:'1.8rem',
-        userSelect:'none'
+        userSelect:'none',
+        filter: 'drop-shadow(2px 2px 5px black)'
     }
     //Pokemon Number Text Style
     const pokemonNumberStyle: React.CSSProperties ={
@@ -221,7 +235,8 @@ const Home = () => {
         marginLeft:'',
         color:'white', 
         fontSize:'1rem',
-        userSelect:'none'
+        userSelect:'none',
+        filter: 'drop-shadow(2px 2px 5px black)'
     }
     //Pokemon Abilities Text Style
     const pokemonAbilitiesTextStyle: React.CSSProperties ={
@@ -232,10 +247,11 @@ const Home = () => {
         fontSize:'1rem',
         listStyleType:'none',
         userSelect:'none',
-        width:'100px'
+        width:'100px',
+        filter: 'drop-shadow(2px 2px 5px black)'
     }
 
-
+    //EvolutionChain Text Style
     const evolutionChainTextStyle: React.CSSProperties ={
         fontSize:'1.6rem',
         color:'white',
@@ -257,12 +273,13 @@ const Home = () => {
    
     }
 
-
+    //Audio Stuff
 
     let audioUrl = require('./assets/pokemontheme.mp3');
-
-    let cryAudio = new Audio('https://veekun.com/dex/media/pokemon/cries/' + pokeRand + '.ogg')
+    
+    let cryAudio = new Audio(cryAudioURL + pokeNum + '.ogg')
     const startAudio = () => {
+        
         cryAudio.play()
       }
     
@@ -272,6 +289,7 @@ const Home = () => {
     useEffect (() => {
         if(inputFieldValue.length > 0){
         fetchPoke();
+        
         if(showCard === true){
         setShowEvo(true)
         }
@@ -303,6 +321,8 @@ const Home = () => {
                     .then(res => res.json())
                     .then(evoData => {
                     if(evoData.chain.evolves_to[0] !== undefined){
+                      
+                       
                         //EVOLVES FROM - if nothing, it will be pokemon base name
                        
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
@@ -320,28 +340,28 @@ const Home = () => {
                             setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
                             setEvoStage4ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[1].species.url.slice(42).slice(0,-1) + '.png' )
                             if (evoData.chain.evolves_to[2] !== undefined){
-                            setEvoStage5(evoData.chain.evolves_to[2].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[2].species.name.slice(1))
-                            setEvoStage5ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[2].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage5(evoData.chain.evolves_to[2].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[2].species.name.slice(1))
+                                setEvoStage5ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[2].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                             if (evoData.chain.evolves_to[3] !== undefined){
-                            setEvoStage6(evoData.chain.evolves_to[3].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[3].species.name.slice(1))
-                            setEvoStage6ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[3].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage6(evoData.chain.evolves_to[3].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[3].species.name.slice(1))
+                                setEvoStage6ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[3].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                             if (evoData.chain.evolves_to[4] !== undefined){
-                            setEvoStage7(evoData.chain.evolves_to[4].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[4].species.name.slice(1))
-                            setEvoStage7ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[4].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage7(evoData.chain.evolves_to[4].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[4].species.name.slice(1))
+                                setEvoStage7ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[4].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                             if (evoData.chain.evolves_to[5] !== undefined){
-                            setEvoStage8(evoData.chain.evolves_to[5].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[5].species.name.slice(1))
-                            setEvoStage8ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[5].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage8(evoData.chain.evolves_to[5].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[5].species.name.slice(1))
+                                setEvoStage8ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[5].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                             if (evoData.chain.evolves_to[6] !== undefined){
-                            setEvoStage9(evoData.chain.evolves_to[6].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[6].species.name.slice(1))
-                            setEvoStage9ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[6].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage9(evoData.chain.evolves_to[6].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[6].species.name.slice(1))
+                                setEvoStage9ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[6].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                             if (evoData.chain.evolves_to[7] !== undefined){
-                            setEvoStage10(evoData.chain.evolves_to[7].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[7].species.name.slice(1))
-                            setEvoStage10ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[7].species.url.slice(42).slice(0,-1) + '.png' )
+                                setEvoStage10(evoData.chain.evolves_to[7].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[7].species.name.slice(1))
+                                setEvoStage10ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[7].species.url.slice(42).slice(0,-1) + '.png' )
                             }
                         }
                         else{
@@ -410,15 +430,13 @@ const Home = () => {
             }
 
             fetchSpecies();
-
+           
             setShowCard(true)
           
             if(pokeData.name !== undefined){
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
             setPokeImgUrl(pokeData.sprites.front_default)
 
-            
-       
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
@@ -434,6 +452,9 @@ const Home = () => {
             setPokeSpeed(pokeData.stats[5].base_stat)
 
             setPokeNum(pokeData.id)
+            if(pokeNum !== undefined){
+            setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
+            }
             // console.log(pokeNum)
 
             //Pokemon Type 1 Checker
@@ -442,79 +463,80 @@ const Home = () => {
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
                 
-            } else if (pokeData.types[0].type.name === 'poison') {
-                setPokeType1Url(poisonTypeURL)
-                setBackgroundImg(PoisonBackground)
-                setPokeCardImg(PokeCardPoison)
-            } else if (pokeData.types[0].type.name === 'water') {
-                setPokeType1Url(waterTypeURL)
-                setBackgroundImg(WaterBackground)
-                setPokeCardImg(PokeCardWater)
-            } else if (pokeData.types[0].type.name === 'fire') {
-                setPokeType1Url(fireTypeURL)
-                setBackgroundImg(FireBackground)
-                setPokeCardImg(PokeCardFire)
-            } else if (pokeData.types[0].type.name === 'rock') {
-                setPokeType1Url(rockTypeURL)
-                setBackgroundImg(RockBackground)
-                setPokeCardImg(PokeCardRock)
-            } else if (pokeData.types[0].type.name === 'electric') {
-                setPokeType1Url(electricTypeURL)
-                setBackgroundImg(ElectricBackground)
-                setPokeCardImg(PokeCardElectric)
-            } else if (pokeData.types[0].type.name === 'psychic') {
-                setPokeType1Url (psychicTypeURL)
-                setBackgroundImg(PsychicBackground)
-                setPokeCardImg(PokeCardPsychic)
-            } else if (pokeData.types[0].type.name === 'ghost') {
-                setPokeType1Url (ghostTypeURL)
-                setBackgroundImg(GhostBackground)
-                setPokeCardImg(PokeCardGhost)
-            } else if (pokeData.types[0].type.name === 'bug') {
-                setPokeType1Url(bugTypeURL)
-                setBackgroundImg(BugBackground)
-                setPokeCardImg(PokeCardBug)
-            } else if (pokeData.types[0].type.name === 'dragon') {
-                setPokeType1Url( dragonTypeURL)
-                setBackgroundImg(DragonBackground)
-                setPokeCardImg(PokeCardDragon)
-            } else if (pokeData.types[0].type.name === 'fairy') {
-                setPokeType1Url(fairyTypeURL)
-                setBackgroundImg(FairyBackground)
-                setPokeCardImg(PokeCardFairy)
-            } else if (pokeData.types[0].type.name === 'fighting') {
-                setPokeType1Url(fightingTypeURL)
-                setBackgroundImg(FightingBackground)
-                setPokeCardImg(PokeCardFighting)
-            } else if (pokeData.types[0].type.name === 'ice') {
-                setPokeType1Url( iceTypeURL)
-                setBackgroundImg(IceBackground)
-                setPokeCardImg(PokeCardIce)
-            } else if (pokeData.types[0].type.name === 'normal') {
-                setPokeType1Url ( normalTypeURL)
-                setBackgroundImg(NormalBackground)
-                setPokeCardImg(PokeCardNormal)
-            } else if (pokeData.types[0].type.name === 'steel') {
-                setPokeType1Url( steelTypeURL) 
-                setBackgroundImg(SteelBackground)
-                setPokeCardImg(PokeCardSteel)
-            } else if (pokeData.types[0].type.name === 'ground') {
-                setPokeType1Url( groundTypeURL)
-                setBackgroundImg(GroundBackground)
-                setPokeCardImg(PokeCardGround)
-            } else if (pokeData.types[0].type.name === 'flying') {
-                setPokeType1Url(flyingTypeURL)
-                setBackgroundImg(FlyingBackground)
-                setPokeCardImg(PokeCardFlying)
-            } else if (pokeData.types[0].type.name === 'dark') {
-                setPokeType1Url (darkTypeURL)
-                setBackgroundImg(DarkBackground)
-                setPokeCardImg(PokeCardDark)
-            } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
-                setPokeType1Url('')
-            }
+                } else if (pokeData.types[0].type.name === 'poison') {
+                    setPokeType1Url(poisonTypeURL)
+                    setBackgroundImg(PoisonBackground)
+                    setPokeCardImg(PokeCardPoison)
+                } else if (pokeData.types[0].type.name === 'water') {
+                    setPokeType1Url(waterTypeURL)
+                    setBackgroundImg(WaterBackground)
+                    setPokeCardImg(PokeCardWater)
+                } else if (pokeData.types[0].type.name === 'fire') {
+                    setPokeType1Url(fireTypeURL)
+                    setBackgroundImg(FireBackground)
+                    setPokeCardImg(PokeCardFire)
+                } else if (pokeData.types[0].type.name === 'rock') {
+                    setPokeType1Url(rockTypeURL)
+                    setBackgroundImg(RockBackground)
+                    setPokeCardImg(PokeCardRock)
+                } else if (pokeData.types[0].type.name === 'electric') {
+                    setPokeType1Url(electricTypeURL)
+                    setBackgroundImg(ElectricBackground)
+                    setPokeCardImg(PokeCardElectric)
+                } else if (pokeData.types[0].type.name === 'psychic') {
+                    setPokeType1Url (psychicTypeURL)
+                    setBackgroundImg(PsychicBackground)
+                    setPokeCardImg(PokeCardPsychic)
+                } else if (pokeData.types[0].type.name === 'ghost') {
+                    setPokeType1Url (ghostTypeURL)
+                    setBackgroundImg(GhostBackground)
+                    setPokeCardImg(PokeCardGhost)
+                } else if (pokeData.types[0].type.name === 'bug') {
+                    setPokeType1Url(bugTypeURL)
+                    setBackgroundImg(BugBackground)
+                    setPokeCardImg(PokeCardBug)
+                } else if (pokeData.types[0].type.name === 'dragon') {
+                    setPokeType1Url( dragonTypeURL)
+                    setBackgroundImg(DragonBackground)
+                    setPokeCardImg(PokeCardDragon)
+                } else if (pokeData.types[0].type.name === 'fairy') {
+                    setPokeType1Url(fairyTypeURL)
+                    setBackgroundImg(FairyBackground)
+                    setPokeCardImg(PokeCardFairy)
+                } else if (pokeData.types[0].type.name === 'fighting') {
+                    setPokeType1Url(fightingTypeURL)
+                    setBackgroundImg(FightingBackground)
+                    setPokeCardImg(PokeCardFighting)
+                } else if (pokeData.types[0].type.name === 'ice') {
+                    setPokeType1Url( iceTypeURL)
+                    setBackgroundImg(IceBackground)
+                    setPokeCardImg(PokeCardIce)
+                } else if (pokeData.types[0].type.name === 'normal') {
+                    setPokeType1Url ( normalTypeURL)
+                    setBackgroundImg(NormalBackground)
+                    setPokeCardImg(PokeCardNormal)
+                } else if (pokeData.types[0].type.name === 'steel') {
+                    setPokeType1Url( steelTypeURL) 
+                    setBackgroundImg(SteelBackground)
+                    setPokeCardImg(PokeCardSteel)
+                } else if (pokeData.types[0].type.name === 'ground') {
+                    setPokeType1Url( groundTypeURL)
+                    setBackgroundImg(GroundBackground)
+                    setPokeCardImg(PokeCardGround)
+                } else if (pokeData.types[0].type.name === 'flying') {
+                    setPokeType1Url(flyingTypeURL)
+                    setBackgroundImg(FlyingBackground)
+                    setPokeCardImg(PokeCardFlying)
+                } else if (pokeData.types[0].type.name === 'dark') {
+                    setPokeType1Url (darkTypeURL)
+                    setBackgroundImg(DarkBackground)
+                    setPokeCardImg(PokeCardDark)
+                } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
+                    setPokeType1Url('')
+                }
             //POKEMON TYPE 2 CHECKER
             if (pokeData.types[1] !== undefined) {
+                setShowAbility2('visible') 
 
                 if (pokeData.types[1].type.name === 'grass') {
                     setPokeType2Url(grassTypeURL)
@@ -553,7 +575,11 @@ const Home = () => {
                 } else if (pokeData.types[1].type.name === 'dark') {
                      setPokeType2Url(darkTypeURL)             }
             } else {
-                 setPokeType2Url('')  }
+                setShowAbility2('hidden') 
+                setPokeType2Url('') 
+
+               
+                }
             }
     
         })
@@ -585,17 +611,17 @@ return(
                 setIsRandom(false)
                 setInputFieldValue(e.target.value.toLowerCase())
                 // console.log(inputFieldValue)
-                setShowSubmit(true)
+                // setShowSubmit(true)
 
 
                 // fetchPoke();
              
-                if (e.target.value.length <= 0 ){
-                    setShowSubmit(false)
-                }
-                else {
-                    setShowSubmit(true)
-                }
+                // if (e.target.value.length <= 0 ){
+                //     setShowSubmit(false)
+                // }
+                // else {
+                //     setShowSubmit(true)
+                // }
             }}/>
             </InputGroup>
 
@@ -619,13 +645,22 @@ return(
                         {/* Card Img */}
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
-                            <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl} onClick={() => {
+                            <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
+                            onClick={() => {
+
+                               
                                 startAudio();
-                                console.log(pokeRand)
-                                setIsRandom(true)  
+                                
+                            
                                 setPokeRand(Math.round(Math.random() * 10*80.2))
+                                console.log(pokeRand)
+
+                                setShowEvo(true)
                         
-                                }} onMouseLeave={() => {
+                                }} onMouseEnter={() => {
+                                    setIsRandom(true)  
+                                }}
+                                 onMouseLeave={() => {
                                     // setIsRandom(false)
                                 }}/>
                                 <div style={{}}>
@@ -644,13 +679,13 @@ return(
                                                 </ul>
                                             </div>
                                             {/* Pokemon Stat Bars */}
-                                            <div style={{ width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly',userSelect:'none' }}>
-                                                <ProgressBar style={{marginTop:'1%'}} now={pokeHp} label={`HP: ${pokeHp}`} />
-                                                <ProgressBar now={pokeAtt} label={`Att: ${pokeAtt}`} />
-                                                <ProgressBar now={pokeDef} label={`Def: ${pokeDef}`} />
-                                                <ProgressBar now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
-                                                <ProgressBar now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
-                                                <ProgressBar now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
+                                            <div style={{ marginBottom:'-4%',width: 200, display:'flex',flexDirection:'column', justifyContent:'space-evenly',userSelect:'none' ,   filter: 'drop-shadow(2px 2px 5px black)'}}>
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeHp} label={`HP: ${pokeHp}`} />
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeAtt} label={`Att: ${pokeAtt}`} />
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeDef} label={`Def: ${pokeDef}`} />
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeSpeed} label={`Speed: ${pokeSpeed}`} />
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeSpAtt} label={`Sp.Att: ${pokeSpAtt}`} />
+                                                <ProgressBar style={{marginTop:'1%',  textShadow:'2px 2px 2px black'}} now={pokeSpDef} label={`Sp.Def: ${pokeSpDef}`} />
                                             </div>
                                             
                                         </div>
@@ -665,6 +700,7 @@ return(
                                         <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                         {/* Pokemon Type Img 2 */}
                                         <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
+                             
                                     </div>
                                     </div>    
                                     <p style={{opacity:'.3'}}>__________________</p>
@@ -856,7 +892,7 @@ return(
         </div>
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} controls  />
         </div>
     </div>
 )

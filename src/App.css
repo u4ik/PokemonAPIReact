@@ -77,10 +77,11 @@
 }
 
 .pokeImg {
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: bounce-6;
     animation-timing-function: ease-in-out;
+    animation-delay: -.1s;
 }
 
 .evoImg1 {
