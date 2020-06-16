@@ -240,6 +240,7 @@ const Home = () => {
     }
     //Evolution Name Text Style
     const evolutionNameTextStyle: React.CSSProperties ={
+        
         fontSize:'1.2rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
@@ -251,15 +252,11 @@ const Home = () => {
     //Audio Pokemon Main Theme & Onclicks To Load Pokemon Cries
     let audioUrl = require('./assets/pokemontheme.mp3');
     let cryAudio = new Audio(cryAudioURL + pokeNum + '.ogg')
-    
-
     const startAudio = () => { 
      
         cryAudio.play()
         cryAudio.volume = .1;
       }
-
-   
 //FETCH FUNCTIONS*************************************************************************************
     //Making the fetch constantly run!
     useEffect (() => {
@@ -628,7 +625,7 @@ return(
                                             <img   alt={''} draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                         </div>
                                     </div>    
-                                    <p style={{opacity:'.3', userSelect:'none'}}>__________________</p>
+                                    <p style={{opacity:'.3', userSelect:'none', marginTop: '3%'}}>__________________</p>
                                 </div>
                             </div>
                         </div>
@@ -647,7 +644,7 @@ return(
                     <div>
                            {/* Evolution 1*/}
                         <p style={evolutionNameTextStyle}>{evoStage1}</p>
-                        <img  alt={''}style={evolutionNameTextStyle} className="evoImg1" src={evoStage1ImgSrc} 
+                        <img draggable = 'false'  alt={''}style={evolutionNameTextStyle} className="evoImg1" src={evoStage1ImgSrc} 
                         onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -662,7 +659,7 @@ return(
                     <div>
                            {/* Evolution 2*/}
                         <p style={evolutionNameTextStyle}>{evoStage2}</p>
-                        <img  alt={''} style={evolutionNameTextStyle} className='evoImg2' src={evoStage2ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle} className='evoImg2' src={evoStage2ImgSrc}
                             onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -676,7 +673,7 @@ return(
                     <div>
                            {/* Evolution 3*/}
                         <p style={evolutionNameTextStyle}>{evoStage3}</p>
-                        <img alt={''}style={evolutionNameTextStyle}  className='evoImg3' src={evoStage3ImgSrc}
+                        <img  draggable = 'false' alt={''}style={evolutionNameTextStyle}  className='evoImg3' src={evoStage3ImgSrc}
                             onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -690,7 +687,7 @@ return(
                     <div>
                            {/* Evolution 4*/}
                         <p style={evolutionNameTextStyle}>{evoStage4}</p>
-                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg4' src={evoStage4ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle}  className='evoImg4' src={evoStage4ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -705,7 +702,7 @@ return(
                     <div>
                            {/* Evolution 5*/}
                         <p style={evolutionNameTextStyle}>{evoStage5}</p>
-                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg5' src={evoStage5ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle}  className='evoImg5' src={evoStage5ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -720,7 +717,7 @@ return(
                     <div>
                            {/* Evolution 6*/}
                         <p style={evolutionNameTextStyle}>{evoStage6}</p>
-                        <img  alt={''}style={evolutionNameTextStyle} className='evoImg6' src={evoStage6ImgSrc}
+                        <img draggable = 'false'  alt={''}style={evolutionNameTextStyle} className='evoImg6' src={evoStage6ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -735,7 +732,7 @@ return(
                     <div>
                            {/* Evolution 7*/}
                         <p style={evolutionNameTextStyle}>{evoStage7}</p>
-                        <img  alt={''} style={evolutionNameTextStyle} className='evoImg7' src={evoStage7ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle} className='evoImg7' src={evoStage7ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -750,7 +747,7 @@ return(
                     <div>
                            {/* Evolution 8*/}
                         <p style={evolutionNameTextStyle}>{evoStage8}</p>
-                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg8'src={evoStage8ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle}  className='evoImg8'src={evoStage8ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -765,7 +762,7 @@ return(
                     <div>
                            {/* Evolution 9*/}
                         <p style={evolutionNameTextStyle}>{evoStage9}</p>
-                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg9' src={evoStage9ImgSrc}
+                        <img draggable = 'false'  alt={''} style={evolutionNameTextStyle}  className='evoImg9' src={evoStage9ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -779,7 +776,7 @@ return(
                     <div>
                            {/* Evolution 10*/}
                         <p style={evolutionNameTextStyle}>{evoStage10}</p>
-                        <img alt={''} style={evolutionNameTextStyle} className='evoImg10'  src={evoStage10ImgSrc}
+                        <img draggable = 'false' alt={''} style={evolutionNameTextStyle} className='evoImg10'  src={evoStage10ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
