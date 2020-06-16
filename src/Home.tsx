@@ -374,13 +374,8 @@ const Home = () => {
                             setEvoStage8ImgSrc('')
                             setEvoStage9ImgSrc('')
                             setEvoStage10ImgSrc('')
-
                             setEvolutionChainText('')
                             setMakeFlex('none')
-
-                            
-
-                           
                         }
                     })
                 })
@@ -410,7 +405,7 @@ const Home = () => {
 
             setPokeNum(pokeData.id)
             if(pokeNum !== undefined){
-            setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
+                setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
             }
             // console.log(pokeNum)
 
