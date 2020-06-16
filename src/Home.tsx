@@ -159,7 +159,7 @@ const Home = () => {
         // textShadow:'3px 3px 1px black',
         textShadow:'.15rem .15rem 0 blue',
         userSelect:'none',
-        marginTop:'.5%',
+        marginTop:'2rem',
         filter: 'drop-shadow(2px 2px 5px black)',
         marginLeft:' 25%',
         marginRight: '25%'
@@ -543,7 +543,7 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'35%', marginRight:'35%'}}  onChange={(e) =>{
+            <Input placeholder="Search" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '2rem',marginLeft:'35%', marginRight:'35%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value.toLowerCase())
                 // Submit Button is Commented out
@@ -803,7 +803,7 @@ return(
         }
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'24vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
 )
