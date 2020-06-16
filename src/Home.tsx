@@ -169,6 +169,7 @@ const Home = () => {
         top: '15%',
         width:'40%',
         filter: 'drop-shadow(4px 4px 5px black)',
+        cursor: 'pointer'
        
     }
     //Poke Type 1 Img Style
