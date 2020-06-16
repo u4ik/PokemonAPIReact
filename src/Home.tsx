@@ -553,7 +553,7 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
+            <Input placeholder="Search" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'35%', marginRight:'35%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value.toLowerCase())
                 // Submit Button is Commented out
