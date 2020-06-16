@@ -803,7 +803,7 @@ return(
         }
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'9%', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'3rem', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
 )
