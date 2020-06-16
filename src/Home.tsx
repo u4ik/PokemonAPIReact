@@ -601,7 +601,7 @@ return(
                                         <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0', userSelect:'none'}}>__________________</p>
                                         {/* Pokemon Number */}
                                         <p style={pokemonNumberStyle}># {pokeNum}</p>
-                                        <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
+                                        <div style={{display:'flex', flexDirection:'row', marginLeft:'15%',marginRight:'15%', height:'100px'}}>
                                             {/* Pokemon Abilities Text */}
                                             <div style={{marginRight: '9%',marginTop: ''}}>
                                                 <ul style={pokemonAbilitiesTextStyle}>Abilities:
@@ -803,7 +803,7 @@ return(
         }
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'10%', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'9%', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
 )
