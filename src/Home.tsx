@@ -3,7 +3,7 @@ import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 //Pokemon Logo
 import PokeLogo from './assets/pokemonlogo.png'
 // Backgrounds
-import PokemonBackGroundGif from './assets/pokemonbackground.gif'
+import PokemonBackGroundGif from './assets/pokemonbackground.png'
 import GrassBackground from './assets/typegrass.png'
 import BugBackground from './assets/typebug.png'
 import NormalBackground from './assets/typecolorless.png'
@@ -140,17 +140,29 @@ const Home = () => {
         userSelect: 'none',
         marginTop:'2%',
         filter: 'drop-shadow(5px 5px 5px black)',
-        width:'25%',
+        width:'21rem',
     };
     //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
-        fontSize:'2rem',
+        fontSize:'1.8rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
         textShadow:'.2rem .2rem 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
+    }
+    //Welcome Text Style
+    const welcomeTextStyle: React.CSSProperties ={
+        fontSize:'1.5rem',
+        color:'white',
+        // textShadow:'3px 3px 1px black',
+        textShadow:'.15rem .15rem 0 blue',
+        userSelect:'none',
+        marginTop:'.5%',
+        filter: 'drop-shadow(2px 2px 5px black)',
+        marginLeft:' 25%',
+        marginRight: '25%'
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
@@ -239,9 +251,15 @@ const Home = () => {
     //Audio Pokemon Main Theme & Onclicks To Load Pokemon Cries
     let audioUrl = require('./assets/pokemontheme.mp3');
     let cryAudio = new Audio(cryAudioURL + pokeNum + '.ogg')
+    
+
     const startAudio = () => { 
+     
         cryAudio.play()
+        cryAudio.volume = .1;
       }
+
+   
 //FETCH FUNCTIONS*************************************************************************************
     //Making the fetch constantly run!
     useEffect (() => {
@@ -777,9 +795,15 @@ return(
             </div>
             : null}
         </div>
+        {showCard === false ? 
+        <div >
+            <p style={welcomeTextStyle}>Welcome! You can search by name or # or click the Pokémon that appears in the card to randomize!</p>
+        </div>
+        : null
+        }
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl}  loop controls  />
         </div>
     </div>
 )
