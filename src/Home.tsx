@@ -575,7 +575,7 @@ return(
             } */}
         </div>
             {/* Card and Evolution Container */}
-    <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
+    <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap: 'wrap-reverse'}}>
 
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
