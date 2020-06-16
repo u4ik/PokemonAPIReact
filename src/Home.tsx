@@ -540,7 +540,7 @@ const Home = () => {
     }
 return(
     // Background Image/Main Container
-    <div style={{backgroundImage: `url(${backgroundImg})`, height:'100vh',minHeight:'100vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
+    <div style={{backgroundImage: `url(${backgroundImg})`, height:'auto',minHeight:'100vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
         <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
             {/* Pokemon Logo */}                       
             <div>
@@ -582,6 +582,7 @@ return(
 
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
+                 
                     {showCard === true ? 
                     <Draggable>
                         <div>
@@ -646,6 +647,7 @@ return(
                         </div>
                     </Draggable>
                         :null} 
+                  
             </div>
             {/* Evolution Stuff */}
             {showEvo === true ? 
@@ -655,7 +657,7 @@ return(
                      <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
                 </div>
                     {/* Evolution Names & Images*/}
-                <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'28rem'}}>
+                <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'20rem'}}>
                     <div>
                            {/* Evolution 1*/}
                         <p style={evolutionNameTextStyle}>{evoStage1}</p>
