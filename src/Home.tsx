@@ -45,6 +45,7 @@ import PokeCardFighting from './assets/pokemoncardfighting.png'
 import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable';
 import ReactAudioPlayer from 'react-audio-player';
+import Tappable from 'react-tappable/lib/Tappable';
 const Home = () => {
 //TYPE ICON IMG SRC*************************************************************************************
     let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
@@ -169,6 +170,7 @@ const Home = () => {
         top: '15%',
         width:'40%',
         filter: 'drop-shadow(4px 4px 5px black)',
+        cursor: 'pointer'
        
     }
     //Poke Type 1 Img Style
@@ -188,6 +190,7 @@ const Home = () => {
         // visibility: showAbility2
       
     }
+    
     //Pokemon Name Text Style
     const pokemonNameTextStyle: React.CSSProperties = {
         margin:'0%',
@@ -374,13 +377,8 @@ const Home = () => {
                             setEvoStage8ImgSrc('')
                             setEvoStage9ImgSrc('')
                             setEvoStage10ImgSrc('')
-
                             setEvolutionChainText('')
                             setMakeFlex('none')
-
-                            
-
-                           
                         }
                     })
                 })
@@ -410,7 +408,7 @@ const Home = () => {
 
             setPokeNum(pokeData.id)
             if(pokeNum !== undefined){
-            setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
+                setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
             }
             // console.log(pokeNum)
 
@@ -555,7 +553,7 @@ return(
             {/* Input Field */}
             <InputGroup>
                 <InputGroupAddon addonType="prepend"></InputGroupAddon>
-            <Input placeholder="Search the pokedex for YOUR favorite Pokemon" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'40%', marginRight:'40%'}}  onChange={(e) =>{
+            <Input placeholder="Search" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '1%',marginLeft:'35%', marginRight:'35%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value.toLowerCase())
                 // Submit Button is Commented out
@@ -580,7 +578,7 @@ return(
             } */}
         </div>
             {/* Card and Evolution Container */}
-    <div style={{display: 'flex', flexDirection:'row', justifyContent:'center'}}>
+    <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap: 'wrap-reverse'}}>
 
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
@@ -591,19 +589,22 @@ return(
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <div style={{}}>
-                                <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
-                                onClick={() => {
+                                <Tappable  onTap={() => {
                                     setIsRandom(true)  
                                     startAudio();
                                     setPokeRand(Math.round(Math.random() * 10*80.2))
-                                    console.log(pokeRand)
                                     setShowEvo(true)
-                                    }} onMouseEnter={() => {
-                                    
-                                    }}
-                                    onMouseLeave={() => {
-                                        // setIsRandom(false)
+
+                                }}>
+                                <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
+                                onClick={() => {
+                                    // setIsRandom(true)  
+                                    // startAudio();
+                                    // setPokeRand(Math.round(Math.random() * 10*80.2))
+                                    // // console.log(pokeRand)
+                                    // setShowEvo(true)
                                     }}/>
+                                </Tappable>
                             </div>
                             <div style={{}}>
                                 <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
