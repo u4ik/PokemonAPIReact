@@ -45,6 +45,7 @@ import PokeCardFighting from './assets/pokemoncardfighting.png'
 import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable';
 import ReactAudioPlayer from 'react-audio-player';
+import Tappable from 'react-tappable/lib/Tappable';
 const Home = () => {
 //TYPE ICON IMG SRC*************************************************************************************
     let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
@@ -189,6 +190,7 @@ const Home = () => {
         // visibility: showAbility2
       
     }
+    
     //Pokemon Name Text Style
     const pokemonNameTextStyle: React.CSSProperties = {
         margin:'0%',
@@ -587,19 +589,22 @@ return(
                             <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <div style={{}}>
-                                <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
-                                onClick={() => {
+                                <Tappable  onTap={() => {
                                     setIsRandom(true)  
                                     startAudio();
                                     setPokeRand(Math.round(Math.random() * 10*80.2))
-                                    console.log(pokeRand)
                                     setShowEvo(true)
-                                    }} onMouseEnter={() => {
-                                    
-                                    }}
-                                    onMouseLeave={() => {
-                                        // setIsRandom(false)
+
+                                }}>
+                                <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
+                                onClick={() => {
+                                    // setIsRandom(true)  
+                                    // startAudio();
+                                    // setPokeRand(Math.round(Math.random() * 10*80.2))
+                                    // // console.log(pokeRand)
+                                    // setShowEvo(true)
                                     }}/>
+                                </Tappable>
                             </div>
                             <div style={{}}>
                                 <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
