@@ -283,7 +283,7 @@ const Home = () => {
                         }
                         //EVOLVES FROM - if nothing, it will be pokemon base name
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
-                        console.log(evoStage1)
+                        // console.log(evoStage1)
                         setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
                         //EVOLVES TO - NEXT EVOLUTION/ SECOND EVOLUTION
                         setEvoStage2(evoData.chain.evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].species.name.slice(1))
@@ -391,7 +391,7 @@ const Home = () => {
                 // Can Change Pokemon Profile Pic here
                     setPokeImgUrl(pokeData.sprites.front_default)
                 // setPokeImgUrl('https://projectpokemon.org/images/normal-sprite/' + pokeName.toLowerCase() +'.gif')
-                console.log(pokeName.toLowerCase())
+                // console.log(pokeName.toLowerCase())
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
