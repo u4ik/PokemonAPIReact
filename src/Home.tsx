@@ -572,8 +572,8 @@ return(
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
                     {showCard === true ? 
-                    <Draggable>
-                        <div>
+                    // <Draggable>
+                        <div style={{transform: 'translate(0px, 0px)'}}>
                         {/* Card Img */}
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
@@ -598,7 +598,7 @@ return(
                                 <div style={{display:'flex', flexDirection:'column', position:'absolute',top:'53%',textAlign:'center', width:'100%',textShadow:'1px 1px 1px black'}}>
                                         {/* Pokemon Name Text */}
                                         <p style={pokemonNameTextStyle}>{pokeName}</p>
-                                        <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0'}}>__________________</p>
+                                        <p style={{opacity:'.3', marginTop:'-6%', marginBottom:'0', userSelect:'none'}}>__________________</p>
                                         {/* Pokemon Number */}
                                         <p style={pokemonNumberStyle}># {pokeNum}</p>
                                         <div style={{display:'flex', flexDirection:'row', marginLeft:'auto',marginRight:'auto', height:'100px'}}>
@@ -628,11 +628,11 @@ return(
                                             <img   alt={''} draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                         </div>
                                     </div>    
-                                    <p style={{opacity:'.3'}}>__________________</p>
+                                    <p style={{opacity:'.3', userSelect:'none'}}>__________________</p>
                                 </div>
                             </div>
                         </div>
-                    </Draggable>
+                    // </Draggable>
                         :null} 
             </div>
             {/* Evolution Stuff */}
