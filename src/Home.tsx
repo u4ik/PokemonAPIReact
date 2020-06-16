@@ -1,9 +1,9 @@
 import React, {useState,useEffect} from 'react';
-import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
 //Pokemon Logo
 import PokeLogo from './assets/pokemonlogo.png'
 // Backgrounds
-import PokemonBackGroundGif from './assets/pokemonbackground.gif'
+import PokemonBackGroundGif from './assets/pokemonbackground.png'
 import GrassBackground from './assets/typegrass.png'
 import BugBackground from './assets/typebug.png'
 import NormalBackground from './assets/typecolorless.png'
@@ -46,6 +46,8 @@ import {ProgressBar} from 'react-bootstrap';
 import Draggable from 'react-draggable';
 import ReactAudioPlayer from 'react-audio-player';
 import Tappable from 'react-tappable/lib/Tappable';
+//Welcome Console Log:
+console.log('Welcome! You can search by name or # or click the pokemon that appears in the card to randomize!')     
 const Home = () => {
 //TYPE ICON IMG SRC*************************************************************************************
     let grassTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/4/46/Type_Grass.gif/'
@@ -76,7 +78,7 @@ const Home = () => {
     //Shows Pokemon Card
     const [showCard, setShowCard] = useState(false)
     //Show Submit
-    const [showSubmit, setShowSubmit] = useState(false)
+    // const [showSubmit, setShowSubmit] = useState(false)
     //Background Image
     const [backgroundImg, setBackgroundImg] = useState(PokemonBackGroundGif)
     //Pokemon Name
@@ -138,18 +140,29 @@ const Home = () => {
         userSelect: 'none',
         marginTop:'2%',
         filter: 'drop-shadow(5px 5px 5px black)',
-        width:'25%',
-
+        width:'21rem',
     };
     //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
-        fontSize:'2rem',
+        fontSize:'1.8rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
         textShadow:'.2rem .2rem 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
+    }
+    //Welcome Text Style
+    const welcomeTextStyle: React.CSSProperties ={
+        fontSize:'1.5rem',
+        color:'white',
+        // textShadow:'3px 3px 1px black',
+        textShadow:'.15rem .15rem 0 blue',
+        userSelect:'none',
+        marginTop:'.5%',
+        filter: 'drop-shadow(2px 2px 5px black)',
+        marginLeft:' 25%',
+        marginRight: '25%'
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
@@ -159,9 +172,6 @@ const Home = () => {
         borderRadius:'4%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)',
- 
-      
-    
     }
     //Poke Img Style
     const pokeImgStyle: React.CSSProperties={
@@ -171,7 +181,6 @@ const Home = () => {
         width:'40%',
         filter: 'drop-shadow(4px 4px 5px black)',
         cursor: 'pointer'
-       
     }
     //Poke Type 1 Img Style
     const pokeType1ImgStyle: React.CSSProperties={
@@ -187,10 +196,8 @@ const Home = () => {
         filter: 'drop-shadow(1px 1px 1px black)',
         border: '',
         borderRadius:'25px',
-        // visibility: showAbility2
-      
+        visibility: showAbility2
     }
-    
     //Pokemon Name Text Style
     const pokemonNameTextStyle: React.CSSProperties = {
         margin:'0%',
@@ -240,14 +247,19 @@ const Home = () => {
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)',
-   
     }
     //Audio Pokemon Main Theme & Onclicks To Load Pokemon Cries
     let audioUrl = require('./assets/pokemontheme.mp3');
     let cryAudio = new Audio(cryAudioURL + pokeNum + '.ogg')
+    
+
     const startAudio = () => { 
+     
         cryAudio.play()
+        cryAudio.volume = .1;
       }
+
+   
 //FETCH FUNCTIONS*************************************************************************************
     //Making the fetch constantly run!
     useEffect (() => {
@@ -283,14 +295,13 @@ const Home = () => {
                         }
                         //EVOLVES FROM - if nothing, it will be pokemon base name
                         setEvoStage1(evoData.chain.species.name.charAt(0).toUpperCase() + evoData.chain.species.name.slice(1))
-                        console.log(evoStage1)
+                        // console.log(evoStage1)
                         setEvoStage1ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.species.url.slice(42).slice(0, -1)  + '.png')
                         //EVOLVES TO - NEXT EVOLUTION/ SECOND EVOLUTION
                         setEvoStage2(evoData.chain.evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].species.name.slice(1))
                         setEvoStage2ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].species.url.slice(42).slice(0,-1)  + '.png')
                         //VARIABLE EVOLUTIONS....STONE...ETC...
                         if (evoData.chain.evolves_to[1] !== undefined){
-                          
                             setEvoStage4(evoData.chain.evolves_to[1].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[1].species.name.slice(1))
                             setEvoStage4ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[1].species.url.slice(42).slice(0,-1) + '.png' )
                             if (evoData.chain.evolves_to[2] !== undefined){
@@ -319,7 +330,6 @@ const Home = () => {
                             }
                         }
                         else{
-                           
                             setEvoStage4('')
                             setEvoStage5('')
                             setEvoStage6('')
@@ -327,7 +337,6 @@ const Home = () => {
                             setEvoStage8('')
                             setEvoStage9('')
                             setEvoStage10('')
-
                             setEvoStage4ImgSrc('')
                             setEvoStage5ImgSrc('')
                             setEvoStage6ImgSrc('')
@@ -335,25 +344,18 @@ const Home = () => {
                             setEvoStage8ImgSrc('')
                             setEvoStage9ImgSrc('')
                             setEvoStage10ImgSrc('')
-                      
-                      
                         }
                         //EVOLVES TO - NEXT EVOLUTION/ THIRD EVOLUTION
                         if(evoData.chain.evolves_to[0].evolves_to[0] !==undefined){
                         setEvoStage3(evoData.chain.evolves_to[0].evolves_to[0].species.name.charAt(0).toUpperCase() + evoData.chain.evolves_to[0].evolves_to[0].species.name.slice(1))
                         setEvoStage3ImgSrc("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + evoData.chain.evolves_to[0].evolves_to[0].species.url.slice(42).slice(0,-1) + '.png' )
                         // setMakeFlex('flex')
-
-                       
                             } else{
-                            
                                 setEvoStage3('')
                                 setEvoStage3ImgSrc('')
-                        
                             }
                         setEvolutionChainText('Evolution:')
                         } else {
-                          
                             setEvoStage1('')
                             setEvoStage2('')
                             setEvoStage3('')
@@ -364,9 +366,6 @@ const Home = () => {
                             setEvoStage8('')
                             setEvoStage9('')
                             setEvoStage10('')
-
-                      
-
                             setEvoStage1ImgSrc('')
                             setEvoStage2ImgSrc('')
                             setEvoStage3ImgSrc('')
@@ -387,15 +386,13 @@ const Home = () => {
             setShowCard(true)          
             if(pokeData.name !== undefined){
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
-
                 // Can Change Pokemon Profile Pic here
                     setPokeImgUrl(pokeData.sprites.front_default)
                 // setPokeImgUrl('https://projectpokemon.org/images/normal-sprite/' + pokeName.toLowerCase() +'.gif')
-                console.log(pokeName.toLowerCase())
+                // console.log(pokeName.toLowerCase())
             setPokeAbility1(pokeData.abilities[0].ability.name)
             if(pokeData.abilities[1] !== undefined){
             setPokeAbility2(pokeData.abilities[1].ability.name)
-           
             } else {
                 setPokeAbility2('')
             }
@@ -405,19 +402,15 @@ const Home = () => {
             setPokeSpAtt(pokeData.stats[3].base_stat)
             setPokeSpDef(pokeData.stats[4].base_stat)
             setPokeSpeed(pokeData.stats[5].base_stat)
-
             setPokeNum(pokeData.id)
             if(pokeNum !== undefined){
                 setCryAudioURL ('https://veekun.com/dex/media/pokemon/cries/');
             }
-            // console.log(pokeNum)
-
             //Pokemon Type 1 Checker
             if (pokeData.types[0].type.name === 'grass') {
                 setPokeType1Url(grassTypeURL)
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
-                
                 } else if (pokeData.types[0].type.name === 'poison') {
                     setPokeType1Url(poisonTypeURL)
                     setBackgroundImg(PoisonBackground)
@@ -492,7 +485,6 @@ const Home = () => {
             //POKEMON TYPE 2 CHECKER
             if (pokeData.types[1] !== undefined) {
                 setShowAbility2('visible') 
-
                 if (pokeData.types[1].type.name === 'grass') {
                     setPokeType2Url(grassTypeURL)
                 } else if (pokeData.types[1].type.name === 'poison') {
@@ -532,8 +524,6 @@ const Home = () => {
             } else {
                 setShowAbility2('hidden') 
                 setPokeType2Url('') 
-
-               
                 }
             }
         })
@@ -579,15 +569,13 @@ return(
         </div>
             {/* Card and Evolution Container */}
     <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap: 'wrap-reverse'}}>
-
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
                     {/* Card Container */}
-                 
                     {showCard === true ? 
                     <Draggable>
                         <div>
                         {/* Card Img */}
-                            <img draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
+                            <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                             {/* Pokemon Img */}
                             <div style={{}}>
                                 <Tappable  onTap={() => {
@@ -595,9 +583,8 @@ return(
                                     startAudio();
                                     setPokeRand(Math.round(Math.random() * 10*80.2))
                                     setShowEvo(true)
-
                                 }}>
-                                <img draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
+                                <img  draggable="false" className ='pokeImg'style={pokeImgStyle} alt="pokeImg" src={pokeImgUrl}
                                 onClick={() => {
                                     // setIsRandom(true)  
                                     // startAudio();
@@ -636,9 +623,9 @@ return(
                                         {/* Pokemon Type Images */}
                                         <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
                                             {/* Pokemon Type Img 1 */}
-                                            <img  draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
+                                            <img  alt={''} draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                             {/* Pokemon Type Img 2 */}
-                                            <img draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
+                                            <img   alt={''} draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                         </div>
                                     </div>    
                                     <p style={{opacity:'.3'}}>__________________</p>
@@ -647,7 +634,6 @@ return(
                         </div>
                     </Draggable>
                         :null} 
-                  
             </div>
             {/* Evolution Stuff */}
             {showEvo === true ? 
@@ -661,7 +647,7 @@ return(
                     <div>
                            {/* Evolution 1*/}
                         <p style={evolutionNameTextStyle}>{evoStage1}</p>
-                        <img style={evolutionNameTextStyle} className="evoImg1" src={evoStage1ImgSrc} 
+                        <img  alt={''}style={evolutionNameTextStyle} className="evoImg1" src={evoStage1ImgSrc} 
                         onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -676,7 +662,7 @@ return(
                     <div>
                            {/* Evolution 2*/}
                         <p style={evolutionNameTextStyle}>{evoStage2}</p>
-                        <img style={evolutionNameTextStyle} className='evoImg2' src={evoStage2ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle} className='evoImg2' src={evoStage2ImgSrc}
                             onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -690,7 +676,7 @@ return(
                     <div>
                            {/* Evolution 3*/}
                         <p style={evolutionNameTextStyle}>{evoStage3}</p>
-                        <img style={evolutionNameTextStyle}  className='evoImg3' src={evoStage3ImgSrc}
+                        <img alt={''}style={evolutionNameTextStyle}  className='evoImg3' src={evoStage3ImgSrc}
                             onMouseEnter={() => {
                             setIsRandom(true)
                             fetchPoke();
@@ -704,7 +690,7 @@ return(
                     <div>
                            {/* Evolution 4*/}
                         <p style={evolutionNameTextStyle}>{evoStage4}</p>
-                        <img style={evolutionNameTextStyle}  className='evoImg4' src={evoStage4ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg4' src={evoStage4ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -719,7 +705,7 @@ return(
                     <div>
                            {/* Evolution 5*/}
                         <p style={evolutionNameTextStyle}>{evoStage5}</p>
-                        <img style={evolutionNameTextStyle}  className='evoImg5' src={evoStage5ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg5' src={evoStage5ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -734,7 +720,7 @@ return(
                     <div>
                            {/* Evolution 6*/}
                         <p style={evolutionNameTextStyle}>{evoStage6}</p>
-                        <img style={evolutionNameTextStyle} className='evoImg6' src={evoStage6ImgSrc}
+                        <img  alt={''}style={evolutionNameTextStyle} className='evoImg6' src={evoStage6ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -749,7 +735,7 @@ return(
                     <div>
                            {/* Evolution 7*/}
                         <p style={evolutionNameTextStyle}>{evoStage7}</p>
-                        <img style={evolutionNameTextStyle} className='evoImg7' src={evoStage7ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle} className='evoImg7' src={evoStage7ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -764,7 +750,7 @@ return(
                     <div>
                            {/* Evolution 8*/}
                         <p style={evolutionNameTextStyle}>{evoStage8}</p>
-                        <img style={evolutionNameTextStyle}  className='evoImg8'src={evoStage8ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg8'src={evoStage8ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -779,7 +765,7 @@ return(
                     <div>
                            {/* Evolution 9*/}
                         <p style={evolutionNameTextStyle}>{evoStage9}</p>
-                        <img style={evolutionNameTextStyle}  className='evoImg9' src={evoStage9ImgSrc}
+                        <img  alt={''} style={evolutionNameTextStyle}  className='evoImg9' src={evoStage9ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -793,7 +779,7 @@ return(
                     <div>
                            {/* Evolution 10*/}
                         <p style={evolutionNameTextStyle}>{evoStage10}</p>
-                        <img style={evolutionNameTextStyle} className='evoImg10'  src={evoStage10ImgSrc}
+                        <img alt={''} style={evolutionNameTextStyle} className='evoImg10'  src={evoStage10ImgSrc}
                                      onMouseEnter={() => {
                                         setIsRandom(true)
                                         fetchPoke();
@@ -809,9 +795,15 @@ return(
             </div>
             : null}
         </div>
+        {showCard === false ? 
+        <div >
+            <p style={welcomeTextStyle}>Welcome! You can search by name or # or click the Pokémon that appears in the card to randomize!</p>
+        </div>
+        : null
+        }
           {/* Audio Player */}
         <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} controls  />
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'8vh', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
 )
