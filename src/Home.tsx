@@ -22,6 +22,29 @@ import RockBackground from './assets/typerock.png'
 import SteelBackground from './assets/typesteel.png'
 import WaterBackground from './assets/typewater.png'
 import GhostBackground from './assets/typeghost.png'
+
+//Type Icon Svgs
+import BugSvg from './assets/Type Icons/bug.svg'
+import DarkSvg from './assets/Type Icons/dark.svg'
+import DragonSvg from './assets/Type Icons/dragon.svg'
+import ElectricSvg from './assets/Type Icons/electric.svg'
+import FairySvg from './assets/Type Icons/fairy.svg'
+import FightingSvg from './assets/Type Icons/fighting.svg'
+import FireSvg from './assets/Type Icons/fire.svg'
+import FlyingSvg from './assets/Type Icons/flying.svg'
+import GhostSvg from './assets/Type Icons/ghost.svg'
+import GrassSvg from './assets/Type Icons/grass.svg'
+import GroundSvg from './assets/Type Icons/ground.svg'
+import IceSvg from './assets/Type Icons/ice.svg'
+import NormalSvg from './assets/Type Icons/normal.svg'
+import PoisonSvg from './assets/Type Icons/poison.svg'
+import PsychicSvg from './assets/Type Icons/psychic.svg'
+import RockSvg from './assets/Type Icons/rock.svg'
+import SteelSvg from './assets/Type Icons/steel.svg'
+import WaterSvg from './assets/Type Icons/water.svg'
+
+
+
 //Card Templates By Type
 import PokeCardGrass from './assets/pokemoncardgrass.png'
 import PokeCardFire from './assets/pokemoncardfire.png'
@@ -84,11 +107,15 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('')
+    const [inputFieldValue, setInputFieldValue]= useState <string>('')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
     const [pokeCardImg, setPokeCardImg] = useState<string>()
+    //PokeEleImg
+    const [pokeEleImg, setPokeEleImg] = useState('')
+    //PokeEleImgClass
+    const [eleImgClass, setEleImgClass] = useState<any>()
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
     //Pokemon Type Icons
@@ -163,6 +190,189 @@ const Home = () => {
         filter: 'drop-shadow(2px 2px 5px black)',
         marginLeft:' 25%',
         marginRight: '25%'
+    }
+    //Care Element Icon Styles
+    const bugEleStyle: React.CSSProperties = {
+        background: '#92BC2C',
+        boxShadow: '0 0 20px #92BC2C',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const darkEleStyle: React.CSSProperties = {
+        background: '#595761',
+        boxShadow: '0 0 20px #595761',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const dragonEleStyle: React.CSSProperties = {
+        background: '#0C69C8',
+        boxShadow: '0 0 20px #0C69C8',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const electricEleStyle:React.CSSProperties = {
+        background: '#F2D94E',
+        boxShadow: '0 0 20px #F2D94E',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const fireEleStyle:React.CSSProperties = {
+        background: '#FBA54C',
+        boxShadow: '0 0 20px #FBA54C',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const fairyEleStyle:React.CSSProperties = {
+        background: '#EE90E6',
+        boxShadow: '0 0 20px #EE90E6',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const fightingEleStyle:React.CSSProperties ={
+        background: '#D3425F',
+        boxShadow: '0 0 20px #D3425F',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const flyingEleStyle:React.CSSProperties= {
+        background: '#A1BBEC',
+        boxShadow: '0 0 20px #A1BBEC',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const ghostEleStyle:React.CSSProperties= {
+        background: '#5F6DBC',
+        boxShadow: '0 0 20px #5F6DBC',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const grassEleStyle:React.CSSProperties = {
+        background: '#5FBD58',
+        boxShadow: '0 0 20px #5FBD58',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const groundEleStyle:React.CSSProperties = {
+        background: '#DA7C4D',
+        boxShadow: '0 0 20px #DA7C4D',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const iceEleStyle:React.CSSProperties= {
+        background: '#75D0C1',
+        boxShadow: '0 0 20px #75D0C1',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const normalEleStyle:React.CSSProperties= {
+        background: '#A0A29F',
+        boxShadow: '0 0 20px #A0A29F',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const poisonEleStyle:React.CSSProperties = {
+        background: '#B763CF',
+        boxShadow: '0 0 20px #B763CF',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const psychicEleStyle:React.CSSProperties = {
+        background: '#FA8581',
+        boxShadow: '0 0 20px #FA8581',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const rockEleStyle:React.CSSProperties =  {
+        background: '#C9BB8A',
+        boxShadow: '0 0 20px #C9BB8A',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const steelEleStyle:React.CSSProperties = {
+        background: '#5695A3',
+        boxShadow: '0 0 20px #5695A3',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const waterEleStyle:React.CSSProperties = {
+        background: '#539DDF',
+        boxShadow: '0 0 20px #539DDF',
+        width: '5.5%',
+        height: '5%',
+        left: '80%',
+        bottom: '91.5%',
+        userSelect:'none',
+        position:'fixed',
+    }
+    const elementIconStyle:React.CSSProperties ={
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
@@ -248,6 +458,7 @@ const Home = () => {
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)',
+        cursor:'pointer'
     }
     //Audio Pokemon Main Theme & Onclicks To Load Pokemon Cries
     let audioUrl = require('./assets/pokemontheme.mp3');
@@ -408,74 +619,128 @@ const Home = () => {
                 setPokeType1Url(grassTypeURL)
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
+
+                setPokeEleImg(GrassSvg)
+                setEleImgClass(grassEleStyle)
                 } else if (pokeData.types[0].type.name === 'poison') {
                     setPokeType1Url(poisonTypeURL)
                     setBackgroundImg(PoisonBackground)
                     setPokeCardImg(PokeCardPoison)
+
+                    setPokeEleImg(PoisonSvg)
+                    setEleImgClass(poisonEleStyle)
                 } else if (pokeData.types[0].type.name === 'water') {
                     setPokeType1Url(waterTypeURL)
                     setBackgroundImg(WaterBackground)
                     setPokeCardImg(PokeCardWater)
+
+                    setPokeEleImg(WaterSvg)
+                    setEleImgClass(waterEleStyle)
                 } else if (pokeData.types[0].type.name === 'fire') {
                     setPokeType1Url(fireTypeURL)
                     setBackgroundImg(FireBackground)
                     setPokeCardImg(PokeCardFire)
+
+                    setPokeEleImg(FireSvg)
+                    setEleImgClass(fireEleStyle)
                 } else if (pokeData.types[0].type.name === 'rock') {
                     setPokeType1Url(rockTypeURL)
                     setBackgroundImg(RockBackground)
                     setPokeCardImg(PokeCardRock)
+
+                    setPokeEleImg(RockSvg)
+                    setEleImgClass(rockEleStyle)
                 } else if (pokeData.types[0].type.name === 'electric') {
                     setPokeType1Url(electricTypeURL)
                     setBackgroundImg(ElectricBackground)
                     setPokeCardImg(PokeCardElectric)
+
+                    setPokeEleImg(ElectricSvg)
+                    setEleImgClass(electricEleStyle)
                 } else if (pokeData.types[0].type.name === 'psychic') {
                     setPokeType1Url (psychicTypeURL)
                     setBackgroundImg(PsychicBackground)
                     setPokeCardImg(PokeCardPsychic)
+
+                    setPokeEleImg(PsychicSvg)
+                    setEleImgClass(psychicEleStyle)
                 } else if (pokeData.types[0].type.name === 'ghost') {
                     setPokeType1Url (ghostTypeURL)
                     setBackgroundImg(GhostBackground)
                     setPokeCardImg(PokeCardGhost)
+
+                    setPokeEleImg(GhostSvg)
+                    setEleImgClass(ghostEleStyle)
                 } else if (pokeData.types[0].type.name === 'bug') {
                     setPokeType1Url(bugTypeURL)
                     setBackgroundImg(BugBackground)
                     setPokeCardImg(PokeCardBug)
+
+                    setPokeEleImg(BugSvg)
+                    setEleImgClass(bugEleStyle)
                 } else if (pokeData.types[0].type.name === 'dragon') {
                     setPokeType1Url( dragonTypeURL)
                     setBackgroundImg(DragonBackground)
                     setPokeCardImg(PokeCardDragon)
+
+                    setPokeEleImg(DragonSvg)
+                    setEleImgClass(dragonEleStyle)
                 } else if (pokeData.types[0].type.name === 'fairy') {
                     setPokeType1Url(fairyTypeURL)
                     setBackgroundImg(FairyBackground)
                     setPokeCardImg(PokeCardFairy)
+
+                    setPokeEleImg(FairySvg)
+                    setEleImgClass(fairyEleStyle)
                 } else if (pokeData.types[0].type.name === 'fighting') {
                     setPokeType1Url(fightingTypeURL)
                     setBackgroundImg(FightingBackground)
                     setPokeCardImg(PokeCardFighting)
+
+                    setPokeEleImg(FightingSvg)
+                    setEleImgClass(fightingEleStyle)
                 } else if (pokeData.types[0].type.name === 'ice') {
                     setPokeType1Url( iceTypeURL)
                     setBackgroundImg(IceBackground)
                     setPokeCardImg(PokeCardIce)
+
+                    setPokeEleImg(IceSvg)
+                    setEleImgClass(iceEleStyle)
                 } else if (pokeData.types[0].type.name === 'normal') {
                     setPokeType1Url ( normalTypeURL)
                     setBackgroundImg(NormalBackground)
                     setPokeCardImg(PokeCardNormal)
+
+                    setPokeEleImg(NormalSvg)
+                    setEleImgClass(normalEleStyle)
                 } else if (pokeData.types[0].type.name === 'steel') {
                     setPokeType1Url( steelTypeURL) 
                     setBackgroundImg(SteelBackground)
                     setPokeCardImg(PokeCardSteel)
+
+                    setPokeEleImg(SteelSvg)
+                    setEleImgClass(steelEleStyle) 
                 } else if (pokeData.types[0].type.name === 'ground') {
                     setPokeType1Url( groundTypeURL)
                     setBackgroundImg(GroundBackground)
                     setPokeCardImg(PokeCardGround)
+
+                    setPokeEleImg(GroundSvg)
+                    setEleImgClass(groundEleStyle)
                 } else if (pokeData.types[0].type.name === 'flying') {
                     setPokeType1Url(flyingTypeURL)
                     setBackgroundImg(FlyingBackground)
                     setPokeCardImg(PokeCardFlying)
+
+                    setPokeEleImg(FlyingSvg)
+                    setEleImgClass(flyingEleStyle)
                 } else if (pokeData.types[0].type.name === 'dark') {
                     setPokeType1Url (darkTypeURL)
                     setBackgroundImg(DarkBackground)
                     setPokeCardImg(PokeCardDark)
+                    
+                    setPokeEleImg(DarkSvg)
+                    setEleImgClass(darkEleStyle)
                 } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                     setPokeType1Url('')
                 }
@@ -573,8 +838,18 @@ return(
                         <div style={{transform: 'translate(0px, 0px)'}}>
                         {/* Card Img */}
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
+           
+
+
                             {/* Pokemon Img */}
                             <div style={{}}>
+                                             {/* Poke Element Img */}
+
+                            {/* <div style={{position:'absolute', width:''}}> */}
+                            <div className= "icon" style={eleImgClass}  >
+                                    <img src={pokeEleImg} style={elementIconStyle}/>
+                                </div>
+                            {/* </div> */}
                                 <Tappable  onTap={() => {
                                     setIsRandom(true)  
                                     startAudio();
