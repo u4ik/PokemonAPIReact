@@ -91,11 +91,13 @@ const Home = () => {
     let darkTypeURL = 'https://vignette.wikia.nocookie.net/pokemon/images/0/0d/Type_Dark.gif/'
 //useStates*************************************************************************************
     //Toggle display: 'flex' - setState below with 'none' - This is for the evolution chart to show up neatly and for the card to recenter when it's not present.
-    const [makeFlex, setMakeFlex] = useState<any>('none')
+    const [makeFlex, setMakeFlex] = useState<any>('flex')
     //For the onClick which lets the pokemon # to be random. 0-800...and something..lol
     const [pokeRand, setPokeRand] = useState<any>('')
     //Randomizer Enable Check
     const [isRandom, setIsRandom] = useState<boolean>(false)
+    //Background Color
+    const [backgroundColor, setBackgroundColor] = useState('')
     //Shows Pokemon Card
     const [showCard, setShowCard] = useState(false)
     //Show Submit
@@ -191,12 +193,15 @@ const Home = () => {
         marginLeft:' 25%',
         marginRight: '25%'
     }
-    const trainerImgStyle={
-        width: `19%`
+    const trainerImgStyle: React.CSSProperties={
+        width: `19%`,
+        userSelect:'none'
+
     }
-    const pokeSilStyle={
+    const pokeSilStyle : React.CSSProperties={
         width: pokeHeight + 10 + '%',
-        filter: 'brightness(0%)'
+        filter: 'brightness(0%)',
+        userSelect:'none'
     }
     //Card Element Icon Styles
     const bugEleStyle: React.CSSProperties = {
@@ -631,127 +636,109 @@ const Home = () => {
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
 
-                // setPokeEleImg(Grasspng)
-                // setEleImgClass(grassEleStyle)
+                setBackgroundColor('#679A1C')
                 } else if (pokeData.types[0].type.name === 'poison') {
                     setPokeType1Url(poisonTypeURL)
                     setBackgroundImg(PoisonBackground)
                     setPokeCardImg(PokeCardPoison)
 
-                    // setPokeEleImg(Poisonpng)
-                    // setEleImgClass(poisonEleStyle)
+                    setBackgroundColor('#6E4259')
                 } else if (pokeData.types[0].type.name === 'water') {
                     setPokeType1Url(waterTypeURL)
                     setBackgroundImg(WaterBackground)
                     setPokeCardImg(PokeCardWater)
 
-                    // setPokeEleImg(Waterpng)
-                    // setEleImgClass(waterEleStyle)
+                    setBackgroundColor('#1187B8')
                 } else if (pokeData.types[0].type.name === 'fire') {
                     setPokeType1Url(fireTypeURL)
                     setBackgroundImg(FireBackground)
                     setPokeCardImg(PokeCardFire)
-
-                    // setPokeEleImg(Firepng)
-                    // setEleImgClass(fireEleStyle)
+                    
+                    setBackgroundColor('#C63626')
                 } else if (pokeData.types[0].type.name === 'rock') {
                     setPokeType1Url(rockTypeURL)
                     setBackgroundImg(RockBackground)
                     setPokeCardImg(PokeCardRock)
 
-                    // setPokeEleImg(Rockpng)
-                    // setEleImgClass(rockEleStyle)
+                    setBackgroundColor('#585048')
                 } else if (pokeData.types[0].type.name === 'electric') {
                     setPokeType1Url(electricTypeURL)
                     setBackgroundImg(ElectricBackground)
                     setPokeCardImg(PokeCardElectric)
 
-                    // setPokeEleImg(Electricpng)
-                    // setEleImgClass(electricEleStyle)
+                    setBackgroundColor('#CCB929')
                 } else if (pokeData.types[0].type.name === 'psychic') {
                     setPokeType1Url (psychicTypeURL)
                     setBackgroundImg(PsychicBackground)
                     setPokeCardImg(PokeCardPsychic)
 
-                    // setPokeEleImg(Psychicpng)
-                    // setEleImgClass(psychicEleStyle)
+                    setBackgroundColor('#603A6F')
                 } else if (pokeData.types[0].type.name === 'ghost') {
                     setPokeType1Url (ghostTypeURL)
                     setBackgroundImg(GhostBackground)
                     setPokeCardImg(PokeCardGhost)
-
-                    // setPokeEleImg(Ghostpng)
-                    // setEleImgClass(ghostEleStyle)
+                    
+                    setBackgroundColor('#420B0C')
                 } else if (pokeData.types[0].type.name === 'bug') {
                     setPokeType1Url(bugTypeURL)
                     setBackgroundImg(BugBackground)
                     setPokeCardImg(PokeCardBug)
 
-                    // setPokeEleImg(Bugpng)
-                    // setEleImgClass(bugEleStyle)
+                    setBackgroundColor('#1E5E2E')
                 } else if (pokeData.types[0].type.name === 'dragon') {
                     setPokeType1Url( dragonTypeURL)
                     setBackgroundImg(DragonBackground)
                     setPokeCardImg(PokeCardDragon)
 
-                    // setPokeEleImg(Dragonpng)
-                    // setEleImgClass(dragonEleStyle)
+                    setBackgroundColor('#9F892C')
                 } else if (pokeData.types[0].type.name === 'fairy') {
                     setPokeType1Url(fairyTypeURL)
                     setBackgroundImg(FairyBackground)
                     setPokeCardImg(PokeCardFairy)
-
-                    // setPokeEleImg(Fairypng)
-                    // setEleImgClass(fairyEleStyle)
+                    
+                    setBackgroundColor('#BF407E')
                 } else if (pokeData.types[0].type.name === 'fighting') {
                     setPokeType1Url(fightingTypeURL)
                     setBackgroundImg(FightingBackground)
                     setPokeCardImg(PokeCardFighting)
 
-                    // setPokeEleImg(Fightingpng)
-                    // setEleImgClass(fightingEleStyle)
+                    setBackgroundColor('#C65617')
                 } else if (pokeData.types[0].type.name === 'ice') {
                     setPokeType1Url( iceTypeURL)
                     setBackgroundImg(IceBackground)
                     setPokeCardImg(PokeCardIce)
 
-                    // setPokeEleImg(Icepng)
-                    // setEleImgClass(iceEleStyle)
+                    setBackgroundColor('#72ACBE')
                 } else if (pokeData.types[0].type.name === 'normal') {
                     setPokeType1Url ( normalTypeURL)
                     setBackgroundImg(NormalBackground)
                     setPokeCardImg(PokeCardNormal)
 
-                    // setPokeEleImg(Normalpng)
-                    // setEleImgClass(normalEleStyle)
+                    setBackgroundColor('#8C8663')
                 } else if (pokeData.types[0].type.name === 'steel') {
                     setPokeType1Url( steelTypeURL) 
                     setBackgroundImg(SteelBackground)
                     setPokeCardImg(PokeCardSteel)
 
-                    // setPokeEleImg(Steelpng)
-                    // setEleImgClass(steelEleStyle) 
+                    setBackgroundColor('#5C6A70')
                 } else if (pokeData.types[0].type.name === 'ground') {
                     setPokeType1Url( groundTypeURL)
                     setBackgroundImg(GroundBackground)
                     setPokeCardImg(PokeCardGround)
 
-                    // setPokeEleImg(Groundpng)
-                    // setEleImgClass(groundEleStyle)
+                    setBackgroundColor('#7E5228')
                 } else if (pokeData.types[0].type.name === 'flying') {
                     setPokeType1Url(flyingTypeURL)
                     setBackgroundImg(FlyingBackground)
                     setPokeCardImg(PokeCardFlying)
 
-                    // setPokeEleImg(Flyingpng)
-                    // setEleImgClass(flyingEleStyle)
+                    setBackgroundColor('#189ABF')
                 } else if (pokeData.types[0].type.name === 'dark') {
                     setPokeType1Url (darkTypeURL)
                     setBackgroundImg(DarkBackground)
                     setPokeCardImg(PokeCardDark)
                     
-                    // setPokeEleImg(Darkpng)
-                    // setEleImgClass(darkEleStyle)
+                    setBackgroundColor('#152A47')
                 } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                     setPokeType1Url('')
                 }
@@ -829,9 +816,9 @@ return(
                     <div>
                         <p style={evolutionChainTextStyle}>Size:</p>
                     </div>
-                    <div>
-                                <img src ={TrainerImg} style={trainerImgStyle}/>
-                                <img src={pokeImgUrl} style={pokeSilStyle}/>
+                    <div style={{backgroundColor: backgroundColor, borderRadius: '1rem', marginBottom: '12%', border:'.1rem solid white',  paddingBottom: '2%', paddingTop: '2%'}}>
+                                <img draggable='false'  src ={TrainerImg} style={trainerImgStyle}/>
+                                <img draggable='false' src={pokeImgUrl} style={pokeSilStyle}/>
                     </div>
                 </div>
             :null}
@@ -994,14 +981,13 @@ return(
             </div>
             {/* Evolution Stuff */}
             {showEvo === true ? 
-            //display:makeflex
             <div style={{display: 'flex', flexDirection:'column'}}>
                     {/* Evolution Chain Text */}
                 <div>
                      <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
                 </div>
                     {/* Evolution Names & Images*/}
-                <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'20rem'}}>
+                <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'20rem', backgroundColor: backgroundColor, borderRadius:'1rem', marginBottom: '5%',  border:'.1rem solid white', paddingBottom: '2%', paddingTop: '2%'}}>
                     <div>
                            {/* Evolution 1*/}
                         <p style={evolutionNameTextStyle}>{evoStage1}</p>
