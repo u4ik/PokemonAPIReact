@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2420f0b6409865b5dd0e4b281070de40",
+    "revision": "55765b66ff6f5b8e9fea560fa7c8244c",
     "url": "/PokemonAPIReact/index.html"
   },
   {
-    "revision": "4f39077397c75c1300cc",
+    "revision": "aa28eec8cf23249e3ddb",
     "url": "/PokemonAPIReact/static/css/main.c4a91cd7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/PokemonAPIReact/static/js/2.dc072b75.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4f39077397c75c1300cc",
-    "url": "/PokemonAPIReact/static/js/main.e1128cb0.chunk.js"
+    "revision": "aa28eec8cf23249e3ddb",
+    "url": "/PokemonAPIReact/static/js/main.6581af71.chunk.js"
   },
   {
     "revision": "64f827c49664722e6c96",
@@ -120,75 +120,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/PokemonAPIReact/static/media/trainer.e49356fc.png"
   },
   {
-    "revision": "c8529c16937ab3f7c0b77177c3441936",
-    "url": "/PokemonAPIReact/static/media/typebug.c8529c16.png"
+    "revision": "8825723ebfb49b8135e729527732e234",
+    "url": "/PokemonAPIReact/static/media/typebug.8825723e.png"
   },
   {
-    "revision": "143cdc0a978e0ec9b63dba6fbf507826",
-    "url": "/PokemonAPIReact/static/media/typecolorless.143cdc0a.png"
+    "revision": "2d0309012b8aacdd6519813e00ede50a",
+    "url": "/PokemonAPIReact/static/media/typefairy.2d030901.png"
   },
   {
-    "revision": "cf0523dd34aad6412f621cc4a25bdf95",
-    "url": "/PokemonAPIReact/static/media/typedark.cf0523dd.png"
+    "revision": "c07e8929796ab2741aa85fd7994655ac",
+    "url": "/PokemonAPIReact/static/media/typefire.c07e8929.png"
   },
   {
-    "revision": "fd9b84fdd844f45509d42f26910b3307",
-    "url": "/PokemonAPIReact/static/media/typedragon.fd9b84fd.png"
+    "revision": "8deaaad9bfc2cfca37812cf4d74c8e55",
+    "url": "/PokemonAPIReact/static/media/typegrass.8deaaad9.png"
   },
   {
-    "revision": "c3d4994196cd8cc4c1a0f185c02a6b06",
-    "url": "/PokemonAPIReact/static/media/typeelectric.c3d49941.png"
-  },
-  {
-    "revision": "f2ec9a26cd38462c7befa974f4cac24f",
-    "url": "/PokemonAPIReact/static/media/typefairy.f2ec9a26.png"
-  },
-  {
-    "revision": "69dee20f260599937429c4f447c3a3e1",
-    "url": "/PokemonAPIReact/static/media/typefighting.69dee20f.png"
-  },
-  {
-    "revision": "25b8e02c151e5dbf20142c6828025033",
-    "url": "/PokemonAPIReact/static/media/typefire.25b8e02c.png"
-  },
-  {
-    "revision": "31de7350f3bec65d59d280717d0ac0e9",
-    "url": "/PokemonAPIReact/static/media/typeflying.31de7350.png"
-  },
-  {
-    "revision": "da6fd439713ed9fdf947a221d546013d",
-    "url": "/PokemonAPIReact/static/media/typeghost.da6fd439.png"
-  },
-  {
-    "revision": "41f4bcaf89443cff74405e28bb818f8f",
-    "url": "/PokemonAPIReact/static/media/typegrass.41f4bcaf.png"
-  },
-  {
-    "revision": "33a101dd1a365692a6bbeba6eb3ea664",
-    "url": "/PokemonAPIReact/static/media/typeground.33a101dd.png"
-  },
-  {
-    "revision": "22d1f20f0b7fd3406da26148fb06abd9",
-    "url": "/PokemonAPIReact/static/media/typeice.22d1f20f.png"
-  },
-  {
-    "revision": "f01c99e7f245f161d7412ef020e002d5",
-    "url": "/PokemonAPIReact/static/media/typepoison.f01c99e7.png"
-  },
-  {
-    "revision": "af86495ef5c260c9418cd05f29a9008c",
-    "url": "/PokemonAPIReact/static/media/typepsychic.af86495e.png"
-  },
-  {
-    "revision": "37cbca74b468ff5b086436c2787f7dde",
-    "url": "/PokemonAPIReact/static/media/typerock.37cbca74.png"
-  },
-  {
-    "revision": "ad1238b62d0bb9017ac1eb3b41af4427",
-    "url": "/PokemonAPIReact/static/media/typesteel.ad1238b6.png"
-  },
-  {
-    "revision": "010d87489bf79c9f222361ec42e796dc",
-    "url": "/PokemonAPIReact/static/media/typewater.010d8748.png"
+    "revision": "d3b2934a3879801be17572e99d97917f",
+    "url": "/PokemonAPIReact/static/media/typepsychic.d3b2934a.png"
   }
 ]);
