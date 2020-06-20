@@ -1,5 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { InputGroup, InputGroupAddon, Input } from 'reactstrap';
+//Trainer Silhouette 
+import TrainerImg from './assets/trainer.png'
 //Pokemon Logo
 import PokeLogo from './assets/pokemonlogo.png'
 // Backgrounds
@@ -103,7 +105,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('151')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
@@ -114,6 +116,8 @@ const Home = () => {
     const [eleImgClass, setEleImgClass] = useState<any>()
     //Pokemon Image
     const [pokeImgUrl, setPokeImgUrl] = useState('')
+    //Pokemon Height
+    const [pokeHeight, setPokeHeight] = useState('')
     //Pokemon Type Icons
     const [pokeType1Url, setPokeType1Url] = useState('')
     const [pokeType2Url, setPokeType2Url] = useState('')
@@ -187,7 +191,14 @@ const Home = () => {
         marginLeft:' 25%',
         marginRight: '25%'
     }
-    //Care Element Icon Styles
+    const trainerImgStyle={
+        width: `20%`
+    }
+    const pokeSilStyle={
+        width: pokeHeight + 4 + '%',
+        filter: 'brightness(0%)'
+    }
+    //Card Element Icon Styles
     const bugEleStyle: React.CSSProperties = {
         background: '#92BC2C',
         boxShadow: '0 0 20px #92BC2C',
@@ -378,6 +389,7 @@ const Home = () => {
         borderRadius:'4%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)',
+        marginBottom: '2%'
     }
     //Poke Img Style
     const pokeImgStyle: React.CSSProperties={
@@ -589,9 +601,12 @@ const Home = () => {
             fetchSpecies();
             setShowCard(true)          
             if(pokeData.name !== undefined){
+           
             setPokeName(pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1))
                 // Can Change Pokemon Profile Pic here
                     setPokeImgUrl(pokeData.sprites.front_default)
+
+                    setPokeHeight(pokeData.height)
                 // setPokeImgUrl('https://projectpokemon.org/images/normal-sprite/' + pokeName.toLowerCase() +'.gif')
                 // console.log(pokeName.toLowerCase())
             setPokeAbility1(pokeData.abilities[0].ability.name)
@@ -804,34 +819,27 @@ return(
             <Input placeholder="Search" style={{textAlign:'center',fontSize:'80%',borderRadius:'15px', outline: 'none',filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1%', marginBottom: '2rem',marginLeft:'35%', marginRight:'35%'}}  onChange={(e) =>{
                 setIsRandom(false)
                 setInputFieldValue(e.target.value.toLowerCase())
-                // Submit Button is Commented out
-
-                // console.log(inputFieldValue)
-                // setShowSubmit(true)
-                // fetchPoke();
-                // if (e.target.value.length <= 0 ){
-                //     setShowSubmit(false)
-                // }
-                // else {
-                //     setShowSubmit(true)
-                // }
             }}/>
             </InputGroup>
-            {/* Submit Button */}
-            {/* { showSubmit === true ?
-            <Button style={{filter: 'drop-shadow(5px 5px 1px black)'}} onClick={(e) => {
-                fetchPoke()}}>
-                Search!
-            </Button> : null
-            } */}
         </div>
             {/* Card and Evolution Container */}
     <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', flexWrap: 'wrap-reverse'}}>
+            {showCard === true ?
+                <div style={{ display: 'flex', flexDirection:'column',height:"auto",width:'20rem', marginTop:''}}>
+                    <div>
+                        <p style={evolutionChainTextStyle}>Size Comparison:</p>
+                    </div>
+                    <div>
+                                <img src ={TrainerImg} style={trainerImgStyle}/>
+                                <img src={pokeImgUrl} style={pokeSilStyle}/>
+                    </div>
+                </div>
+            :null}
             <div style={{ display:'', flexDirection:'row', justifyContent:'center', zIndex: 1}}>
-                    {/* Card Container */}
-                    {showCard === true ? 
-                    // <Draggable>
-                        <div style={{transform: 'translate(0px, 0px)'}}>
+                {/* Card Container */}
+                {showCard === true ? 
+                // <Draggable>
+                <div style={{transform: 'translate(0px, 0px)'}}>
                         {/* Card Img */}
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
                         {/* Poke Element Img + Checker */}
@@ -986,7 +994,8 @@ return(
             </div>
             {/* Evolution Stuff */}
             {showEvo === true ? 
-            <div style={{display: makeFlex, flexDirection:'column'}}>
+            //display:makeflex
+            <div style={{display: 'flex', flexDirection:'column'}}>
                     {/* Evolution Chain Text */}
                 <div>
                      <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
