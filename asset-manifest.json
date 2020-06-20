@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/PokemonAPIReact/static/css/main.c4a91cd7.chunk.css",
-    "main.js": "/PokemonAPIReact/static/js/main.0965942c.chunk.js",
-    "main.js.map": "/PokemonAPIReact/static/js/main.0965942c.chunk.js.map",
+    "main.js": "/PokemonAPIReact/static/js/main.889fdafe.chunk.js",
+    "main.js.map": "/PokemonAPIReact/static/js/main.889fdafe.chunk.js.map",
     "runtime-main.js": "/PokemonAPIReact/static/js/runtime-main.dfc178ac.js",
     "runtime-main.js.map": "/PokemonAPIReact/static/js/runtime-main.dfc178ac.js.map",
     "static/js/2.dc072b75.chunk.js": "/PokemonAPIReact/static/js/2.dc072b75.chunk.js",
     "static/js/2.dc072b75.chunk.js.map": "/PokemonAPIReact/static/js/2.dc072b75.chunk.js.map",
     "index.html": "/PokemonAPIReact/index.html",
-    "precache-manifest.a85919805aac12832bdef449ec397a67.js": "/PokemonAPIReact/precache-manifest.a85919805aac12832bdef449ec397a67.js",
+    "precache-manifest.add383a7641e5e27b193aed420784c15.js": "/PokemonAPIReact/precache-manifest.add383a7641e5e27b193aed420784c15.js",
     "service-worker.js": "/PokemonAPIReact/service-worker.js",
     "static/css/main.c4a91cd7.chunk.css.map": "/PokemonAPIReact/static/css/main.c4a91cd7.chunk.css.map",
     "static/js/2.dc072b75.chunk.js.LICENSE.txt": "/PokemonAPIReact/static/js/2.dc072b75.chunk.js.LICENSE.txt",
@@ -59,6 +59,6 @@
     "static/js/runtime-main.dfc178ac.js",
     "static/js/2.dc072b75.chunk.js",
     "static/css/main.c4a91cd7.chunk.css",
-    "static/js/main.0965942c.chunk.js"
+    "static/js/main.889fdafe.chunk.js"
   ]
 }
