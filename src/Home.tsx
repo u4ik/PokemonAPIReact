@@ -798,15 +798,16 @@ const Home = () => {
     }
 return(
     // Background Image/Main Container
-    <div style={{backgroundImage: `url(${backgroundImg})`, height:'auto',minHeight:'100vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
-        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center',backgroundColor: backgroundColor}}>
+    <div>
+    <div style={{backgroundImage: `url(${backgroundImg})`, height:'auto',minHeight:'91.9vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
+        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center',backgroundColor: 'black'}}>
             {/* Pokemon Logo */}                       
             <div style={{}}>
                 <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
             </div>
         </div>
         {/* Gotta Fetch Em All Text */}
-        <div style={{backgroundColor: backgroundColor}}>
+        <div style={{backgroundColor: 'black'}}>
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         </div>
         <div>
@@ -1157,11 +1158,14 @@ return(
         </div>
         : null
         }
-          {/* Audio Player */}
-        <div style= {{backgroundColor: backgroundColor, paddingBottom:'7vh',paddingTop:'1vh'}}>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1vw',paddingTop:'', marginBottom:'', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
+     
+    </div>
+             {/* Audio Player */}
+             <div style= {{backgroundColor: 'black', paddingBottom:'1vh',paddingTop:'1vh'}}>
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'',paddingTop:'', marginBottom:'', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
+    
 )
 }
 export default Home;
