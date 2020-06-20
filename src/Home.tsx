@@ -192,7 +192,7 @@ const Home = () => {
         marginRight: '25%'
     }
     const trainerImgStyle={
-        width: `20%`
+        width: `18%`
     }
     const pokeSilStyle={
         width: pokeHeight + 10 + '%',
