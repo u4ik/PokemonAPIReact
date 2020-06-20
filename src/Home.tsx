@@ -170,6 +170,7 @@ const Home = () => {
         marginTop:'2%',
         filter: 'drop-shadow(5px 5px 5px black)',
         width:'21rem',
+        
     };
     //Gotta Fetch Em All Style
     const gottaFetchEmAllStyle: React.CSSProperties ={
@@ -178,7 +179,7 @@ const Home = () => {
         // textShadow:'3px 3px 1px black',
         textShadow:'.1rem .1rem 0 blue',
         userSelect:'none',
-        marginTop:'.5%',
+        marginTop:'',
         filter: 'drop-shadow(2px 2px 5px black)'
     }
     //Welcome Text Style
@@ -493,10 +494,12 @@ const Home = () => {
         fetchPoke();
             if(showCard === true){
                 setShowEvo(true)
+                
             } 
         }
         else{
             setShowCard(false)
+            setBackgroundColor('')
             setShowEvo(false)
             setBackgroundImg(PokemonBackGroundGif)
         }
@@ -796,14 +799,16 @@ const Home = () => {
 return(
     // Background Image/Main Container
     <div style={{backgroundImage: `url(${backgroundImg})`, height:'auto',minHeight:'100vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
-        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
+        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center',backgroundColor: backgroundColor}}>
             {/* Pokemon Logo */}                       
-            <div>
+            <div style={{}}>
                 <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
             </div>
         </div>
         {/* Gotta Fetch Em All Text */}
+        <div style={{backgroundColor: backgroundColor}}>
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
+        </div>
         <div>
             {/* Input Field */}
             <InputGroup>
@@ -831,7 +836,7 @@ return(
                 {/* Card Container */}
                 {showCard === true ? 
                 // <Draggable>
-                <div style={{transform: 'translate(0px, 0px)'}}>
+                <div style={{transform: 'translate(0px, 0px)', marginBottom:'7%'}}>
                         {/* Card Img */}
                      
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
@@ -1153,8 +1158,8 @@ return(
         : null
         }
           {/* Audio Player */}
-        <div>
-            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'3rem', marginBottom:'1vh', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
+        <div style= {{backgroundColor: backgroundColor, paddingBottom:'7vh',paddingTop:'1vh'}}>
+            <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'1vw',paddingTop:'', marginBottom:'', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
 )
