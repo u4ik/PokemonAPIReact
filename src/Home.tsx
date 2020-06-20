@@ -22,29 +22,25 @@ import RockBackground from './assets/typerock.png'
 import SteelBackground from './assets/typesteel.png'
 import WaterBackground from './assets/typewater.png'
 import GhostBackground from './assets/typeghost.png'
-
-//Type Icon Svgs
-import BugSvg from './assets/Type Icons/bug.svg'
-import DarkSvg from './assets/Type Icons/dark.svg'
-import DragonSvg from './assets/Type Icons/dragon.svg'
-import ElectricSvg from './assets/Type Icons/electric.svg'
-import FairySvg from './assets/Type Icons/fairy.svg'
-import FightingSvg from './assets/Type Icons/fighting.svg'
-import FireSvg from './assets/Type Icons/fire.svg'
-import FlyingSvg from './assets/Type Icons/flying.svg'
-import GhostSvg from './assets/Type Icons/ghost.svg'
-import GrassSvg from './assets/Type Icons/grass.svg'
-import GroundSvg from './assets/Type Icons/ground.svg'
-import IceSvg from './assets/Type Icons/ice.svg'
-import NormalSvg from './assets/Type Icons/normal.svg'
-import PoisonSvg from './assets/Type Icons/poison.svg'
-import PsychicSvg from './assets/Type Icons/psychic.svg'
-import RockSvg from './assets/Type Icons/rock.svg'
-import SteelSvg from './assets/Type Icons/steel.svg'
-import WaterSvg from './assets/Type Icons/water.svg'
-
-
-
+//Type Icon pngs
+import Bugpng from './assets/Type Icons/bug.png'
+import Darkpng from './assets/Type Icons/dark.png'
+import Dragonpng from './assets/Type Icons/dragon.png'
+import Electricpng from './assets/Type Icons/electric.png'
+import Fairypng from './assets/Type Icons/fairy.png'
+import Fightingpng from './assets/Type Icons/fighting.png'
+import Firepng from './assets/Type Icons/fire.png'
+import Flyingpng from './assets/Type Icons/flying.png'
+import Ghostpng from './assets/Type Icons/ghost.png'
+import Grasspng from './assets/Type Icons/grass.png'
+import Groundpng from './assets/Type Icons/ground.png'
+import Icepng from './assets/Type Icons/ice.png'
+import Normalpng from './assets/Type Icons/normal.png'
+import Poisonpng from './assets/Type Icons/poison.png'
+import Psychicpng from './assets/Type Icons/psychic.png'
+import Rockpng from './assets/Type Icons/rock.png'
+import Steelpng from './assets/Type Icons/steel.png'
+import Waterpng from './assets/Type Icons/water.png'
 //Card Templates By Type
 import PokeCardGrass from './assets/pokemoncardgrass.png'
 import PokeCardFire from './assets/pokemoncardfire.png'
@@ -107,7 +103,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]= useState <string>('')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
@@ -620,127 +616,127 @@ const Home = () => {
                 setBackgroundImg(GrassBackground)
                 setPokeCardImg(PokeCardGrass)
 
-                setPokeEleImg(GrassSvg)
-                setEleImgClass(grassEleStyle)
+                // setPokeEleImg(Grasspng)
+                // setEleImgClass(grassEleStyle)
                 } else if (pokeData.types[0].type.name === 'poison') {
                     setPokeType1Url(poisonTypeURL)
                     setBackgroundImg(PoisonBackground)
                     setPokeCardImg(PokeCardPoison)
 
-                    setPokeEleImg(PoisonSvg)
-                    setEleImgClass(poisonEleStyle)
+                    // setPokeEleImg(Poisonpng)
+                    // setEleImgClass(poisonEleStyle)
                 } else if (pokeData.types[0].type.name === 'water') {
                     setPokeType1Url(waterTypeURL)
                     setBackgroundImg(WaterBackground)
                     setPokeCardImg(PokeCardWater)
 
-                    setPokeEleImg(WaterSvg)
-                    setEleImgClass(waterEleStyle)
+                    // setPokeEleImg(Waterpng)
+                    // setEleImgClass(waterEleStyle)
                 } else if (pokeData.types[0].type.name === 'fire') {
                     setPokeType1Url(fireTypeURL)
                     setBackgroundImg(FireBackground)
                     setPokeCardImg(PokeCardFire)
 
-                    setPokeEleImg(FireSvg)
-                    setEleImgClass(fireEleStyle)
+                    // setPokeEleImg(Firepng)
+                    // setEleImgClass(fireEleStyle)
                 } else if (pokeData.types[0].type.name === 'rock') {
                     setPokeType1Url(rockTypeURL)
                     setBackgroundImg(RockBackground)
                     setPokeCardImg(PokeCardRock)
 
-                    setPokeEleImg(RockSvg)
-                    setEleImgClass(rockEleStyle)
+                    // setPokeEleImg(Rockpng)
+                    // setEleImgClass(rockEleStyle)
                 } else if (pokeData.types[0].type.name === 'electric') {
                     setPokeType1Url(electricTypeURL)
                     setBackgroundImg(ElectricBackground)
                     setPokeCardImg(PokeCardElectric)
 
-                    setPokeEleImg(ElectricSvg)
-                    setEleImgClass(electricEleStyle)
+                    // setPokeEleImg(Electricpng)
+                    // setEleImgClass(electricEleStyle)
                 } else if (pokeData.types[0].type.name === 'psychic') {
                     setPokeType1Url (psychicTypeURL)
                     setBackgroundImg(PsychicBackground)
                     setPokeCardImg(PokeCardPsychic)
 
-                    setPokeEleImg(PsychicSvg)
-                    setEleImgClass(psychicEleStyle)
+                    // setPokeEleImg(Psychicpng)
+                    // setEleImgClass(psychicEleStyle)
                 } else if (pokeData.types[0].type.name === 'ghost') {
                     setPokeType1Url (ghostTypeURL)
                     setBackgroundImg(GhostBackground)
                     setPokeCardImg(PokeCardGhost)
 
-                    setPokeEleImg(GhostSvg)
-                    setEleImgClass(ghostEleStyle)
+                    // setPokeEleImg(Ghostpng)
+                    // setEleImgClass(ghostEleStyle)
                 } else if (pokeData.types[0].type.name === 'bug') {
                     setPokeType1Url(bugTypeURL)
                     setBackgroundImg(BugBackground)
                     setPokeCardImg(PokeCardBug)
 
-                    setPokeEleImg(BugSvg)
-                    setEleImgClass(bugEleStyle)
+                    // setPokeEleImg(Bugpng)
+                    // setEleImgClass(bugEleStyle)
                 } else if (pokeData.types[0].type.name === 'dragon') {
                     setPokeType1Url( dragonTypeURL)
                     setBackgroundImg(DragonBackground)
                     setPokeCardImg(PokeCardDragon)
 
-                    setPokeEleImg(DragonSvg)
-                    setEleImgClass(dragonEleStyle)
+                    // setPokeEleImg(Dragonpng)
+                    // setEleImgClass(dragonEleStyle)
                 } else if (pokeData.types[0].type.name === 'fairy') {
                     setPokeType1Url(fairyTypeURL)
                     setBackgroundImg(FairyBackground)
                     setPokeCardImg(PokeCardFairy)
 
-                    setPokeEleImg(FairySvg)
-                    setEleImgClass(fairyEleStyle)
+                    // setPokeEleImg(Fairypng)
+                    // setEleImgClass(fairyEleStyle)
                 } else if (pokeData.types[0].type.name === 'fighting') {
                     setPokeType1Url(fightingTypeURL)
                     setBackgroundImg(FightingBackground)
                     setPokeCardImg(PokeCardFighting)
 
-                    setPokeEleImg(FightingSvg)
-                    setEleImgClass(fightingEleStyle)
+                    // setPokeEleImg(Fightingpng)
+                    // setEleImgClass(fightingEleStyle)
                 } else if (pokeData.types[0].type.name === 'ice') {
                     setPokeType1Url( iceTypeURL)
                     setBackgroundImg(IceBackground)
                     setPokeCardImg(PokeCardIce)
 
-                    setPokeEleImg(IceSvg)
-                    setEleImgClass(iceEleStyle)
+                    // setPokeEleImg(Icepng)
+                    // setEleImgClass(iceEleStyle)
                 } else if (pokeData.types[0].type.name === 'normal') {
                     setPokeType1Url ( normalTypeURL)
                     setBackgroundImg(NormalBackground)
                     setPokeCardImg(PokeCardNormal)
 
-                    setPokeEleImg(NormalSvg)
-                    setEleImgClass(normalEleStyle)
+                    // setPokeEleImg(Normalpng)
+                    // setEleImgClass(normalEleStyle)
                 } else if (pokeData.types[0].type.name === 'steel') {
                     setPokeType1Url( steelTypeURL) 
                     setBackgroundImg(SteelBackground)
                     setPokeCardImg(PokeCardSteel)
 
-                    setPokeEleImg(SteelSvg)
-                    setEleImgClass(steelEleStyle) 
+                    // setPokeEleImg(Steelpng)
+                    // setEleImgClass(steelEleStyle) 
                 } else if (pokeData.types[0].type.name === 'ground') {
                     setPokeType1Url( groundTypeURL)
                     setBackgroundImg(GroundBackground)
                     setPokeCardImg(PokeCardGround)
 
-                    setPokeEleImg(GroundSvg)
-                    setEleImgClass(groundEleStyle)
+                    // setPokeEleImg(Groundpng)
+                    // setEleImgClass(groundEleStyle)
                 } else if (pokeData.types[0].type.name === 'flying') {
                     setPokeType1Url(flyingTypeURL)
                     setBackgroundImg(FlyingBackground)
                     setPokeCardImg(PokeCardFlying)
 
-                    setPokeEleImg(FlyingSvg)
-                    setEleImgClass(flyingEleStyle)
+                    // setPokeEleImg(Flyingpng)
+                    // setEleImgClass(flyingEleStyle)
                 } else if (pokeData.types[0].type.name === 'dark') {
                     setPokeType1Url (darkTypeURL)
                     setBackgroundImg(DarkBackground)
                     setPokeCardImg(PokeCardDark)
                     
-                    setPokeEleImg(DarkSvg)
-                    setEleImgClass(darkEleStyle)
+                    // setPokeEleImg(Darkpng)
+                    // setEleImgClass(darkEleStyle)
                 } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                     setPokeType1Url('')
                 }
@@ -838,18 +834,99 @@ return(
                         <div style={{transform: 'translate(0px, 0px)'}}>
                         {/* Card Img */}
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
-           
-
-
+                        {/* Poke Element Img + Checker */}
+                        {pokeType1Url === grassTypeURL ?
+                            <div className= "icon" style={grassEleStyle}  >
+                                    <img src={Grasspng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === darkTypeURL ?
+                            <div className= "icon" style={darkEleStyle}  >
+                                    <img src={Darkpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === groundTypeURL ?
+                            <div className= "icon" style={groundEleStyle}  >
+                                    <img src={Groundpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === fairyTypeURL ?
+                            <div className= "icon" style={fairyEleStyle}  >
+                                    <img src={Fairypng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === ghostTypeURL ?
+                            <div className= "icon" style={ghostEleStyle}  >
+                                    <img src={Ghostpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === bugTypeURL ?
+                            <div className= "icon" style={bugEleStyle}  >
+                                    <img src={Bugpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === psychicTypeURL ?
+                            <div className= "icon" style={psychicEleStyle}  >
+                                    <img src={Psychicpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === normalTypeURL ?
+                            <div className= "icon" style={normalEleStyle}  >
+                                    <img src={Normalpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === rockTypeURL ?
+                            <div className= "icon" style={rockEleStyle}  >
+                                    <img src={Rockpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === dragonTypeURL ?
+                            <div className= "icon" style={dragonEleStyle}  >
+                                    <img src={Dragonpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === fireTypeURL ?
+                            <div className= "icon" style={fireEleStyle}  >
+                                    <img src={Firepng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === waterTypeURL ?
+                            <div className= "icon" style={waterEleStyle}  >
+                                    <img src={Waterpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === electricTypeURL ?
+                            <div className= "icon" style={electricEleStyle}  >
+                                    <img src={Electricpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === steelTypeURL ?
+                            <div className= "icon" style={steelEleStyle}  >
+                                    <img src={Steelpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === flyingTypeURL ?
+                            <div className= "icon" style={flyingEleStyle}  >
+                                    <img src={Flyingpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === iceTypeURL ?
+                            <div className= "icon" style={iceEleStyle}  >
+                                    <img src={Icepng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === poisonTypeURL ?
+                            <div className= "icon" style={poisonEleStyle}  >
+                                    <img src={Poisonpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
+                        {pokeType1Url === fightingTypeURL ?
+                            <div className= "icon" style={fightingEleStyle}  >
+                                    <img src={Fightingpng} style={elementIconStyle}/>
+                            </div> : null
+                            }
                             {/* Pokemon Img */}
                             <div style={{}}>
-                                             {/* Poke Element Img */}
-
-                            {/* <div style={{position:'absolute', width:''}}> */}
-                            <div className= "icon" style={eleImgClass}  >
-                                    <img src={pokeEleImg} style={elementIconStyle}/>
-                                </div>
-                            {/* </div> */}
                                 <Tappable  onTap={() => {
                                     setIsRandom(true)  
                                     startAudio();
