@@ -97,7 +97,8 @@ const Home = () => {
     //Randomizer Enable Check
     const [isRandom, setIsRandom] = useState<boolean>(false)
     //Background Color
-    const [backgroundColor, setBackgroundColor] = useState('')
+    const [backgroundColor, setBackgroundColor] = useState('transparent')
+    const [backgroundColor2, setBackgroundColor2] = useState('#2E2E2E')
     //Shows Pokemon Card
     const [showCard, setShowCard] = useState(false)
     //Show Submit
@@ -499,7 +500,8 @@ const Home = () => {
         }
         else{
             setShowCard(false)
-            setBackgroundColor('')
+            setBackgroundColor('');
+            setBackgroundColor2('#2E2E2E');
             setShowEvo(false)
             setBackgroundImg(PokemonBackGroundGif)
         }
@@ -645,108 +647,128 @@ const Home = () => {
                 setPokeCardImg(PokeCardGrass)
 
                 setBackgroundColor('#679A1C')
+                setBackgroundColor2('#679A1C')
                 } else if (pokeData.types[0].type.name === 'poison') {
                     setPokeType1Url(poisonTypeURL)
                     setBackgroundImg(PoisonBackground)
                     setPokeCardImg(PokeCardPoison)
 
                     setBackgroundColor('#6E4259')
+                    setBackgroundColor2('#6E4259')
                 } else if (pokeData.types[0].type.name === 'water') {
                     setPokeType1Url(waterTypeURL)
                     setBackgroundImg(WaterBackground)
                     setPokeCardImg(PokeCardWater)
 
                     setBackgroundColor('#1187B8')
+                    setBackgroundColor2('#1187B8')
                 } else if (pokeData.types[0].type.name === 'fire') {
                     setPokeType1Url(fireTypeURL)
                     setBackgroundImg(FireBackground)
                     setPokeCardImg(PokeCardFire)
                     
                     setBackgroundColor('#C63626')
+                    setBackgroundColor2('#C63626')
                 } else if (pokeData.types[0].type.name === 'rock') {
                     setPokeType1Url(rockTypeURL)
                     setBackgroundImg(RockBackground)
                     setPokeCardImg(PokeCardRock)
 
                     setBackgroundColor('#585048')
+                    setBackgroundColor2('#585048')
                 } else if (pokeData.types[0].type.name === 'electric') {
                     setPokeType1Url(electricTypeURL)
                     setBackgroundImg(ElectricBackground)
                     setPokeCardImg(PokeCardElectric)
 
                     setBackgroundColor('#CCB929')
+                    
+                    setBackgroundColor2('#CCB929')
                 } else if (pokeData.types[0].type.name === 'psychic') {
                     setPokeType1Url (psychicTypeURL)
                     setBackgroundImg(PsychicBackground)
                     setPokeCardImg(PokeCardPsychic)
 
                     setBackgroundColor('#603A6F')
+                    
+                    setBackgroundColor2('#603A6F')
                 } else if (pokeData.types[0].type.name === 'ghost') {
                     setPokeType1Url (ghostTypeURL)
                     setBackgroundImg(GhostBackground)
                     setPokeCardImg(PokeCardGhost)
                     
                     setBackgroundColor('#420B0C')
+                    setBackgroundColor2('#420B0C')
                 } else if (pokeData.types[0].type.name === 'bug') {
                     setPokeType1Url(bugTypeURL)
                     setBackgroundImg(BugBackground)
                     setPokeCardImg(PokeCardBug)
 
                     setBackgroundColor('#1E5E2E')
+                    setBackgroundColor2('#1E5E2E')
                 } else if (pokeData.types[0].type.name === 'dragon') {
                     setPokeType1Url( dragonTypeURL)
                     setBackgroundImg(DragonBackground)
                     setPokeCardImg(PokeCardDragon)
 
                     setBackgroundColor('#9F892C')
+                    setBackgroundColor2('#9F892C')
                 } else if (pokeData.types[0].type.name === 'fairy') {
                     setPokeType1Url(fairyTypeURL)
                     setBackgroundImg(FairyBackground)
                     setPokeCardImg(PokeCardFairy)
                     
                     setBackgroundColor('#BF407E')
+                    setBackgroundColor2('#BF407E')
                 } else if (pokeData.types[0].type.name === 'fighting') {
                     setPokeType1Url(fightingTypeURL)
                     setBackgroundImg(FightingBackground)
                     setPokeCardImg(PokeCardFighting)
 
                     setBackgroundColor('#C65617')
+                    setBackgroundColor2('#C65617')
                 } else if (pokeData.types[0].type.name === 'ice') {
                     setPokeType1Url( iceTypeURL)
                     setBackgroundImg(IceBackground)
                     setPokeCardImg(PokeCardIce)
 
                     setBackgroundColor('#72ACBE')
+                    setBackgroundColor2('#72ACBE')
                 } else if (pokeData.types[0].type.name === 'normal') {
                     setPokeType1Url ( normalTypeURL)
                     setBackgroundImg(NormalBackground)
                     setPokeCardImg(PokeCardNormal)
 
                     setBackgroundColor('#8C8663')
+                    setBackgroundColor2('#8C8663')
                 } else if (pokeData.types[0].type.name === 'steel') {
                     setPokeType1Url( steelTypeURL) 
                     setBackgroundImg(SteelBackground)
                     setPokeCardImg(PokeCardSteel)
 
                     setBackgroundColor('#5C6A70')
+                    setBackgroundColor2('#5C6A70')
                 } else if (pokeData.types[0].type.name === 'ground') {
                     setPokeType1Url( groundTypeURL)
                     setBackgroundImg(GroundBackground)
                     setPokeCardImg(PokeCardGround)
 
                     setBackgroundColor('#7E5228')
+                    setBackgroundColor2('#7E5228')
                 } else if (pokeData.types[0].type.name === 'flying') {
                     setPokeType1Url(flyingTypeURL)
                     setBackgroundImg(FlyingBackground)
                     setPokeCardImg(PokeCardFlying)
 
                     setBackgroundColor('#189ABF')
+                    setBackgroundColor2('#189ABF')
                 } else if (pokeData.types[0].type.name === 'dark') {
                     setPokeType1Url (darkTypeURL)
                     setBackgroundImg(DarkBackground)
                     setPokeCardImg(PokeCardDark)
                     
                     setBackgroundColor('#152A47')
+                    setBackgroundColor2('#152A47')
                 } else if (pokeData.types[0].type.name === '' || pokeData.types[0].type.name === undefined) {
                     setPokeType1Url('')
                 }
@@ -800,14 +822,14 @@ return(
     // Background Image/Main Container
     <div>
     <div style={{backgroundImage: `url(${backgroundImg})`, height:'auto',minHeight:'91.9vh',maxHeight: 'auto', backgroundRepeat:'',backgroundPosition: 'center', backgroundSize: 'cover'}}>
-        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center',backgroundColor: 'black'}}>
+        <div style={{display: 'flex', flexDirection:'column', justifyContent:'center',backgroundColor: backgroundColor}}>
             {/* Pokemon Logo */}                       
             <div style={{}}>
                 <img  draggable="false" style={pokemonLogoImg} alt="Pokemon Logo" src= {PokeLogo}/>
             </div>
         </div>
         {/* Gotta Fetch Em All Text */}
-        <div style={{backgroundColor: 'black'}}>
+        <div style={{backgroundColor: backgroundColor}}>
         <p style={gottaFetchEmAllStyle}>Gotta fetch( ) 'em all!</p>
         </div>
         <div>
@@ -1161,7 +1183,7 @@ return(
      
     </div>
              {/* Audio Player */}
-             <div style= {{backgroundColor: 'black', paddingBottom:'1vh',paddingTop:'1vh'}}>
+             <div style= {{backgroundColor: backgroundColor2, paddingBottom:'1vh',paddingTop:'1vh'}}>
             <ReactAudioPlayer style = {{filter: 'drop-shadow(5px 5px 5px black)',marginTop:'',paddingTop:'', marginBottom:'', background:'transparent', outline:'none'} }src={audioUrl} autoPlay loop controls  />
         </div>
     </div>
