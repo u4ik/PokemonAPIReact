@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/PokemonAPIReact/static/css/main.c4a91cd7.chunk.css",
-    "main.js": "/PokemonAPIReact/static/js/main.b531ef7f.chunk.js",
-    "main.js.map": "/PokemonAPIReact/static/js/main.b531ef7f.chunk.js.map",
+    "main.js": "/PokemonAPIReact/static/js/main.a31b4e2b.chunk.js",
+    "main.js.map": "/PokemonAPIReact/static/js/main.a31b4e2b.chunk.js.map",
     "runtime-main.js": "/PokemonAPIReact/static/js/runtime-main.dfc178ac.js",
     "runtime-main.js.map": "/PokemonAPIReact/static/js/runtime-main.dfc178ac.js.map",
-    "static/js/2.b411a1e9.chunk.js": "/PokemonAPIReact/static/js/2.b411a1e9.chunk.js",
-    "static/js/2.b411a1e9.chunk.js.map": "/PokemonAPIReact/static/js/2.b411a1e9.chunk.js.map",
+    "static/js/2.6a9800e3.chunk.js": "/PokemonAPIReact/static/js/2.6a9800e3.chunk.js",
+    "static/js/2.6a9800e3.chunk.js.map": "/PokemonAPIReact/static/js/2.6a9800e3.chunk.js.map",
     "index.html": "/PokemonAPIReact/index.html",
-    "precache-manifest.fbd15166f1c1e0e635809477299c2b69.js": "/PokemonAPIReact/precache-manifest.fbd15166f1c1e0e635809477299c2b69.js",
+    "precache-manifest.845fa1fb86ea37be53a45e32ddc4864f.js": "/PokemonAPIReact/precache-manifest.845fa1fb86ea37be53a45e32ddc4864f.js",
     "service-worker.js": "/PokemonAPIReact/service-worker.js",
     "static/css/main.c4a91cd7.chunk.css.map": "/PokemonAPIReact/static/css/main.c4a91cd7.chunk.css.map",
-    "static/js/2.b411a1e9.chunk.js.LICENSE.txt": "/PokemonAPIReact/static/js/2.b411a1e9.chunk.js.LICENSE.txt",
+    "static/js/2.6a9800e3.chunk.js.LICENSE.txt": "/PokemonAPIReact/static/js/2.6a9800e3.chunk.js.LICENSE.txt",
     "static/media/index.css": "/PokemonAPIReact/static/media/Andy-Bold.775c3814.ttf",
     "static/media/pokemonbackground.png": "/PokemonAPIReact/static/media/pokemonbackground.87e3d06b.png",
     "static/media/pokemoncardbug.png": "/PokemonAPIReact/static/media/pokemoncardbug.9383bf2d.png",
@@ -34,6 +34,7 @@
     "static/media/pokemoncardwater.png": "/PokemonAPIReact/static/media/pokemoncardwater.cd8bd36c.png",
     "static/media/pokemonlogo.png": "/PokemonAPIReact/static/media/pokemonlogo.35d27bad.png",
     "static/media/pokemontheme.mp3": "/PokemonAPIReact/static/media/pokemontheme.7bc4020d.mp3",
+    "static/media/psychic.png": "/PokemonAPIReact/static/media/psychic.a953558f.png",
     "static/media/typebug.png": "/PokemonAPIReact/static/media/typebug.c8529c16.png",
     "static/media/typecolorless.png": "/PokemonAPIReact/static/media/typecolorless.143cdc0a.png",
     "static/media/typedark.png": "/PokemonAPIReact/static/media/typedark.cf0523dd.png",
@@ -55,8 +56,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.dfc178ac.js",
-    "static/js/2.b411a1e9.chunk.js",
+    "static/js/2.6a9800e3.chunk.js",
     "static/css/main.c4a91cd7.chunk.css",
-    "static/js/main.b531ef7f.chunk.js"
+    "static/js/main.a31b4e2b.chunk.js"
   ]
 }
