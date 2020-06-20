@@ -827,7 +827,7 @@ return(
             {showCard === true ?
                 <div style={{ display: 'flex', flexDirection:'column',height:"auto",width:'20rem', marginTop:''}}>
                     <div>
-                        <p style={evolutionChainTextStyle}>Size Comparison:</p>
+                        <p style={evolutionChainTextStyle}>Size:</p>
                     </div>
                     <div>
                                 <img src ={TrainerImg} style={trainerImgStyle}/>
