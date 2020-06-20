@@ -105,7 +105,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('151')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
@@ -195,7 +195,7 @@ const Home = () => {
         width: `20%`
     }
     const pokeSilStyle={
-        width: pokeHeight + 4 + '%',
+        width: pokeHeight + 10 + '%',
         filter: 'brightness(0%)'
     }
     //Card Element Icon Styles
