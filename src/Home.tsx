@@ -107,7 +107,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('1')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
@@ -394,7 +394,7 @@ const Home = () => {
         // backgroundColor:'black',
         borderRadius:'5%',
         position:'relative',
-        filter: 'drop-shadow(6px 6px 4px black)',
+        filter: 'drop-shadow(6px 6px 2px black)',
         marginBottom: '2%',
         // outline: '1rem solid #fff',
         // outlineOffset:' -.7rem',
@@ -821,7 +821,7 @@ return(
                     <div>
                         <p style={evolutionChainTextStyle}>Size:</p>
                     </div>
-                    <div style={{backgroundColor: backgroundColor, borderRadius: '1rem', marginBottom: '12%', border:'.1rem solid white',  paddingBottom: '2%', paddingTop: '2%'}}>
+                    <div style={{backgroundColor: backgroundColor, borderRadius: '1rem', marginBottom: '12%', border:'.1rem solid white',  paddingBottom: '2%', paddingTop: '2%', filter: 'drop-shadow(6px 6px 2px black)'}}>
                                 <img draggable='false'  src ={TrainerImg} style={trainerImgStyle}/>
                                 <img draggable='false' src={pokeImgUrl} style={pokeSilStyle}/>
                     </div>
@@ -994,7 +994,7 @@ return(
                      <p style={evolutionChainTextStyle}>{evolutionChainText}</p>
                 </div>
                     {/* Evolution Names & Images*/}
-                <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'20rem', backgroundColor: backgroundColor, borderRadius:'1rem', marginBottom: '5%',  border:'.1rem solid white', paddingBottom: '2%', paddingTop: '2%'}}>
+                <div style={{display: makeFlex, flexDirection:'row', justifyContent:'center', flexWrap:'wrap', width:'20rem', backgroundColor: backgroundColor, borderRadius:'1rem', marginBottom: '5%',  border:'.1rem solid white', paddingBottom: '2%', paddingTop: '2%',   filter: 'drop-shadow(6px 6px 2px black)'}}>
                     <div>
                            {/* Evolution 1*/}
                         <p style={evolutionNameTextStyle}>{evoStage1}</p>
