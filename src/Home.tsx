@@ -107,7 +107,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('151')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
@@ -388,13 +388,18 @@ const Home = () => {
     }
     //Card Img Style
     const pokemonCardStyle: React.CSSProperties ={
+     
         width:'82%',
         userSelect:'none',
         // backgroundColor:'black',
-        borderRadius:'4%',
+        borderRadius:'5%',
         position:'relative',
         filter: 'drop-shadow(6px 6px 4px black)',
-        marginBottom: '2%'
+        marginBottom: '2%',
+        // outline: '1rem solid #fff',
+        // outlineOffset:' -.7rem',
+        
+       
     }
     //Poke Img Style
     const pokeImgStyle: React.CSSProperties={
@@ -828,7 +833,9 @@ return(
                 // <Draggable>
                 <div style={{transform: 'translate(0px, 0px)'}}>
                         {/* Card Img */}
+                     
                             <img   draggable="false" style={pokemonCardStyle} alt='Pokemon Card' src ={pokeCardImg}/>
+                            {/* <div style = {{height: '99%',border: `solid .98rem ${backgroundColor}`,position: 'absolute',width: '82%',left: '9%',top: '-.5%',borderRadius: '1rem'}}></div> */}
                         {/* Poke Element Img + Checker */}
                         {pokeType1Url === grassTypeURL ?
                             <div className= "icon" style={grassEleStyle}  >
@@ -965,14 +972,14 @@ return(
                                         </div>
                                     <div style={{display:'flex', flexDirection:'column', width: '100px'}}>
                                         {/* Pokemon Type Images */}
-                                        <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%'}}>
+                                        <div style={{display:'flex',flexDirection:'row',position:'absolute', top:'70.5%', left:'15%', marginTop: '10%'}}>
                                             {/* Pokemon Type Img 1 */}
                                             <img  alt={''} draggable="false" style={pokeType1ImgStyle} src={pokeType1Url}/>
                                             {/* Pokemon Type Img 2 */}
                                             <img   alt={''} draggable="false" style={pokeType2ImgStyle} src={pokeType2Url}/>
                                         </div>
                                     </div>    
-                                    <p style={{opacity:'.3', userSelect:'none', marginTop: '3%'}}>__________________</p>
+                                    {/* <p style={{opacity:'.3', userSelect:'none', marginTop: '3%'}}>__________________</p> */}
                                 </div>
                             </div>
                         </div>
