@@ -174,7 +174,7 @@ const Home = () => {
         fontSize:'1.8rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'.2rem .2rem 0 blue',
+        textShadow:'.1rem .1rem 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
@@ -184,15 +184,15 @@ const Home = () => {
         fontSize:'1.5rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'.15rem .15rem 0 blue',
+        textShadow:'.1rem .1rem 0 blue',
         userSelect:'none',
         marginTop:'2rem',
-        filter: 'drop-shadow(2px 2px 5px black)',
+        filter: 'drop-shadow(2px 2px 2px black)',
         marginLeft:' 25%',
         marginRight: '25%'
     }
     const trainerImgStyle={
-        width: `18%`
+        width: `19%`
     }
     const pokeSilStyle={
         width: pokeHeight + 10 + '%',
@@ -451,7 +451,7 @@ const Home = () => {
         fontSize:'1.6rem',
         color:'white',
         // textShadow:'3px 3px 1px black',
-        textShadow:'.2rem .2rem 0 blue',
+        textShadow:'.1rem .1rem 0 blue',
         userSelect:'none',
         marginTop:'.5%',
         filter: 'drop-shadow(2px 2px 5px black)'
