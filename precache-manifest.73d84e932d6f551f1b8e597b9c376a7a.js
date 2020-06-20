@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2eb4f897ad5c71766d51bf83225ab195",
+    "revision": "ecaf31d6847a372717e62b76336693ab",
     "url": "/RedBadgeProject/index.html"
   },
   {
-    "revision": "0dfbfe3ee079140b1c5a",
+    "revision": "63abff3fbbd2a35f32bb",
     "url": "/RedBadgeProject/static/css/main.577c463f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RedBadgeProject/static/js/2.dc072b75.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0dfbfe3ee079140b1c5a",
-    "url": "/RedBadgeProject/static/js/main.ed603550.chunk.js"
+    "revision": "63abff3fbbd2a35f32bb",
+    "url": "/RedBadgeProject/static/js/main.201052a8.chunk.js"
   },
   {
     "revision": "3fab137cd0600977ac0d",
@@ -32,76 +32,76 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/RedBadgeProject/static/media/pokemonbackground.87e3d06b.png"
   },
   {
-    "revision": "9383bf2decb7f23c15f99cc14b4bb24a",
-    "url": "/RedBadgeProject/static/media/pokemoncardbug.9383bf2d.png"
+    "revision": "c9635232da0393ce778005aeb6562ce7",
+    "url": "/RedBadgeProject/static/media/pokemoncardbug.c9635232.png"
   },
   {
-    "revision": "09caa0146388df875d38a72cecd64a4b",
-    "url": "/RedBadgeProject/static/media/pokemoncarddark.09caa014.png"
+    "revision": "35d0cda624bb1a65c04bea90c84acace",
+    "url": "/RedBadgeProject/static/media/pokemoncarddark.35d0cda6.png"
   },
   {
-    "revision": "b3f3386ef873c7bf73770fefc73716c9",
-    "url": "/RedBadgeProject/static/media/pokemoncarddragon.b3f3386e.png"
+    "revision": "cd1bf3f09d2104026fe1573f6559a933",
+    "url": "/RedBadgeProject/static/media/pokemoncarddragon.cd1bf3f0.png"
   },
   {
-    "revision": "05d2eb6154ac8c63b4dbd26ad67f997a",
-    "url": "/RedBadgeProject/static/media/pokemoncardelectric.05d2eb61.png"
+    "revision": "828e30672db9095a6fee2fba6653935a",
+    "url": "/RedBadgeProject/static/media/pokemoncardelectric.828e3067.png"
   },
   {
-    "revision": "b547ad69c6294b9a0e8dc41fe820552b",
-    "url": "/RedBadgeProject/static/media/pokemoncardfairy.b547ad69.png"
+    "revision": "ce836d5b9946ca973ce8484f212a483c",
+    "url": "/RedBadgeProject/static/media/pokemoncardfairy.ce836d5b.png"
   },
   {
-    "revision": "2e4bcd4384114445dbbfcd70db14b69b",
-    "url": "/RedBadgeProject/static/media/pokemoncardfighting.2e4bcd43.png"
+    "revision": "b7930fcddd111630263e2442716115a6",
+    "url": "/RedBadgeProject/static/media/pokemoncardfighting.b7930fcd.png"
   },
   {
-    "revision": "535f7a1ebe4a795165eb43156306fdcd",
-    "url": "/RedBadgeProject/static/media/pokemoncardfire.535f7a1e.png"
+    "revision": "b90c077630736b168ad2b15bb5d80bed",
+    "url": "/RedBadgeProject/static/media/pokemoncardfire.b90c0776.png"
   },
   {
-    "revision": "c58fa0762b629d28c6000d32ef1ef19d",
-    "url": "/RedBadgeProject/static/media/pokemoncardflying.c58fa076.png"
+    "revision": "e6f2728964960da9010848d177cbbe44",
+    "url": "/RedBadgeProject/static/media/pokemoncardflying.e6f27289.png"
   },
   {
-    "revision": "54e451b0c6528caac78a98911fe6602d",
-    "url": "/RedBadgeProject/static/media/pokemoncardghost.54e451b0.png"
+    "revision": "c60616944453c78b6a99df868c3ef66c",
+    "url": "/RedBadgeProject/static/media/pokemoncardghost.c6061694.png"
   },
   {
-    "revision": "a2c97fa5e3e5d21592848dc6ae44777d",
-    "url": "/RedBadgeProject/static/media/pokemoncardgrass.a2c97fa5.png"
+    "revision": "a5bae70cececdc0bc1cb20f0f9b4c6df",
+    "url": "/RedBadgeProject/static/media/pokemoncardgrass.a5bae70c.png"
   },
   {
-    "revision": "d6d8b6d29da7dd6b4004b3c01a621916",
-    "url": "/RedBadgeProject/static/media/pokemoncardground.d6d8b6d2.png"
+    "revision": "32d078ae1188b91e95ab54d9c8b921d8",
+    "url": "/RedBadgeProject/static/media/pokemoncardground.32d078ae.png"
   },
   {
-    "revision": "63e11305505514739792492add82be27",
-    "url": "/RedBadgeProject/static/media/pokemoncardice.63e11305.png"
+    "revision": "2dfb17380c5502f59101108bd52360cc",
+    "url": "/RedBadgeProject/static/media/pokemoncardice.2dfb1738.png"
   },
   {
-    "revision": "09f10bfdf6b02764b96b326a20477554",
-    "url": "/RedBadgeProject/static/media/pokemoncardnormal.09f10bfd.png"
+    "revision": "d6ceb90a0fa372cd640f0f89124d6d36",
+    "url": "/RedBadgeProject/static/media/pokemoncardnormal.d6ceb90a.png"
   },
   {
-    "revision": "51e93a0c30c667693f01a4740b958caf",
-    "url": "/RedBadgeProject/static/media/pokemoncardpoison.51e93a0c.png"
+    "revision": "c962189488217c06e68e8ebd88ebcd98",
+    "url": "/RedBadgeProject/static/media/pokemoncardpoison.c9621894.png"
   },
   {
-    "revision": "5326d1d15d047a309ea8cfe0dbe53ecd",
-    "url": "/RedBadgeProject/static/media/pokemoncardpsychic.5326d1d1.png"
+    "revision": "c424493b424ee7c7e31fdc1bdebac329",
+    "url": "/RedBadgeProject/static/media/pokemoncardpsychic.c424493b.png"
   },
   {
-    "revision": "7bfb5ef4c4ccff87f0b1ff5783a809ea",
-    "url": "/RedBadgeProject/static/media/pokemoncardrock.7bfb5ef4.png"
+    "revision": "e36bd79a63d7c6caabc5591ad449b762",
+    "url": "/RedBadgeProject/static/media/pokemoncardrock.e36bd79a.png"
   },
   {
-    "revision": "6b20cb993a21cb55bde8bdb2207a4d06",
-    "url": "/RedBadgeProject/static/media/pokemoncardsteel.6b20cb99.png"
+    "revision": "3129dc2c301169be9fcc0e81416c8c2a",
+    "url": "/RedBadgeProject/static/media/pokemoncardsteel.3129dc2c.png"
   },
   {
-    "revision": "cd8bd36c51e87748f1e87ef14b1517ae",
-    "url": "/RedBadgeProject/static/media/pokemoncardwater.cd8bd36c.png"
+    "revision": "734df16bd72f227598679c112b24afe8",
+    "url": "/RedBadgeProject/static/media/pokemoncardwater.734df16b.png"
   },
   {
     "revision": "35d27bad187f185073f3ecbf13e614ec",
