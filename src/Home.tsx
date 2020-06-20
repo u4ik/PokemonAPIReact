@@ -107,7 +107,7 @@ const Home = () => {
     //Pokemon Name
     const [pokeName, setPokeName] = useState <string> ('')
     //Input Field/Search Field Value
-    const [inputFieldValue, setInputFieldValue]=useState <string>('1')
+    const [inputFieldValue, setInputFieldValue]=useState <string>('')
     //Pokemon Number
     const [pokeNum,setPokeNum] = useState<any>()
     //PokeCardImg
