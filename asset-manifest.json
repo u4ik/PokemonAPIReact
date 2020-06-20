@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/RedBadgeProject/static/css/main.577c463f.chunk.css",
-    "main.js": "/RedBadgeProject/static/js/main.4e167903.chunk.js",
-    "main.js.map": "/RedBadgeProject/static/js/main.4e167903.chunk.js.map",
+    "main.js": "/RedBadgeProject/static/js/main.ed603550.chunk.js",
+    "main.js.map": "/RedBadgeProject/static/js/main.ed603550.chunk.js.map",
     "runtime-main.js": "/RedBadgeProject/static/js/runtime-main.1342ed0f.js",
     "runtime-main.js.map": "/RedBadgeProject/static/js/runtime-main.1342ed0f.js.map",
     "static/js/2.dc072b75.chunk.js": "/RedBadgeProject/static/js/2.dc072b75.chunk.js",
     "static/js/2.dc072b75.chunk.js.map": "/RedBadgeProject/static/js/2.dc072b75.chunk.js.map",
     "index.html": "/RedBadgeProject/index.html",
-    "precache-manifest.aaae4556d7941655ef334593c5ddffb7.js": "/RedBadgeProject/precache-manifest.aaae4556d7941655ef334593c5ddffb7.js",
+    "precache-manifest.362612dff22eac2e13b933d4b75d174f.js": "/RedBadgeProject/precache-manifest.362612dff22eac2e13b933d4b75d174f.js",
     "service-worker.js": "/RedBadgeProject/service-worker.js",
     "static/css/main.577c463f.chunk.css.map": "/RedBadgeProject/static/css/main.577c463f.chunk.css.map",
     "static/js/2.dc072b75.chunk.js.LICENSE.txt": "/RedBadgeProject/static/js/2.dc072b75.chunk.js.LICENSE.txt",
@@ -59,6 +59,6 @@
     "static/js/runtime-main.1342ed0f.js",
     "static/js/2.dc072b75.chunk.js",
     "static/css/main.577c463f.chunk.css",
-    "static/js/main.4e167903.chunk.js"
+    "static/js/main.ed603550.chunk.js"
   ]
 }
