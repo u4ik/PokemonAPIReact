@@ -1,7 +1,7 @@
 {
     "name": "project1",
     "version": "0.1.0",
-    "homepage": "http://u4ik.github.io/PokemonAPIReact",
+    "homepage": "https://alison-rootes.github.io/RedBadgeProject",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
